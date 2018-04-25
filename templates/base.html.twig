@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        {% include 'styles.html.twig' %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% include 'nav/nav.html.twig' %}
+</header>
+<div id="body-img1">
+    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background_mirroir.svg.png') }}" alt="mad
+    scientist">
+</div>
+<div id="body-img2">
+    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="mad scientist">
+</div>
+<div class="container z-depth-5">
+
+    {% for message in app.flashes('success') %}
+        <div class="flash-success center">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% block body %}
+    {% endblock %}
+</div>
+
+{% block javascripts %}
+    {% include 'scripts.html.twig' %}
+{% endblock %}
+{% block adminScript %}
+{% endblock %}
+</body>
 </html>

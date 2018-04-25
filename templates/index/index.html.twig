@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+   <section class="row index-description">
+       <h1></h1>
+       <p></p>
+   </section>
+    <section class="row">
+        <div class="col s12 l8 center index-titres">
+            <div class="">
+                <h2 class="white-text">Dernières études publiées</h2>
+            </div>
+            <div class="border-bot"></div>
+        </div>
+        <article class="col m12 l8">
+            <div class="overview z-depth-2">
+                <div class="row reset">
+                    <div class="col s12 overview-info">
+                        <img class="left circle responsive-img">
+                        <p class="left">Par "nom" le "date"</p>
+                        <p class="right">Categorie</p>
+                    </div>
+                    <div class="col s12 overview-text">
+                        <h3 class="center">Ceci est un titre</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget euismod nunc. In non velit in metus ullamcorper facilisis a id leo. Phasellus sed vehicula risus, ut mollis dui. Nam a posuere mauris. Mauris enim sem, pulvinar nec leo id, egestas efficitur orci. Aliquam ac ipsum enim. Integer in feugiat ex. Mauris ullamcorper magna magna, vitae lobortis libero iaculis sit amet. Nulla feugiat porta nisl, a interdum libero malesuada quis. Vivamus magna mi, elementum tristique libero in, hendrerit cursus arcu. Morbi neque odio, tincidunt et vulputate sit amet, efficitur quis nulla. Aenean ac volutpat felis, a pellentesque ante. Donec mauris nisl, tempor sed magna eu, convallis tincidunt risus. Nam erat dolor, auctor in libero at, pulvinar convallis diam. Nulla posuere eros magna, sed condimentum metus pellentesque et. Aenean ut enim vel erat mollis sagittis.</p>
+                    </div>
+                    <div class="col s12 overview-actions">
+
+                    </div>
+                </div>
+            </div>
+        </article>
+        <aside class="col m6 offset-m3 l4 index-add-btn">
+            <div class="center">
+                <a href="#" class="waves-effect waves-light btn z-depth-2">Proposez une étude</a>
+            </div>
+            <div class="center">
+                <p>Vous devez être <a href="{{ path('login') }}">connecté(e)</a> pour proposer une étude.</p>
+                <p>Pas encore de compte ? <a href="{{ path('user_registration') }}">Inscrivez-vous</a> très simplement
+                    en quelque secondes</p>
+            </div>
+        </aside>
+    </section>
+{% endblock %}

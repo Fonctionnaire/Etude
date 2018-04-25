@@ -1,0 +1,57 @@
+<div class="navbar-fixed ">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{ path('index') }}" class="brand-logo">Selon une étude</a>
+            <ul id="nav-mobile" class="hide-on-med-and-down">
+                <li class="right">
+                    <a href="https://twitter.com/Ubimaniafr" target="_blank">
+                        <img src="{{ asset('images/icones/Twitter_Social_Icon_Rounded_Square_Color.png') }}"
+                             alt="icone
+                twitter" title="Suivez-nous sur Twitter">
+                    </a>
+                </li>
+                <li class="right">
+                    <a href="" target="_blank">
+                        <img src="{{ asset('images/icones/FB-fLogo-Blue-broadcast-2.png') }}" alt="icone facebook"
+                             title="Suivez-nous sur Facebook">
+                    </a>
+                </li>
+                <li class="right"><a href="#">Nous contacter</a></li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="right">
+                        <a class="dropdown-button right" href="#!" data-activates="dropdown2"><i class="material-icons right">arrow_drop_down</i>
+                            Bonjour <strong>{{ app.user.username }} </strong>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="right">
+                        <a class="dropdown-button right" href="#!" data-activates="dropdown1">
+                            <i class="material-icons right">arrow_drop_down</i>
+                            Inscription / Connexion
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- DROPDOWN -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="{{ path('user_registration') }}" class="white-text">Inscription</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('login') }}" class="white-text">Connexion</a></li>
+</ul>
+{% if is_granted('ROLE_USER') %}
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="#" class="white-text">Proposer une règle</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ path('view_profile', {'username': app.user.username}) }}" class="white-text">Mon compte</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ path('security_logout') }}" class="white-text">Déconnexion</a></li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li class="divider"></li>
+            <li><a href="#" class="white-text">Admin</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
