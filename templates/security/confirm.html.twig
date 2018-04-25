@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <p>Félicitations <strong>{{ user.username }}</strong>, votre compte est maintenant actif !</p>
+
+    <a href="{{ path('login') }}">Vous pouvez maintenant vous connecter</a>
+
+    <a href="{{ path('index') }}">Retourner à l'accueil</a>
+
+{% endblock %}

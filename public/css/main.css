@@ -1,0 +1,176 @@
+/* DIVERS */
+select
+{
+    display: inherit !important;
+}
+
+.flash-success
+{
+    background: #7cb342;
+    color: white;
+    padding: 25px 0;
+    margin-bottom: 30px;
+}
+
+
+
+/* CONTAINER */
+.container
+{
+    margin-top: 75px;
+    min-height: 80vh !important;
+    padding: 40px 30px;
+    background: white;
+}
+
+/* NAVIGATION */
+nav
+{
+    background: linear-gradient(to top, #455a64, #b0bec5) !important;
+}
+
+
+.brand-logo
+{
+    font-family: 'Chewy', cursive;
+}
+
+ul#dropdown1, ul#dropdown2
+{
+    margin-top: 64px !important;
+    background: linear-gradient(to bottom, #455a64, #b0bec5) !important;
+}
+
+.nav-titre-reseauxSociaux
+{
+    height: 50px;
+    color: white;
+    border-top: 1px solid white;
+}
+
+.nav-titre
+{
+    margin: 0 !important;
+    font-size: 1.5em !important;
+    position: absolute;
+    left: 38%;
+}
+
+.navbar-wrapper
+{
+    position: relative;
+}
+
+.nav-wrapper ul li a
+{
+    max-height: 64px;
+}
+
+.nav-wrapper ul li img
+{
+    max-height: 24px;
+    max-width: 24px;
+    margin-top: 20px;
+}
+
+/* ========= INDEX ============*/
+#body-img1 img, #body-img2 img
+{
+    width: 320px;
+    height: 320px;
+
+}
+
+#body-img1
+{
+    position: fixed;
+    left: 0;
+    z-index: -999;
+}
+
+#body-img2
+{
+    position: fixed;
+    right: 0;
+    z-index: -999;
+}
+
+.index-titres
+{
+    margin-top: 35px;
+}
+
+.index-titres .border-bot
+{
+    height: 6px;
+    background: #b0bec5;
+    margin-bottom: 25px;
+}
+
+.index-titres h2
+{
+    font-size: 1.4em !important;
+    max-width: 35%;
+    margin: 0 auto !important;
+    background: linear-gradient(to bottom, #455a64, #b0bec5);
+    padding: 5px 10px 5px 10px;
+}
+
+.overview
+{
+    background: white;
+    padding: 0 !important;
+    position: relative;
+
+}
+
+.reset
+{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+}
+
+.overview-info
+{
+    background: #cfd8dc;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    box-shadow: 0 1px 10px 0 black;
+}
+
+
+.overview-info p:nth-child(2)
+{
+    font-weight: bold;
+}
+
+
+.overview-text h3
+{
+    font-size: 1.8em !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.overview-text p
+{
+    line-height: 1.4em;
+    text-align: justify;
+}
+
+.index-add-btn div > a
+{
+    background: #7cb342;
+}
+
+.index-add-btn p
+{
+    font-size: 0.7em;
+    margin-top: 10px;
+}
+
+.index-add-btn div:nth-child(2)
+{
+    margin-bottom: 25px;
+}

@@ -14,7 +14,7 @@
 !var/SymfonyRequirements.php
 /public/build/fonts/glyphicons-*
 /public/build/images/glyphicons-*
-
+/src/DataFixtures
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
