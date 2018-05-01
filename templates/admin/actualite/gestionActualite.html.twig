@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+    {% endblock %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <div class="row">
+        <div id="admin" class="col s12 admin-gestion-table">
+            <div class="card material-table">
+                <div class="table-header">
+                    <span class="table-title">Gestion des actualités</span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="datatable" class="">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Titre</th>
+                        <th class="center">Editer / Supprimer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for a in actus %}
+                        <tr>
+                            <td>{{ a.dateAjout|date('d-m-y') }}</td>
+                            <td>{{ a.titre }}</td>
+                            <td class="gestion-actions center">
+                                <a href="{{ path('admin_edit_actualite', {'slug': a.slug}) }}" title="Editer">
+                                    <i class="material-icons blue">edit</i>
+                                </a>
+                                <a href="{{ path('admin_delete_actu', {'slug': a.slug}) }}"
+                                   onclick="return confirm('Etes-vous sûr de vouloir supprimer cette actualité ?')"
+                                   title="Supprimer">
+                                    <i class="material-icons red ">delete</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 center admin-gestion-btn">
+            <a href="{{ path('admin_index') }}" class="waves-effect waves-light btn">Retour</a>
+        </div>
+
+    </div>
+
+{% endblock %}

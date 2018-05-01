@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+{% endblock %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <div class="row">
+        <div id="admin" class="col s12 admin-gestion-table">
+            <div class="card material-table">
+                <div class="table-header">
+                    <span class="table-title">Gestion des études</span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="datatable" class="">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Inscription</th>
+                        <th>Etudes</th>
+                        <th>actif</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for u in users %}
+                        <tr>
+                            <td>{{ u.username }}</td>
+                            <td>{{ u.dateRegister|date('d-m-Y') }}</td>
+                            <td>{{ u.etudes|length }}</td>
+                            <td>
+                                {% if u.isActive == true %}
+                                    Oui
+                                {% else %}
+                                    Non
+                                {% endif %}
+                            </td>
+                            <td class="gestion-actions center">
+                                {% if 'ROLE_ADMIN' not in u.roles %}
+                                {% if u.isActive == true %}
+                                    <a href="{{ path('admin_disable_user', {'username': u.username}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver l\'utilisateur ?')">
+                                        <i class="material-icons red">do_not_disturb</i>
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('admin_enable_user', {'username': u.username}) }}" title="Activer" onclick="return confirm('Etes-vous sûr de vouloir activer l\'utilisateur ?')">
+                                        <i class="material-icons green">done</i>
+                                    </a>
+                                {% endif %}
+                                <a href="{{ path('admin_delete_user', {'username': u.username}) }}"
+                                   onclick="return confirm('Etes-vous sûr de vouloir supprimer cet utilisateur ?')"
+                                   title="Supprimer">
+                                    <i class="material-icons red ">delete</i>
+                                </a>
+                                    {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 center admin-gestion-btn">
+            <a href="{{ path('admin_index') }}" class="waves-effect waves-light btn">Retour</a>
+        </div>
+
+    </div>
+
+{% endblock %}

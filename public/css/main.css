@@ -26,7 +26,7 @@ select
 /* NAVIGATION */
 nav
 {
-    background: linear-gradient(to top, #455a64, #b0bec5) !important;
+    background: linear-gradient(to top, #ef6c00, #fdd835 ) !important;
 }
 
 
@@ -38,7 +38,7 @@ nav
 ul#dropdown1, ul#dropdown2
 {
     margin-top: 64px !important;
-    background: linear-gradient(to bottom, #455a64, #b0bec5) !important;
+    background: linear-gradient(to bottom, #ef6c00, #fdd835);
 }
 
 .nav-titre-reseauxSociaux
@@ -73,6 +73,11 @@ ul#dropdown1, ul#dropdown2
     margin-top: 20px;
 }
 
+.nav-follow
+{
+    margin-left: 15px;
+}
+
 /* ========= INDEX ============*/
 #body-img1 img, #body-img2 img
 {
@@ -103,7 +108,7 @@ ul#dropdown1, ul#dropdown2
 .index-titres .border-bot
 {
     height: 6px;
-    background: #b0bec5;
+    background: #ef6c00;
     margin-bottom: 25px;
 }
 
@@ -112,7 +117,7 @@ ul#dropdown1, ul#dropdown2
     font-size: 1.4em !important;
     max-width: 35%;
     margin: 0 auto !important;
-    background: linear-gradient(to bottom, #455a64, #b0bec5);
+    background: linear-gradient(to top, #ef6c00, #fdd835);
     padding: 5px 10px 5px 10px;
 }
 
@@ -157,20 +162,113 @@ ul#dropdown1, ul#dropdown2
 {
     line-height: 1.4em;
     text-align: justify;
+    padding-bottom: 20px;
 }
 
 .index-add-btn div > a
 {
-    background: #7cb342;
-}
-
-.index-add-btn p
-{
-    font-size: 0.7em;
-    margin-top: 10px;
+    background: linear-gradient(to top, #ef6c00, #fdd835);
 }
 
 .index-add-btn div:nth-child(2)
 {
     margin-bottom: 25px;
+}
+
+.index-lastactu
+{
+    margin-bottom: 25px;
+}
+
+.index-lastactu-titre h3
+{
+    font-size: 1.4em !important;
+    font-weight: bold;
+}
+
+.index-lastactu-texte, .index-lastactu-titre
+{
+    padding: 10px 5px;
+    line-height: 1.4em;
+}
+
+.index-lastactu-link
+{
+    margin-top: 15px;
+}
+
+/* =============== ADMIN =================*/
+/* NAVIGATION */
+ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4
+{
+    margin-top: 64px !important;
+    background: linear-gradient(to bottom, #ef6c00, #fdd835);
+    color: white;
+}
+
+ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropdown4 a
+{
+    color: white;
+}
+
+/* INDEX */
+
+.admin-index-table
+{
+    margin-top: 100px;
+}
+
+.admin-index-table tr
+{
+    height: 30px;
+}
+
+.admin-index-table td, .admin-index-table th
+{
+    padding: 25px;
+}
+
+/* AJOUT */
+.admin-form-ajout
+{
+    background-color: #efebe9;
+    padding: 35px 0;
+    margin-top: 35px;
+}
+
+.admin-form-ajout label
+{
+    color: black !important;
+}
+
+.admin-form-ajout select
+{
+    border: 1px solid #424242;
+}
+
+.admin-form-ajout input, .admin-form-ajout textarea
+{
+    background-color: white !important;
+}
+
+.admin-form-ajout div
+{
+    margin-bottom: 35px;
+}
+
+
+.admin-form-ajout div button
+{
+    background: #7cb342;
+}
+
+/* GESTION */
+.admin-gestion-table
+{
+    margin-top: 35px;
+}
+
+.admin-gestion-table tbody tr td
+{
+    padding-top: 15px !important;
 }

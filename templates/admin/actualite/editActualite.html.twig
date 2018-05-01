@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <section class="row admin-form-ajout z-depth-2">
+        <article class="col s12 m6 offset-m3">
+            <div>
+                <h1>Editer l'actualité</h1>
+            </div>
+            {{ form_start(form) }}
+            <div class="input-field">
+                {{ form_label(form.titre) }}
+                {{ form_widget(form.titre) }}
+                {{ form_errors(form.titre) }}
+            </div>
+            <div>
+                {{ form_label(form.texte) }}
+                {{ form_widget(form.texte) }}
+                {{ form_errors(form.texte) }}
+            </div>
+            <div class="center">
+                {{ form_widget(form.valider) }}
+            </div>
+            {{ form_end(form) }}
+        </article>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% include 'admin/nav/navAdmin.html.twig' %}
+
+    <section class="row">
+        <article class="col s12 m6 offset-m3">
+            <table class="striped admin-index-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Actualités</td>
+                        <td>{{ allActu|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Etudes</td>
+                        <td>{{ allEtudes|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Etudes non validées</td>
+                        <td>{{ nonValideEtudes|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Utilisateurs</td>
+                        <td>{{ allUser|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Catégories</td>
+                        <td>{{ allCat|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Commentaires signalés</td>
+                        <td>{{ signaleComments|length }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <section class="row admin-form-ajout z-depth-2">
+        <article class="col s12 m8 offset-m2">
+            <div>
+                <h1 class="center">Editer la catégorie</h1>
+            </div>
+            {{ form_start(form) }}
+            <div class="input-field">
+                {{ form_label(form.nom) }}
+                {{ form_widget(form.nom) }}
+                {{ form_errors(form.nom) }}
+            </div>
+
+            <div class="center">
+                {{ form_widget(form.ajouter) }}
+            </div>
+            {{ form_end(form) }}
+        </article>
+    </section>
+
+{% endblock %}
