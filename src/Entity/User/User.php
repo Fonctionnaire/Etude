@@ -81,13 +81,52 @@ class User implements AdvancedUserInterface
      */
     private $dateRegister;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\Commentaire", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $commentaires;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Etude\Etude", mappedBy="user")
+     */
+    private $etudes;
 
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
         $this->dateRegister = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtudes()
+    {
+        return $this->etudes;
+    }
+
+    /**
+     * @param mixed $etudes
+     */
+    public function setEtudes($etudes): void
+    {
+        $this->etudes = $etudes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * @param mixed $commentaires
+     */
+    public function setCommentaires($commentaires): void
+    {
+        $this->commentaires = $commentaires;
     }
 
     /**

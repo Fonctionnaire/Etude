@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+{% endblock %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <div class="row">
+        <div id="admin" class="col s12 admin-gestion-table">
+            <div class="card material-table">
+                <div class="table-header">
+                    <span class="table-title">Gestion des études</span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="datatable" class="">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Titre</th>
+                        <th>Utilisateur</th>
+                        <th>Catégorie</th>
+                        <th>Validé</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for e in etudes %}
+                        <tr>
+                            <td>{{ e.dateAjout|date('d-m-y') }}</td>
+                            <td>{{ e.titre }}</td>
+                            <td>{{ e.user.username }}</td>
+                            <td>{{ e.categorie.nom }}</td>
+                            <td>
+                                {% if e.valide == true %}
+                                Oui
+                                {% else %}
+                                Non
+                                {% endif %}
+                            </td>
+                            <td class="gestion-actions center">
+                                {% if e.valide == true %}
+                                    <a href="{{ path('admin_disable_etude', {'slug': e.slug}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver l\'étude ?')">
+                                        <i class="material-icons red">do_not_disturb</i>
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('admin_enable_etude', {'slug': e.slug}) }}" title="Activer" onclick="return confirm('Etes-vous sûr de vouloir activer l\'étude ?')">
+                                        <i class="material-icons green">done</i>
+                                    </a>
+                                {% endif %}
+                                <a href="{{ path('admin_delete_actu', {'slug': e.slug}) }}"
+                                   onclick="return confirm('Etes-vous sûr de vouloir supprimer cette étude ?')"
+                                   title="Supprimer">
+                                    <i class="material-icons red ">delete</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 center admin-gestion-btn">
+            <a href="{{ path('admin_index') }}" class="waves-effect waves-light btn">Retour</a>
+        </div>
+
+    </div>
+
+{% endblock %}

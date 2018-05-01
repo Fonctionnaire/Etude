@@ -1,0 +1,36 @@
+<nav>
+    <div class="nav-wrapper">
+        <ul class="hide-on-med-and-down">
+            <li><a href="{{ path('admin_index') }}">Accueil</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown1">Actualités<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown2">Etudes<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown3">Utilisateurs<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown4">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="admin-dropdown1" class="dropdown-content">
+    <li><a href="{{ path('admin_ajout_actualite') }}">Ajouter</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('admin_gestion_actualite') }}">Gérer</a></li>
+</ul>
+
+<ul id="admin-dropdown2" class="dropdown-content">
+    <li><a href="{{ path('admin_ajout_etude') }}">Ajouter</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('admin_gestion_etudes') }}">Gérer</a></li>
+</ul>
+
+<ul id="admin-dropdown3" class="dropdown-content">
+    <li><a href="{{ path('admin_gestion_utilisateurs') }}">Gérer</a></li>
+</ul>
+
+<ul id="admin-dropdown4" class="dropdown-content">
+    <li><a href="{{ path('admin_ajout_categorie') }}">Ajouter</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('admin_gestion_categories') }}">Gérer</a></li>
+</ul>
+
