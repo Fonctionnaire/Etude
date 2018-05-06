@@ -27,7 +27,7 @@ class Etude
      * @var string
      * @ORM\Column(name="titre", type="string", length=255)
      */
-    private $titre;
+    protected $titre;
 
     /**
      * @var string
@@ -51,15 +51,59 @@ class Etude
      * @ORM\Column(name="valide", type="boolean")
      */
     private $valide = false;
+    /**
+     * @var bool
+     * @ORM\Column(name="refuse", type="boolean")
+     */
+    private $refuse = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User\User", inversedBy="etudes")
      */
     private $user;
 
+    /**
+     * @var string
+     * @ORM\Column(name="motif_refus", type="text", nullable=true)
+     */
+    private $motifRefus;
+
+
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return string
+     */
+    public function getMotifRefus(): ?string
+    {
+        return $this->motifRefus;
+    }
+
+    /**
+     * @param string $motifRefus
+     */
+    public function setMotifRefus(string $motifRefus): void
+    {
+        $this->motifRefus = $motifRefus;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRefuse(): bool
+    {
+        return $this->refuse;
+    }
+
+    /**
+     * @param bool $refuse
+     */
+    public function setRefuse(bool $refuse): void
+    {
+        $this->refuse = $refuse;
     }
 
     /**

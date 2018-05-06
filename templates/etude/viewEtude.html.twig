@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<section class="row view-etude">
+    <article class="col m12 l8">
+        <h1 class="center">{{ etude.titre }}</h1>
+        <p>Déniché par <strong>{{ etude.user.username }}</strong> le {{ etude.dateAjout|date('d-m-Y') }}</p>
+        <p>{{ etude.categorie.nom }}</p>
+        <p>{{ etude.texte }}</p>
+    </article>
+
+
+</section>
+
+
+
+
+{% endblock %}

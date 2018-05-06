@@ -1,6 +1,82 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+    <script src="{{ asset('js/tooltip.js') }}"></script>
+{% endblock %}
 {% block body %}
-<section class="dashboard-section z-depth-2">
+<section class="dashboard-section">
+    <h1 class="center">Bienvenue sur votre profil <strong>{{ user.username }}</strong></h1>
+    <div class="row">
+        <article class="col m12 l6 offset-l3 z-depth-2 dashboard-infos">
+            <h2>Vos informations personnelles</h2>
+            <p><span>Date d'inscription :</span> {{ user.dateRegister|date('d-m-Y') }}</p>
+            <p><span>Nom d'utilisateur :</span> {{ user.username }}</p>
+            <p><span>E-mail :</span> {{ user.email }}</p>
+            <p><span>Etudes dénichées :</span> {{ user.etudes|length }}</p>
+            <p><span>Votre rang :</span> Rang</p>
+            <hr>
+            <div class="center">
+                <a href="{{ path('edit_profile_email', {'username': user.username}) }}" class="btn waves-effect">
+                    Modifier votre e-mail
+                </a>
+                <a href="{{ path('edit_profile_mdp', {'username': user.username}) }}" class="btn waves-effect">
+                    Modifier votre mot de passe
+                </a>
+            </div>
+        </article>
+    </div>
+    <div class="row">
+        <article class="col s12 z-depth-2 dashboard-etudes">
+            <h3 class="center">Vos études</h3>
+            <div class="card material-table dashboard-etudes-table">
+                <div class="table-header">
+                    <span class="table-title"></span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="" class="datatable">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Catégorie</th>
+                        <th>Titre</th>
+                        <th>Statut</th>
+                        <th class="center">Editer / Supprimer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for e in user.etudes %}
+                        <tr>
+                            <td>{{ e.dateAjout|date('d-m-y') }}</td>
+                            <td>{{ e.categorie.nom }}</td>
+                            <td>{{ e.titre|slice(0, 50) }} ...</td>
+                            <td>
+                                {% if e.valide == true %}
+                                   <span class="green-text"> Validé</span>
+                                {% elseif e.valide == false and e.refuse == false %}
+                                    En attente
+                                {% elseif e.refuse == true %}
+                                    <span class="red-text">Refusé</span>
+                                    <a class="tooltipped" data-position="bottom" data-tooltip="{{ e.motifRefus }}">
+                                        <i class="material-icons ">help_outline</i>
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td class="gestion-actions center">
+                                <a href="{{ path('view_etude', {'slug': e.slug}) }}" title="Voir">
+                                    <i class="material-icons blue-text">visibility</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+    </div>
 
 </section>
 {% endblock %}

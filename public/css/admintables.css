@@ -221,7 +221,7 @@ div.material-table table th.sorting_desc:after {
 }
 
 div.material-table table tbody tr:hover {
-    background-color: #2979ff;
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
 }
 
 div.material-table table th:first-child,
