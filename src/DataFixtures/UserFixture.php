@@ -45,9 +45,6 @@ class UserFixture extends Fixture
     {
         return [
             // $userData = [$fullname, $username, $password, $email, $roles];
-            ['Fonctionnaire', 'cromwell33', 'thibaut.gruffy@gmail.com', ['ROLE_ADMIN']],
-            ['Utilisateur1', 'cromwell33', 'thibaut.gruffy+userun@gmail.com', ['ROLE_USER']],
-            ['Utilisateur2', 'cromwell33', 'thibaut.gruffy+userdeux@gmail.com', ['ROLE_USER']]
         ];
     }
 }

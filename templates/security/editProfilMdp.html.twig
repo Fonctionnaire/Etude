@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section class="row edit-profil z-depth-2">
+        <article class="col m12 l6 offset-l3">
+            <h1 class="center">Modifier votre mot de passe</h1>
+            {{ form_start(form) }}
+            <div class="input-field">
+                {{ form_label(form.plainPassword.first) }}
+                {{ form_widget(form.plainPassword.first) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+            <div class="input-field">
+                {{ form_label(form.plainPassword.second) }}
+                {{ form_widget(form.plainPassword.second) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+            <div class="center">
+                {{ form_widget(form.valider) }}
+            </div>
+            {{ form_end(form) }}
+        </article>
+    </section>
+{% endblock %}

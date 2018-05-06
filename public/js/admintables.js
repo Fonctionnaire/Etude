@@ -4,7 +4,7 @@
         "use strict";
 
         $('.search-toggle').click(function() {
-            if ($('.hiddensearch').css('display') == 'none')
+            if ($('.hiddensearch').css('display') === 'none')
                 $('.hiddensearch').slideDown();
             else
                 $('.hiddensearch').slideUp();
@@ -181,7 +181,7 @@
 })(window, document);
 
 $(document).ready(function() {
-    $('#datatable').dataTable({
+    $('.datatable').dataTable({
         //"ajax": 'https://gist.githubusercontent.com/heiswayi/7fde241975ed8a80535a/raw/ff1caaeaf62bd6740ab7cafcd61f1215de173379/datatables-data.json',
         "oLanguage": {
             "sStripClasses": "",

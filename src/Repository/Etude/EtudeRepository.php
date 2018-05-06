@@ -31,9 +31,43 @@ class EtudeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('e')
             ->where('e.valide = true')
+            ->andWhere('e.refuse = false')
             ->orderBy('e.dateAjout', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult();
+    }
+
+    public function findUserEtudesValide($user)
+    {
+    return $this->createQueryBuilder('e')
+        ->where('e.valide = true')
+        ->andWhere('e.user = :user')
+        ->setParameter('user', $user)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+    public function findUserEtudesNonValide($user)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.valide = false')
+            ->andWhere('e.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findUserEtudesRefuse($user)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.refuse = true')
+            ->andWhere('e.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }
