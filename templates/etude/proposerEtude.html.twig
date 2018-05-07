@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+
+    {% endblock %}
+{% block body %}
+<section class="row">
+    <article class="col m12 l8 proposer-etude-form z-depth-2">
+        <h1 class="center">Proposer une étude</h1>
+        <hr>
+        <div class="proposer-etude-description">
+            <p>Les études que vous proposez sont soumises à la modération avant publication.</p>
+            <p>Plusieurs règles <span class="proposer-etude-bold">obligatoires</span> sont à respecter afin que votre étude soit acceptée :</p>
+            <ul>
+                <li>Proposer en quelque mots un titre accrocheur mais qui n'en dit pas trop sur l'étude.</li>
+                <li>Choisir une catégorie adaptée<span class="proposer-etude-bold">*</span>.</li>
+                <li>Eviter au maximum les fautes d'othographe.</li>
+                <li>Pas de copier-coller de texte trouvé sur un autre site.</li>
+                <li>Proposer au moins une source pertinente sur l'étude proposée.</li>
+            </ul>
+            <p><span class="proposer-etude-bold">*</span> Si vous pensez qu'aucune catégorie n'est adaptée à votre étude, vous pouvez nous soumettre votre idée de catégorie via notre formulaire de contact. Si elle est ajoutée, vous serez prévenue par e-mail à l'adresse renseignée.</p>
+        </div>
+        <hr class="proposer-etude-hr">
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.categorie) }}
+            {{ form_widget(form.categorie) }}
+            {{ form_errors(form.categorie) }}
+        </div>
+        <div>
+            {{ form_label(form.titre, 'Titre de l\'étude') }}
+            {{ form_widget(form.titre) }}
+            {{ form_errors(form.titre) }}
+        </div>
+        <div >
+            {{ form_label(form.texte, 'Texte') }}
+            {{ form_widget(form.texte) }}
+            {{ form_errors(form.texte) }}
+        </div>
+        <div class="center">
+            {{ form_widget(form.valider) }}
+        </div>
+        {{ form_end(form) }}
+    </article>
+
+
+</section>
+
+
+
+{% endblock %}

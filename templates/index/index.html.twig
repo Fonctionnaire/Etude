@@ -20,6 +20,11 @@
                             <div class="row reset">
                                 <div class="col s12 overview-info">
                                     <img class="left circle responsive-img">
+                                    {% if le.user %}
+
+                                    {% else %}
+
+                                    {% endif %}
                                     <p class="left">Déniché par {{ le.user.username }}, le {{ le.dateAjout|date
                                             ('d-m-Y') }}</p>
                                     <p class="right">{{ le.categorie.nom }}</p>
@@ -29,7 +34,7 @@
                                     <p>
                                         {{ le.texte|slice(0, 150) }}
                                         {% if le.texte|length > 150 %}
-                                            ... <a href="#">Lire la suite</a>
+                                            ... <a href="{{ path('view_etude', {'slug': le.slug}) }}">Lire la suite</a>
                                         {% endif %}
                                     </p>
                                 </div>
@@ -73,7 +78,7 @@
                 </aside>
                 <aside class="col m6 offset-m3 l12 index-add-btn">
                     <div class="center">
-                        <a href="#" class="waves-effect waves-light btn z-depth-2">Proposez une étude</a>
+                        <a href="{{ path('proposer_etude') }}" class="waves-effect waves-light btn z-depth-2">Proposer une étude</a>
                     </div>
                 </aside>
                 <aside class="col m6 offset-m3 l12 newsletter">

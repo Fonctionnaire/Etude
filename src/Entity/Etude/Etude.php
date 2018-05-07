@@ -59,6 +59,7 @@ class Etude
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User\User", inversedBy="etudes")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
