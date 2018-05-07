@@ -196,6 +196,75 @@ ul#dropdown1, ul#dropdown2
 {
     margin-top: 15px;
 }
+/* AJOUT ETUDE */
+.proposer-etude-form
+{
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
+    padding: 20px !important;
+    margin-top: 35px;
+}
+
+.proposer-etude-form h1
+{
+    font-size: 1.8em !important;
+    font-weight: bold;
+    margin-bottom: 20px !important;
+}
+
+.proposer-etude-form input, .proposer-etude-form textarea
+{
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+
+.proposer-etude-form div
+{
+    margin-bottom: 25px;
+}
+
+.proposer-etude-form label
+{
+    color: black !important;
+}
+
+.proposer-etude-description p:nth-child(1)
+{
+    margin-top: 25px;
+}
+
+.proposer-etude-description p, .proposer-etude-description ul
+{
+    margin-bottom: 15px;
+    line-height: 1.6em;
+    text-align: justify;
+}
+
+.proposer-etude-description ul li
+{
+    list-style-type: initial !important;
+    margin-left: 5% !important;
+    line-height: 1.6em;
+}
+
+.proposer-etude-form .btn
+{
+    background: linear-gradient(to top, #ef6c00, #fdd835);
+}
+
+.proposer-etude-hr
+{
+    margin-bottom: 25px;
+}
+
+.proposer-etude-form .ck-content
+{
+    min-height: 150px !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+
+.proposer-etude-bold
+{
+    font-weight: bold;
+}
 
 /* DASHBOARD */
 .dashboard-section

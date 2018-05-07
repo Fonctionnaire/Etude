@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li class="right"><a href="#">Nous contacter</a></li>
-                <li class="right"><a href="#">Proposer une étude</a></li>
+                <li class="right"><a href="{{ path('proposer_etude') }}">Proposer une étude</a></li>
                 <li class="right"><a href="#">Actualités</a></li>
                 {% if is_granted('ROLE_USER') %}
                     <li class="right">
@@ -47,7 +47,7 @@
 </ul>
 {% if is_granted('ROLE_USER') %}
     <ul id="dropdown2" class="dropdown-content">
-        <li><a href="#" class="white-text">Proposer une étude</a></li>
+        <li><a href="{{ path('proposer_etude') }}" class="white-text">Proposer une étude</a></li>
         <li class="divider"></li>
         <li><a href="{{ path('view_profile', {'username': app.user.username}) }}" class="white-text">Mon compte</a></li>
         <li class="divider"></li>
