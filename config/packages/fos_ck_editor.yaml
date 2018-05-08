@@ -1,0 +1,4 @@
+fos_ck_editor:
+    configs:
+        my_config:
+            toolbar: [ ["Bold", "-", "Italic", "-", "Underline", "-", "BulletedList", "-", "Blockquote", "-", "JustifyLeft", "-", "JustifyCenter", "-", "JustifyRight", "-", "JustifyBlock" ],  ]

@@ -69,10 +69,31 @@ class Etude
      */
     private $motifRefus;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Source\Source", mappedBy="etude", cascade={"remove", "persist"})
+     */
+    private $sources;
+
 
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+
+    /**
+     * @param mixed $sources
+     */
+    public function setSources($sources): void
+    {
+        $this->sources = $sources;
     }
 
     /**

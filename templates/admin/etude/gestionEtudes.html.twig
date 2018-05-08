@@ -30,7 +30,11 @@
                         <tr>
                             <td>{{ e.dateAjout|date('d-m-y') }}</td>
                             <td>{{ e.titre }}</td>
+                            {% if e.user != NULL %}
                             <td>{{ e.user.username }}</td>
+                            {% else %}
+                            <td><em>Anonyme</em></td>
+                            {% endif %}
                             <td>{{ e.categorie.nom }}</td>
                             <td>
                                 {% if e.valide == true %}

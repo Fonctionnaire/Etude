@@ -138,7 +138,7 @@ ul#dropdown1, ul#dropdown2
 
 .overview-info
 {
-    background: #cfd8dc;
+    background: linear-gradient(to top, rgba(129, 212, 250, 0.5), rgba(225, 245, 254, 0.5));
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     box-shadow: 0 1px 10px 0 black;
@@ -149,7 +149,6 @@ ul#dropdown1, ul#dropdown2
 {
     font-weight: bold;
 }
-
 
 .overview-text h3
 {
@@ -165,9 +164,15 @@ ul#dropdown1, ul#dropdown2
     padding-bottom: 20px;
 }
 
+.overview-text a:nth-child(1)
+{
+    color: black;
+}
+
 .index-add-btn div > a
 {
-    background: linear-gradient(to top, #ef6c00, #fdd835);
+    background: linear-gradient(to top, #81d4fa, #e1f5fe);
+    color: black;
 }
 
 .index-add-btn div:nth-child(2)
@@ -178,6 +183,14 @@ ul#dropdown1, ul#dropdown2
 .index-lastactu
 {
     margin-bottom: 25px;
+}
+
+.index-lastactu-date
+{
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    box-shadow: 0 1px 10px 0 black;
 }
 
 .index-lastactu-titre h3
