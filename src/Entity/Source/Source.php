@@ -2,6 +2,7 @@
 
 namespace App\Entity\Source;
 
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,7 +24,7 @@ class Source
     private $nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Etude\Etude", inversedBy="sources")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etude\Etude", inversedBy="sources", cascade={"persist"})
      */
     private $etude;
 
@@ -46,7 +47,7 @@ class Source
     /**
      * @return string
      */
-    public function getNom(): string
+    public function getNom(): ?string
     {
         return $this->nom;
     }
@@ -70,7 +71,7 @@ class Source
     /**
      * @param mixed $etude
      */
-    public function setEtude($etude): void
+    public function setEtude($etude)
     {
         $this->etude = $etude;
     }

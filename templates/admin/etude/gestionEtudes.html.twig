@@ -21,7 +21,7 @@
                         <th>Titre</th>
                         <th>Utilisateur</th>
                         <th>Catégorie</th>
-                        <th>Validé</th>
+                        <th>Statut</th>
                         <th class="center">Actions</th>
                     </tr>
                     </thead>
@@ -37,13 +37,20 @@
                             {% endif %}
                             <td>{{ e.categorie.nom }}</td>
                             <td>
-                                {% if e.valide == true %}
-                                Oui
-                                {% else %}
-                                Non
+                                {% if e.valide == true and e.refuse == false %}
+                                    <span class="green-text">Validé</span>
+                                {% elseif e.valide == false and e.refuse == false %}
+                                En attente
+                                    {% elseif e.refuse == true %}
+                                    <span class="red-text">Refusé</span>
                                 {% endif %}
                             </td>
                             <td class="gestion-actions center">
+                                <a href="{{ path('admin_view_etude', {'slug': e.slug}) }}"
+                                   title="Voir">
+                                    <i class="material-icons blue ">visibility</i>
+                                </a>
+                                {% if e.refuse != true %}
                                 {% if e.valide == true %}
                                     <a href="{{ path('admin_disable_etude', {'slug': e.slug}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver l\'étude ?')">
                                         <i class="material-icons red">do_not_disturb</i>
@@ -53,11 +60,7 @@
                                         <i class="material-icons green">done</i>
                                     </a>
                                 {% endif %}
-                                <a href="{{ path('admin_delete_actu', {'slug': e.slug}) }}"
-                                   onclick="return confirm('Etes-vous sûr de vouloir supprimer cette étude ?')"
-                                   title="Supprimer">
-                                    <i class="material-icons red ">delete</i>
-                                </a>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}

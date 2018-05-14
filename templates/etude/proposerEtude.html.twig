@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
-
+    {{ parent() }}
+    <script src="{{ asset('js/addAndDeleteSource.js') }}"></script>
     {% endblock %}
 {% block body %}
 <section class="row">
@@ -26,7 +27,7 @@
             {{ form_widget(form.categorie) }}
             {{ form_errors(form.categorie) }}
         </div>
-        <div>
+        <div class="proposer-etude-divider">
             {{ form_label(form.titre, 'Titre de l\'étude') }}
             {{ form_widget(form.titre) }}
             {{ form_errors(form.titre) }}
@@ -35,6 +36,22 @@
             {{ form_label(form.texte, 'Texte') }}
             {{ form_widget(form.texte) }}
             {{ form_errors(form.texte) }}
+        </div>
+        <div>
+            <div class="proposer-etude-divider">
+            <a href="#"
+               class="etude-add-source-link"
+               data-list="#source-fields-list">Ajouter une source</a>
+            </div>
+            <ul id="source-fields-list"
+                data-prototype="{{ form_widget(form.sources.vars.prototype)|e }}"
+                data-widget-tags="{{ '<li></li>'|e }}">
+                {{ form_label(form.sources) }}
+                {% for source in form.sources %}
+                    {{ form_widget(form.sources) }}
+                    {{ form_errors(form.sources) }}
+                {% endfor %}
+            </ul>
         </div>
         <div class="center">
             {{ form_widget(form.valider) }}

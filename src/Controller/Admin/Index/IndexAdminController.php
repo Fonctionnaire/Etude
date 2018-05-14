@@ -35,6 +35,7 @@ class IndexAdminController extends AbstractController
         $allUser = $em->getRepository(User::class)->findAll();
         $signaleComments = $em->getRepository(Commentaire::class)->findSignaleComments();
         $nonValideEtudes = $em->getRepository(Etude::class)->findEtudeNonValide();
+        $etudesRefuses = $em->getRepository(Etude::class)->findEtudesRefuses();
 
         return $this->render('admin/indexAdmin/indexAdmin.html.twig', array(
             'allActu' => $allActu,
@@ -42,7 +43,8 @@ class IndexAdminController extends AbstractController
             'allCat' => $allCat,
             'allUser' => $allUser,
             'signaleComments' => $signaleComments,
-            'nonValideEtudes' => $nonValideEtudes
+            'nonValideEtudes' => $nonValideEtudes,
+            'etudesRefuses' => $etudesRefuses,
         ));
     }
 }

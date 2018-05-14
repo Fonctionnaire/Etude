@@ -6,6 +6,9 @@
         <p>Déniché par <strong>{{ etude.user.username }}</strong> le {{ etude.dateAjout|date('d-m-Y') }}</p>
         <p>{{ etude.categorie.nom }}</p>
         <p>{{ etude.texte|raw }}</p>
+        {% for source in etude.sources %}
+        <p><a href="{{ source.nom }}" target="_blank">{{ source.nom }}</a></p>
+        {% endfor %}
     </article>
 
 

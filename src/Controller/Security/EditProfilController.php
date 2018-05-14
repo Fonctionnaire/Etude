@@ -33,7 +33,6 @@ class EditProfilController extends AbstractController
         {
             $em = $this->getDoctrine()->getManager();
             $data = $form->getData();
-            dump($data['newEmail']);
             $user->setEmail($data['newEmail']);
             $em->flush();
             $this->addFlash('success', 'Votre e-mail a bien été édité.');

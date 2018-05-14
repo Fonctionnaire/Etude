@@ -7,6 +7,7 @@ use App\Entity\Etude\Etude;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,6 +24,13 @@ class EtudeType extends AbstractType
                 'choice_label' => 'nom',
                 'class' => Categorie::class,
                 'placeholder' => 'Choisissez une catégorie'
+            ))
+            ->add('sources', CollectionType::class, array(
+                'entry_type' => SourceType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'label' => false,
+                'by_reference' => false
             ))
             ->add('valider', SubmitType::class, array(
                 'attr' => ['class' => 'waves-effect waves-light btn']

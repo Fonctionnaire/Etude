@@ -2,6 +2,9 @@
 
 namespace App\Entity\Etude;
 
+
+
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -70,18 +73,20 @@ class Etude
     private $motifRefus;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Source\Source", mappedBy="etude", cascade={"remove", "persist"})
+     * @var Source[]
+     * @ORM\OneToMany(targetEntity="App\Entity\Source\Source", mappedBy="etude", cascade={"persist"})
+     * @Assert\NotNull()
      */
     private $sources;
-
 
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
     }
 
+
     /**
-     * @return mixed
+     * Get sources
      */
     public function getSources()
     {
@@ -91,9 +96,10 @@ class Etude
     /**
      * @param mixed $sources
      */
-    public function setSources($sources): void
+    public function setSources($sources)
     {
         $this->sources = $sources;
+        return $this;
     }
 
     /**
