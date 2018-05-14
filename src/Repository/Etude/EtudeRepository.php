@@ -23,8 +23,18 @@ class EtudeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('e')
             ->where('e.valide = false')
+            ->andWhere('e.refuse = false')
             ->getQuery()
             ->getResult();
+    }
+
+    public function findEtudesRefuses()
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.refuse = true')
+            ->getQuery()
+            ->getResult()
+            ;
     }
 
     public function findLastTenEtude()

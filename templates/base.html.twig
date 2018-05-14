@@ -10,6 +10,8 @@
     {% block stylesheets %}
         {% include 'styles.html.twig' %}
     {% endblock %}
+    {% block share %}
+    {% endblock %}
 </head>
 <body>
 <header>
@@ -22,7 +24,7 @@
 <div id="body-img2">
     <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="mad scientist">
 </div>
-<div class="container z-depth-5">
+<div class="container ">
 
     {% for message in app.flashes('success') %}
         <div class="flash-success center">

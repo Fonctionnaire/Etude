@@ -34,6 +34,10 @@ class ProposerEtudeController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $slug = $slugger->slugify($etude->getTitre());
             $etude->setUser($etudeAddUser->EtudeAddUser());
+            foreach ($etude->getSources() as $sources)
+            {
+                $sources->setEtude($etude);
+            }
             $etude->setSlug($slug);
             $em->persist($etude);
             $em->flush();

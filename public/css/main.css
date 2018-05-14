@@ -12,7 +12,10 @@ select
     margin-bottom: 30px;
 }
 
-
+body
+{
+    background: #eceff1;
+}
 
 /* CONTAINER */
 .container
@@ -20,7 +23,7 @@ select
     margin-top: 75px;
     min-height: 80vh !important;
     padding: 40px 30px;
-    background: white;
+    background: #eceff1;
 }
 
 /* NAVIGATION */
@@ -100,27 +103,6 @@ ul#dropdown1, ul#dropdown2
     z-index: -999;
 }
 
-.index-titres
-{
-    margin-top: 35px;
-}
-
-.index-titres .border-bot
-{
-    height: 6px;
-    background: #ef6c00;
-    margin-bottom: 25px;
-}
-
-.index-titres h2
-{
-    font-size: 1.4em !important;
-    max-width: 35%;
-    margin: 0 auto !important;
-    background: linear-gradient(to top, #ef6c00, #fdd835);
-    padding: 5px 10px 5px 10px;
-}
-
 .overview
 {
     background: white;
@@ -145,7 +127,7 @@ ul#dropdown1, ul#dropdown2
 }
 
 
-.overview-info p:nth-child(2)
+.overview-info p:first-of-type
 {
     font-weight: bold;
 }
@@ -162,6 +144,7 @@ ul#dropdown1, ul#dropdown2
     line-height: 1.4em;
     text-align: justify;
     padding-bottom: 20px;
+    margin-top: 20px;
 }
 
 .overview-text a:nth-child(1)
@@ -199,6 +182,11 @@ ul#dropdown1, ul#dropdown2
     font-weight: bold;
 }
 
+.index-lastactu > div:nth-child(1)
+{
+    background: white;
+}
+
 .index-lastactu-texte, .index-lastactu-titre
 {
     padding: 10px 5px;
@@ -227,16 +215,26 @@ ul#dropdown1, ul#dropdown2
 .proposer-etude-form input, .proposer-etude-form textarea
 {
     background: rgba(255, 255, 255, 0.75) !important;
-}
 
-.proposer-etude-form div
-{
-    margin-bottom: 25px;
 }
 
 .proposer-etude-form label
 {
     color: black !important;
+}
+
+.proposer-etude-divider
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.proposer-etude-divider a
+{
+    background: linear-gradient(to top, #81d4fa, #e1f5fe);
+    padding: 5px 10px;
+    color: black;
 }
 
 .proposer-etude-description p:nth-child(1)
@@ -268,6 +266,11 @@ ul#dropdown1, ul#dropdown2
     margin-bottom: 25px;
 }
 
+#cke_1_path
+{
+    display: none;
+}
+
 .proposer-etude-form .ck-content
 {
     min-height: 150px !important;
@@ -277,6 +280,48 @@ ul#dropdown1, ul#dropdown2
 .proposer-etude-bold
 {
     font-weight: bold;
+}
+
+/* VIEW ETUDE */
+.view-etude-refus
+{
+    padding: 25px 15px !important;
+    background: white;
+}
+
+
+.view-etude-refus h3
+{
+    color: #ef5350;
+    font-size: 1.4em !important;
+    font-weight: bold;
+}
+
+.view-etude-refus p
+{
+    margin-top: 20px;
+}
+
+.refus-remerciement p
+{
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.overview-sources-actions
+{
+    background: #eceff1;
+    padding: 10px 15px !important;
+    border: 1px solid rgba(129, 212, 250, 0.5);
+    box-shadow: 0 0 10px black inset;
+    margin: 10px 0 !important;
+}
+
+.overview-sources ul li
+{
+    margin-top: 15px;
+    margin-left: 25px;
+
 }
 
 /* DASHBOARD */
@@ -408,6 +453,7 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 .admin-index-table
 {
     margin-top: 100px;
+    background: linear-gradient(to top, rgba(129, 212, 250, 0.5), rgba(225, 245, 254, 0.5));
 }
 
 .admin-index-table tr
@@ -463,4 +509,10 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 .admin-gestion-table tbody tr td
 {
     padding-top: 15px !important;
+}
+
+/* VIEW ETUDE */
+.admin-view-etude
+{
+    padding-top: 50px !important;
 }

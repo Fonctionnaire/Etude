@@ -4,7 +4,7 @@
 
     <section class="row">
         <article class="col s12 m6 offset-m3">
-            <table class="striped admin-index-table">
+            <table class="admin-index-table">
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -21,8 +21,12 @@
                         <td>{{ allEtudes|length }}</td>
                     </tr>
                     <tr>
-                        <td>Etudes non validées</td>
+                        <td>Etudes en attentes</td>
                         <td>{{ nonValideEtudes|length }}</td>
+                    </tr>
+                    <tr>
+                        <td>Etudes refusées</td>
+                        <td>{{ etudesRefuses|length }}</td>
                     </tr>
                     <tr>
                         <td>Utilisateurs</td>

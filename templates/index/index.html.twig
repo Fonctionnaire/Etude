@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+{% endblock %}
+{% block share %}
+{% endblock %}
 {% block body %}
-
    <section class="row index-description">
        <h1></h1>
        <p></p>
@@ -8,19 +11,12 @@
     <section class="row">
         <div class="col m12 l8">
             <div class="row">
-                <div class="col s12 center index-titres">
-                    <div class="">
-                        <h2 class="white-text">Dernières études publiées</h2>
-                    </div>
-                    <div class="border-bot"></div>
-                </div>
                 {% for le in lastEtudes %}
                     <article class="col s12">
                         <div class="overview z-depth-2">
 
                             <div class="row reset">
                                 <div class="col s12 overview-info">
-                                    <img class="left circle responsive-img">
                                     {% if le.user != NULL %}
                                         <p class="left">Déniché par {{ le.user.username }}, le {{ le.dateAjout|date
                                                 ('d-m-Y') }}</p>
@@ -32,7 +28,6 @@
                                 </div>
 
                                 <div class="col s12 overview-text">
-                                    <h3 class="center">{{ le.titre }}</h3>
                                     <a href="{{ path('view_etude', {'slug': le.slug}) }}">
                                     <p>
                                         {{ le.texte|striptags|slice(0, 150) }}
@@ -53,12 +48,6 @@
         </div>
         <div class="col m12 l4">
             <div class="row">
-                <div class="col s12 center index-titres">
-                    <div class="">
-                        <h2 class="white-text">Actualité</h2>
-                    </div>
-                    <div class="border-bot"></div>
-                </div>
                 <aside class="col s12 index-lastactu">
                     {% for la in lastActu %}
                         <div class="z-depth-2">

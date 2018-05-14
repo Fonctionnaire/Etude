@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <section class="row ">
+        <article class="col m12 l8 view-etude">
+            <div class="row">
+                <article class="col s12">
+                    <div class="overview z-depth-2">
+                        <div class="row reset">
+                            <div class="col s12 overview-info">
+                                {% if etude.user != NULL %}
+                                    <p class="left">Déniché par {{ user.username }}, le {{ etude.dateAjout|date
+                                            ('d-m-Y') }}</p>
+                                {% else %}
+                                    <p class="left">Déniché par <em>Anonyme</em>, le {{ etude.dateAjout|date
+                                            ('d-m-Y') }}</p>
+                                {% endif %}
+                                <p class="right">{{ etude.categorie.nom }}</p>
+                            </div>
+
+                            <div class="col s12 overview-text">
+                                <h3 class="center">{{ etude.titre }}</h3>
+
+                                        {{ etude.texte|raw }}
+
+                            </div>
+                            <div class="col s12">
+                                <div class="row overview-sources-actions">
+                                    <div class="col m12 l6 overview-sources">
+                                    <p>Source(s)</p>
+                                    {% for source in etude.sources %}
+                                        <ul>
+                                            <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
+                                        </ul>
+                                    {% endfor %}
+                                    </div>
+                                    <div class="col m12 l6 overview-actions">
+                                        <p>Partage</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </article>
+    </section>
+    {% if etude.refuse == true %}
+    <section class="row">
+        <article class="col m12 l8 view-etude-refus z-depth-2">
+            <h3 class="center">Cette étude a été refusé pour la/les raison(s) suivante(s)</h3>
+            <p>{{ etude.motifRefus|raw }}</p>
+            <hr>
+            <div class="refus-remerciement">
+                <p>Vous pouvez toutefois <a href="{{ path('proposer_etude') }}">soummettre</a> à nouveau cette étude en corrigeant les points indiqués dans le motif du refus.</p>
+                <p>Nous vous remercions pour votre participation et nous espérons que vous soummettrez de nouvelles études
+                    prochainement ! :-)</p>
+            </div>
+
+        </article>
+    </section>
+{% endif %}
+
+{% endblock %}

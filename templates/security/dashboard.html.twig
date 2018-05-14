@@ -43,7 +43,7 @@
                         <th>Catégorie</th>
                         <th>Titre</th>
                         <th>Statut</th>
-                        <th class="center">Editer / Supprimer</th>
+                        <th class="center">Voir</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,13 +59,14 @@
                                     En attente
                                 {% elseif e.refuse == true %}
                                     <span class="red-text">Refusé</span>
-                                    <a class="tooltipped" data-position="bottom" data-tooltip="{{ e.motifRefus }}">
+                                    <a class="tooltipped" data-position="bottom" data-tooltip="{{ e.motifRefus|striptags }}">
                                         <i class="material-icons ">help_outline</i>
                                     </a>
                                 {% endif %}
                             </td>
                             <td class="gestion-actions center">
-                                <a href="{{ path('view_etude', {'slug': e.slug}) }}" title="Voir">
+                                <a href="{{ path('view_user_etude', {'slug': e.slug, 'username': e.user.username}) }}"
+                                   title="Voir">
                                     <i class="material-icons blue-text">visibility</i>
                                 </a>
                             </td>
@@ -75,8 +76,6 @@
                 </table>
             </div>
         </article>
-
     </div>
-
 </section>
 {% endblock %}
