@@ -1,18 +1,65 @@
 {% extends 'base.html.twig' %}
+{% block share %}
+    <meta property="og:url"           content="{{ path('view_etude', {'slug': etude.slug}) }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ etude.titre }}" />
+    <meta property="og:description"   content="{{ etude.texte }}" />
+    <meta property="og:image"         content="" />
+    <link rel="me" href="https://twitter.com/twitterdev">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/fbShare.js') }}"></script>
+    <script src="{{ asset('js/twitterShare.js') }}"></script>
+{% endblock %}
 {% block body %}
-<section class="row view-etude">
-    <article class="col m12 l8">
-        <h1 class="center">{{ etude.titre }}</h1>
-        <p>Déniché par <strong>{{ etude.user.username }}</strong> le {{ etude.dateAjout|date('d-m-Y') }}</p>
-        <p>{{ etude.categorie.nom }}</p>
-        <p>{{ etude.texte|raw }}</p>
-        {% for source in etude.sources %}
-        <p><a href="{{ source.nom }}" target="_blank">{{ source.nom }}</a></p>
-        {% endfor %}
-    </article>
+    <section class="row">
+        <article class="col m12 l8 view-etude">
+            <div class="row">
+                <article class="col s12">
+                    <div class="overview z-depth-2">
+                        <div class="row reset">
+                            <div class="col s12 overview-info">
+                                {% if etude.user != NULL %}
+                                    <p class="left">Déniché par {{ etude.user.username }}, le {{ etude.dateAjout|date
+                                            ('d-m-Y') }}</p>
+                                {% else %}
+                                    <p class="left">Déniché par <em>Anonyme</em>, le {{ etude.dateAjout|date
+                                            ('d-m-Y') }}</p>
+                                {% endif %}
+                                <p class="right">{{ etude.categorie.nom }}</p>
+                            </div>
 
+                            <div class="col s12 overview-text">
+                                <h3 class="center">{{ etude.titre }}</h3>
 
-</section>
+                                {{ etude.texte|raw }}
+
+                            </div>
+                            <div class="col s12">
+                                <div class="row overview-sources-actions">
+                                    <div class="col m12 overview-sources">
+                                        <p>Source(s)</p>
+                                        {% for source in etude.sources %}
+                                            <ul>
+                                                <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
+                                            </ul>
+                                        {% endfor %}
+                                    </div>
+                                    <hr>
+                                    <div class="col s12 overview-etude-actions center">
+                                        <div class="fb-like" data-href="{{ path('view_etude', {'slug': etude.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                        <a class="twitter-share-button"
+                                           href="https://twitter.com/intent/tweet?text={{ etude.titre }}" data-url="{{ path('view_etude', {'slug': etude.slug}) }}">Tweet</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </article>
+    </section>
 
 
 
