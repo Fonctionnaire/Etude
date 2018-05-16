@@ -26,16 +26,13 @@
                             </div>
                             <div class="col s12">
                                 <div class="row overview-sources-actions">
-                                    <div class="col m12 l6 overview-sources">
-                                    <p>Source(s)</p>
-                                    {% for source in etude.sources %}
-                                        <ul>
-                                            <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
-                                        </ul>
-                                    {% endfor %}
-                                    </div>
-                                    <div class="col m12 l6 overview-actions">
-                                        <p>Partage</p>
+                                    <div class="col m12 overview-sources">
+                                        <p>Source(s)</p>
+                                        {% for source in etude.sources %}
+                                            <ul>
+                                                <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
+                                            </ul>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>

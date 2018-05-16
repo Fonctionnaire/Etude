@@ -152,6 +152,11 @@ ul#dropdown1, ul#dropdown2
     color: black;
 }
 
+.overview-actions .fb-like span
+{
+   vertical-align: inherit !important;
+}
+
 .index-add-btn div > a
 {
     background: linear-gradient(to top, #81d4fa, #e1f5fe);
@@ -319,10 +324,16 @@ ul#dropdown1, ul#dropdown2
 
 .overview-sources ul li
 {
-    margin-top: 15px;
-    margin-left: 25px;
+    margin: 15px 0 15px 25px;
 
 }
+
+.overview-etude-actions .fb-like span
+{
+    vertical-align: inherit !important;
+}
+
+
 
 /* DASHBOARD */
 .dashboard-section
