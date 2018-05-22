@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/fbShare.js') }}"></script>
+    <script src="{{ asset('js/twitterShare.js') }}"></script>
+{% endblock %}
+{% block share %}
+    <link rel="me" href="https://twitter.com/twitterdev">
+{% endblock %}
+{% block body %}
+    <section class="row">
+        <div class="col m12 l8">
+            <div class="row">
+                {% for ebc in etudeByCat %}
+                    <article class="col s12">
+                        <div class="overview z-depth-2">
+                            <div class="row reset">
+                                <div class="col s12 overview-info">
+                                    {% if ebc.user != NULL %}
+                                        <p class="left">Dénichée par {{ ebc.user.username }}, le {{ ebc.dateAjout|date
+                                                ('d-m-Y') }}</p>
+                                    {% else %}
+                                        <p class="left">Dénichée par <em>Anonyme</em>, le {{ ebc.dateAjout|date
+                                                ('d-m-Y') }}</p>
+                                    {% endif %}
+                                    <p class="right">
+                                        <a href="{{ path('view_etude_categorie', {'slug': ebc.categorie.slug}) }}">{{ ebc
+                                            .categorie.nom }}</a>
+                                    </p>
+                                </div>
+                                <div class="col s12 overview-text">
+                                    <a href="{{ path('view_etude', {'slug': ebc.slug}) }}">
+                                        <p>
+                                            {{ ebc.texte|striptags|slice(0, 150) }}
+                                            {% if ebc.texte|length > 150 %}
+                                                ... <a href="{{ path('view_etude', {'slug': ebc.slug}) }}">Lire la suite</a>
+                                            {% endif %}
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="col s12 overview-actions center">
+
+                                    <div class="fb-like" data-href="{{ path('view_etude', {'slug': ebc.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                    <a class="twitter-share-button"
+                                       href="https://twitter.com/intent/tweet?text={{ ebc.titre }}" data-url="{{ path('view_etude', {'slug': ebc.slug}) }}">Tweet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

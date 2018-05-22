@@ -126,6 +126,15 @@ ul#dropdown1, ul#dropdown2
     box-shadow: 0 1px 10px 0 black;
 }
 
+.overview-info a
+{
+    color: black;
+}
+
+.overview-info a:hover
+{
+    color: #ef6c00;
+}
 
 .overview-info p:first-of-type
 {
@@ -163,12 +172,46 @@ ul#dropdown1, ul#dropdown2
     color: black;
 }
 
+.index-add-btn div > a:hover
+{
+    color: #ef6c00;
+}
+
 .index-add-btn div:nth-child(2)
 {
     margin-bottom: 25px;
 }
 
-.index-lastactu
+
+.index-categories-titre
+{
+    background: linear-gradient(to top, rgba(2, 119, 189, 0.5), rgba(41, 182, 246, 0.5));
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    box-shadow: 0 1px 10px 0 black;
+    font-weight: bold;
+}
+
+.index-categories-list
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.index-categories-list a
+{
+    color: black;
+}
+
+.index-categories-list a:hover
+{
+    color: #ef6c00;
+}
+
+.index-lastactu, .index-categories
 {
     margin-bottom: 25px;
 }
@@ -187,9 +230,14 @@ ul#dropdown1, ul#dropdown2
     font-weight: bold;
 }
 
-.index-lastactu > div:nth-child(1)
+.index-lastactu > div:nth-child(1), .index-categories > div:nth-child(1)
 {
     background: white;
+}
+
+.index-lastactu-texte
+{
+    text-align: justify;
 }
 
 .index-lastactu-texte, .index-lastactu-titre

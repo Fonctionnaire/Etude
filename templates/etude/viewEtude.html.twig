@@ -21,10 +21,10 @@
                         <div class="row reset">
                             <div class="col s12 overview-info">
                                 {% if etude.user != NULL %}
-                                    <p class="left">Déniché par {{ etude.user.username }}, le {{ etude.dateAjout|date
+                                    <p class="left">Dénichée par {{ etude.user.username }}, le {{ etude.dateAjout|date
                                             ('d-m-Y') }}</p>
                                 {% else %}
-                                    <p class="left">Déniché par <em>Anonyme</em>, le {{ etude.dateAjout|date
+                                    <p class="left">Dénichée par <em>Anonyme</em>, le {{ etude.dateAjout|date
                                             ('d-m-Y') }}</p>
                                 {% endif %}
                                 <p class="right">{{ etude.categorie.nom }}</p>
