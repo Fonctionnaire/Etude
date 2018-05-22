@@ -10,6 +10,7 @@ namespace App\Controller\Index;
 
 
 use App\Entity\Actualite\Actualite;
+use App\Entity\Categorie\Categorie;
 use App\Entity\Etude\Etude;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,10 +27,12 @@ class IndexController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $lastEtudes = $em->getRepository(Etude::class)->findLastTenEtude();
         $lastActu = $em->getRepository(Actualite::class)->findLastActu();
+        $categories = $em->getRepository(Categorie::class)->findAll();
 
         return $this->render('index/index.html.twig', array(
             'lastEtudes' => $lastEtudes,
             'lastActu' => $lastActu,
+            'categories' => $categories,
         ));
     }
 }

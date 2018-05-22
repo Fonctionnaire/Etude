@@ -21,13 +21,16 @@
                             <div class="row reset">
                                 <div class="col s12 overview-info">
                                     {% if le.user != NULL %}
-                                        <p class="left">Déniché par {{ le.user.username }}, le {{ le.dateAjout|date
+                                        <p class="left">Dénichée par {{ le.user.username }}, le {{ le.dateAjout|date
                                                 ('d-m-Y') }}</p>
                                     {% else %}
-                                        <p class="left">Déniché par <em>Anonyme</em>, le {{ le.dateAjout|date
+                                        <p class="left">Dénichée par <em>Anonyme</em>, le {{ le.dateAjout|date
                                                 ('d-m-Y') }}</p>
                                     {% endif %}
-                                    <p class="right">{{ le.categorie.nom }}</p>
+                                    <p class="right">
+                                        <a href="{{ path('view_etude_categorie', {'slug': le.categorie.slug}) }}">{{ le
+                                            .categorie.nom }}</a>
+                                    </p>
                                 </div>
                                 <div class="col s12 overview-text">
                                     <a href="{{ path('view_etude', {'slug': le.slug}) }}">
@@ -53,6 +56,22 @@
         </div>
         <div class="col m12 l4">
             <div class="row">
+                <aside class="col s12 index-categories">
+                    <div class="z-depth-2">
+                        <div class="index-categories-titre center">
+                            Par catégorie
+                        </div>
+                        <div class="index-categories-list">
+                    {% for cat in categories %}
+                            <p>
+                                <a href="{{ path('view_etude_categorie', {'slug': cat.slug}) }}">
+                                    {{ cat.nom }}
+                                </a>
+                            </p>
+                    {% endfor %}
+                        </div>
+                    </div>
+                </aside>
                 <aside class="col s12 index-lastactu">
                     {% for la in lastActu %}
                         <div class="z-depth-2">

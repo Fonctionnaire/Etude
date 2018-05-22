@@ -80,4 +80,16 @@ class EtudeRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    public function findByCat($categorie)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.refuse = false')
+            ->andWhere('e.valide = true')
+            ->andWhere('e.categorie = :cat')
+            ->setParameter('cat', $categorie)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
