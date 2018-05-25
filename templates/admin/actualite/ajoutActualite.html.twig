@@ -2,9 +2,9 @@
 {% block body %}
     {% include 'admin/nav/navAdmin.html.twig' %}
 <section class="row admin-form-ajout z-depth-2">
-    <article class="col s12 m6 offset-m3">
+    <article class="col s12 m8 offset-m2">
         <div>
-            <h1>Ajouter une actualité</h1>
+            <h1 class="center">Ajouter une actualité</h1>
         </div>
         {{ form_start(form) }}
         <div class="input-field">
@@ -13,7 +13,7 @@
             {{ form_errors(form.titre) }}
         </div>
         <div>
-            {{ form_label(form.texte) }}
+            {{ form_label(form.texte, 'Texte') }}
             {{ form_widget(form.texte) }}
             {{ form_errors(form.texte) }}
         </div>

@@ -19,7 +19,7 @@
                 </li>
                 <li class="right"><a href="#">Nous contacter</a></li>
                 <li class="right"><a href="{{ path('proposer_etude') }}">Proposer une étude</a></li>
-                <li class="right"><a href="#">Actualités</a></li>
+                <li class="right"><a href="{{ path('all_actualites') }}">Actualités</a></li>
                 {% if is_granted('ROLE_USER') %}
                     <li class="right">
                         <a class="dropdown-button right" href="#!" data-activates="dropdown2"><i class="material-icons right">arrow_drop_down</i>
