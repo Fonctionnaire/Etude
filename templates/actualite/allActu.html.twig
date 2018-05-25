@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/fbShare.js') }}"></script>
+    <script src="{{ asset('js/twitterShare.js') }}"></script>
+{% endblock %}
+{% block body %}
+<section class="row">
+
+        {% for actu in allActu %}
+    <article class="col m12 l8 all-actu">
+            <div class="z-depth-2">
+                <div class="all-actu-date center">
+                    Le {{ actu.dateAjout|date('d-m-Y') }} à {{ actu.dateAjout|date('H:i') }}
+                </div>
+                <div class="all-actu-titre">
+                    <h3>{{ actu.titre }}</h3>
+                </div>
+                <div class="all-actu-texte">
+                    {{ actu.texte|striptags|slice(0, 160) }} ... <a href="{{ path('view_one_actu', {'slug': actu.slug}) }}">Lire la suite</a>
+                </div>
+                <div class="row">
+                    <div class="col s12 actu-actions-pad">
+                        <div class="actu-actions center">
+                            <div class="fb-like" data-href="{{ path('view_one_actu', {'slug': actu.slug})
+                            }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                            <a class="twitter-share-button"
+                               href="https://twitter.com/intent/tweet?text={{ actu.titre }}" data-url="{{ path('view_one_actu', {'slug': actu.slug})
+                            }}">Tweet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </article>
+        {% endfor %}
+
+</section>
+
+
+{% endblock %}

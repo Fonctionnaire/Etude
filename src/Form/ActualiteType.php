@@ -3,9 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Actualite\Actualite;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,7 +16,7 @@ class ActualiteType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('texte', TextareaType::class)
+            ->add('texte', CKEditorType::class)
             ->add('valider', SubmitType::class, array(
                 'attr' => ['class' => 'waves-effect waves-light btn']
             ))

@@ -381,7 +381,53 @@ ul#dropdown1, ul#dropdown2
     vertical-align: inherit !important;
 }
 
+/* ACTUALITE */
+.all-actu, .actu
+{
+    margin-bottom: 25px;
+}
 
+.all-actu-date, .actu-date
+{
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    box-shadow: 0 1px 10px 0 black;
+}
+
+.all-actu-titre h3, .actu-titre h3
+{
+    font-size: 1.4em !important;
+    font-weight: bold;
+    padding: 15px 15px 0 15px;
+}
+
+.all-actu > div:nth-child(1), .actu > div:nth-child(1)
+{
+    background: white;
+}
+
+.all-actu-texte, .actu-texte
+{
+    text-align: justify;
+    padding: 20px 15px !important;
+}
+
+.all-actu-texte, .all-actu-titre, .actu-texte, .actu-titre
+{
+    padding: 10px 5px;
+    line-height: 1.4em;
+}
+
+.actu-actions
+{
+    margin-bottom: 20px;
+}
+
+.actu-actions .fb-like span
+{
+    vertical-align: inherit !important;
+}
 
 /* DASHBOARD */
 .dashboard-section
@@ -533,6 +579,13 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
     margin-top: 35px;
 }
 
+.admin-form-ajout h1
+{
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 35px;
+}
+
 .admin-form-ajout label
 {
     color: black !important;
@@ -543,20 +596,29 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
     border: 1px solid #424242;
 }
 
-.admin-form-ajout input, .admin-form-ajout textarea
+.admin-form-ajout input
 {
     background-color: white !important;
 }
 
-.admin-form-ajout div
+.admin-form-ajout #cke_1_path
 {
-    margin-bottom: 35px;
+    display: none;
 }
+
+.admin-form-ajout .ck-content
+{
+    min-height: 150px !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+
+
 
 
 .admin-form-ajout div button
 {
     background: #7cb342;
+    margin-top: 35px;
 }
 
 /* GESTION */
