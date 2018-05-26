@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+{% block body %}
+
+<section class="row">
+    <article class="col m12 l8 contact-form z-depth-2">
+        <h1 class="center">Nous contacter</h1>
+        <div class="contact-form-oblig">
+            <em>Tous les champs sont obligatoires</em>
+        </div>
+        {{ form_start(form) }}
+        <div class="input-field">
+            {{ form_label(form.pseudo, 'Votre nom ou pseudo') }}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') or is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {{ form_widget(form.pseudo, {'attr': {'value': app.user.username}}) }}
+            {% else %}
+                {{ form_widget(form.pseudo) }}
+            {% endif %}
+            {{ form_errors(form.pseudo) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.email, 'Votre adresse E-mail') }}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') or is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {{ form_widget(form.email, {'attr': {'value': app.user.email }}) }}
+            {% else %}
+                {{ form_widget(form.email) }}
+            {% endif %}
+            {{ form_errors(form.email) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.sujet, 'Sujet de votre message') }}
+            {{ form_widget(form.sujet) }}
+            {{ form_errors(form.sujet) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.texte, 'Votre message') }}
+            {{ form_widget(form.texte) }}
+            {{ form_errors(form.texte) }}
+        </div>
+        <!-- A REACTIVER
+        <div>
+            <div class="g-recaptcha" data-sitekey="6LfLn1sUAAAAAOqqu7419dZftCZrGtsHPmCd8ErK"></div>
+        </div>
+        -->
+        <div class="center">
+            {{ form_widget(form.valider) }}
+        </div>
+        {{ form_end(form) }}
+    </article>
+</section>
+
+
+{% endblock%}

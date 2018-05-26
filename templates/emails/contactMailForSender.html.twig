@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        h1
+        {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        div
+        {
+            padding: 25px 15px;
+        }
+        p
+        {
+            text-align: justify;
+            line-height: 1.6em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Bonjour <strong>{{ pseudo }}</strong> !</h1>
+    </div>
+    <div>
+        <p>Merci pour l'intérêt que vous portez à notre site internet.</p>
+        <p>Nous avons bien reçu votre message et nous vous répondrons au plus vite.</p>
+    </div>
+        <hr>
+    <div>
+        <p>vous pouvez retrouver ci-dessous les détails de votre message :</p>
+        <p>Votre e-mail : {{ email }}</p>
+        <p>Sujet : {{ sujet }}</p>
+        <p>Votre message :</p>
+        <p>{{ texte }}</p>
+    </div>
+
+
+</body>
+</html>
