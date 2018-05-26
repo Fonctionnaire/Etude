@@ -539,6 +539,50 @@ ul#dropdown1, ul#dropdown2
     background: rgba(255, 255, 255, 0.75) !important;
 }
 
+/* CONTACT */
+.contact-form
+{
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
+    padding: 20px !important;
+    margin-top: 35px;
+}
+
+.contact-form h1
+{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.contact-form-oblig
+{
+    font-size: 0.8em;
+    padding-bottom: 25px;
+}
+
+.contact-form .btn
+{
+    background: linear-gradient(to top, #ef6c00, #fdd835);
+    margin-top: 25px;
+}
+
+.contact-form label
+{
+    color: black !important;
+}
+
+.contact-form input, .contact-form textarea
+{
+    background: rgba(255, 255, 255, 0.75) !important
+}
+
+.contact-form textarea
+{
+    height: 300px;
+    resize: none;
+    overflow: auto;
+}
+
 /* =============== ADMIN =================*/
 /* NAVIGATION */
 ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4
