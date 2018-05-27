@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        h1
+        {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        div
+        {
+            padding: 25px 15px;
+        }
+        p
+        {
+            text-align: justify;
+            line-height: 1.6em;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Bonjour <strong>{{ user.username }}</strong> !</h1>
+</div>
+<div>
+    <p>
+        Nous somme au regret de vous annoncer que votre étude* n'a pas été validée. Vous trouverez le motif du refus
+        ci-dessous ou depuis votre profil.
+    </p>
+    <p>*Titre de l'étude : {{ titre }}</p>
+    <p>
+        Toutefois, vous pouvez apporter les modifications indiquées dans le motif de refus ci-dessous et soummettre à
+        nouveau votre étude.
+    </p>
+    <p>Merci pour votre participation ainsi que pour l'intérêt que vous portez à notre site internet.</p>
+    <hr>
+    <p>Motif du refus :</p>
+    <p>{{ motifRefus|raw }}</p>
+</div>
+</body>
+</html>
