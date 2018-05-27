@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        h1
+        {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        div
+        {
+            padding: 25px 15px;
+        }
+        p
+        {
+            text-align: justify;
+            line-height: 1.6em;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Bonjour <strong>{{ user.username }}</strong> !</h1>
+</div>
+<div>
+    <p>Merci pour l'intérêt que vous portez à notre site internet.</p>
+    <p>Nous avons bien reçu votre proposition d'étude*. Elle va maintenant passer par l'étape de la modération par
+        notre équipe.</p>
+    <p>*Titre de l'étude : {{ titre }}</p>
+    <p>Vous recevrez très prochainement un e-mail vous indiquant si votre étude est publiée ou si elle a été refusé.</p>
+    <p>En cas de refus, vous pourrez prendre connaissance du motif directement dans l'e-mail ou depuis votre profil.</p>
+</div>
+</body>
+</html>

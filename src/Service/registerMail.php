@@ -18,7 +18,7 @@ class registerMail extends \Twig_Extension
     public function sendRegisterMail($user)
     {
         $reply = $user->getEmail();
-        $message = (new \Swift_Message('Contact'))
+        $message = (new \Swift_Message('Confirmation d\'inscription'))
             ->setFrom('contact@ubimania.fr')
             ->setTo($reply)
             ->setBody($this->twig->render(

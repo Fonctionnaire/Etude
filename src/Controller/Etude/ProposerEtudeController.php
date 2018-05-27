@@ -12,6 +12,7 @@ namespace App\Controller\Etude;
 use App\Entity\Etude\Etude;
 use App\Form\EtudeType;
 use App\Service\EtudeAddUser;
+use App\Service\EtudeMail;
 use App\Service\Slugger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +24,7 @@ class ProposerEtudeController extends AbstractController
     /**
      * @Route("/proposer-etude", name="proposer_etude")
      */
-    public function proposerEtude(Request $request, Slugger $slugger, EtudeAddUser $etudeAddUser)
+    public function proposerEtude(Request $request, Slugger $slugger, EtudeAddUser $etudeAddUser, EtudeMail $etudeMail)
     {
 
         $etude = new Etude();
@@ -37,6 +38,10 @@ class ProposerEtudeController extends AbstractController
             foreach ($etude->getSources() as $sources)
             {
                 $sources->setEtude($etude);
+            }
+            if($this->isGranted('IS_AUTHENTICATED_REMEMBERED') || $this->isGranted('IS_AUTHENTICATED_FULLY')){
+                $user = $this->getUser();
+                $etudeMail->sendMailEtudeModeration($user, $etude);
             }
             $etude->setSlug($slug);
             $em->persist($etude);
