@@ -429,6 +429,56 @@ ul#dropdown1, ul#dropdown2
     vertical-align: inherit !important;
 }
 
+/* SECURITY */
+.security-form
+{
+    background: linear-gradient(to top, rgba(239, 108, 0, 0.5), rgba(253, 216, 53, 0.5));
+    padding: 20px !important;
+}
+
+.security-form h1
+{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.security-form-infos
+{
+    padding: 15px 10px;
+}
+
+.security-form-infos p
+{
+    text-align: justify;
+}
+
+.security-form-infos p:nth-child(1)
+{
+    margin-bottom: 15px;
+}
+
+.security-form .input-field
+{
+    margin-top: 35px !important;
+    margin-bottom: 15px;
+}
+
+.security-form label
+{
+    color: black !important;
+}
+
+.security-form input
+{
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+
+.security-form .btn
+{
+    background: linear-gradient(to top, #ef6c00, #fdd835);
+}
+
 /* DASHBOARD */
 .dashboard-section
 {

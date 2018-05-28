@@ -69,6 +69,12 @@ class User implements AdvancedUserInterface
     private $confirmationToken;
 
     /**
+     * @var string
+     * @ORM\Column(name="change_password_token", type="string", nullable=true)
+     */
+    private $changePasswordToken;
+
+    /**
      * @var boolean
      * @ORM\Column(name="email_confirmed", type="boolean")
      */
@@ -95,6 +101,22 @@ class User implements AdvancedUserInterface
     {
         $this->roles = ['ROLE_USER'];
         $this->dateRegister = new \DateTime();
+    }
+
+    /**
+     * @return string
+     */
+    public function getChangePasswordToken(): string
+    {
+        return $this->changePasswordToken;
+    }
+
+    /**
+     * @param string $changePasswordToken
+     */
+    public function setChangePasswordToken(string $changePasswordToken): void
+    {
+        $this->changePasswordToken = $changePasswordToken;
     }
 
     /**
