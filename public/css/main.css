@@ -81,6 +81,55 @@ ul#dropdown1, ul#dropdown2
     margin-left: 15px;
 }
 
+
+
+/* FOOTER */
+
+.page-footer
+{
+    background: linear-gradient(to top, #ef6c00, #fdd835 ) !important;
+}
+
+.footer-reseaux
+{
+    margin-bottom: 15px;
+}
+
+.footer-reseaux ul li
+{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.footer-reseaux ul li img
+{
+    max-height: 24px;
+    max-width: 24px;
+}
+
+.footer-links
+{
+    width: 15%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.footer-links a
+{
+    color: white;
+}
+
+.footer-links ul
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-copy
+{
+    padding-bottom: 15px;
+}
+
 /* ========= INDEX ============*/
 #body-img1 img, #body-img2 img
 {
