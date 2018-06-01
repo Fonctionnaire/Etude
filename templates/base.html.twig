@@ -18,15 +18,9 @@
 <header>
     {% include 'nav/nav.html.twig' %}
 </header>
-<div id="body-img1">
-    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background_mirroir.svg.png') }}" alt="mad
-    scientist">
-</div>
-<div id="body-img2">
-    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="mad scientist">
-</div>
+
 <div id="fb-root"></div>
-<div class="container ">
+<div class="container">
 
     {% for message in app.flashes('success') %}
         <div class="flash-success center">
