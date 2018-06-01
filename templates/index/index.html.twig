@@ -84,11 +84,12 @@
                             <div class="index-lastactu-texte">
                                 {{ la.texte|striptags|slice(0, 160) }} ... <a href="{{ path('view_one_actu', {'slug': la.slug}) }}">Lire la suite</a>
                             </div>
+                            <hr>
+                            <div class="center index-lastactu-link">
+                                <p><a href="{{ path('all_actualites') }}">Voir toutes les actus</a></p>
+                            </div>
                         </div>
                     {% endfor %}
-                    <div class="center index-lastactu-link">
-                        <p><a href="{{ path('all_actualites') }}">Voir toutes les actus</a></p>
-                    </div>
                 </aside>
                 <aside class="col m6 offset-m3 l12 annonce">
 

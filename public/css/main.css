@@ -20,7 +20,7 @@ body
 /* CONTAINER */
 .container
 {
-    margin-top: 75px;
+    margin-top: 35px;
     min-height: 80vh !important;
     padding: 40px 30px;
     background: #eceff1;
@@ -81,8 +81,6 @@ ul#dropdown1, ul#dropdown2
     margin-left: 15px;
 }
 
-
-
 /* FOOTER */
 
 .page-footer
@@ -136,20 +134,6 @@ ul#dropdown1, ul#dropdown2
     width: 320px;
     height: 320px;
 
-}
-
-#body-img1
-{
-    position: fixed;
-    left: 0;
-    z-index: -999;
-}
-
-#body-img2
-{
-    position: fixed;
-    right: 0;
-    z-index: -999;
 }
 
 .overview
@@ -297,7 +281,7 @@ ul#dropdown1, ul#dropdown2
 
 .index-lastactu-link
 {
-    margin-top: 15px;
+    padding: 10px 0 15px 0;
 }
 /* AJOUT ETUDE */
 .proposer-etude-form
