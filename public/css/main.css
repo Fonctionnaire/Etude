@@ -14,7 +14,8 @@ select
 
 body
 {
-    background: #eceff1;
+    background-color: #eceff1;
+
 }
 
 /* CONTAINER */
@@ -23,7 +24,6 @@ body
     margin-top: 35px;
     min-height: 80vh !important;
     padding: 40px 30px;
-    background: #eceff1;
 }
 
 /* NAVIGATION */
@@ -141,6 +141,7 @@ ul#dropdown1, ul#dropdown2
     background: white;
     padding: 0 !important;
     position: relative;
+    border-radius: 15px;
 
 }
 
@@ -157,6 +158,7 @@ ul#dropdown1, ul#dropdown2
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     box-shadow: 0 1px 10px 0 black;
+    border-radius: 15px 15px 0 0;
 }
 
 .overview-info a
@@ -192,6 +194,22 @@ ul#dropdown1, ul#dropdown2
 .overview-text a:nth-child(1)
 {
     color: black;
+}
+
+.overview-readmore
+{
+    border-radius: 15px;
+    border: 1px solid #ef6c00;
+    font-size: 0.8em;
+    color: #ef6c00;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.overview-readmore:hover
+{
+    background: #ef6c00;
+    color: white;
 }
 
 .overview-actions .fb-like span
@@ -275,13 +293,45 @@ ul#dropdown1, ul#dropdown2
 
 .index-lastactu-texte, .index-lastactu-titre
 {
-    padding: 10px 5px;
+    padding: 15px 10px;
     line-height: 1.4em;
+}
+
+.index-lastactu-readmore
+{
+    border-radius: 15px;
+    border: 1px solid #ef6c00;
+    font-size: 0.8em;
+    color: #ef6c00;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.index-lastactu-readmore:hover
+{
+    background: #ef6c00;
+    color: white;
 }
 
 .index-lastactu-link
 {
     padding: 10px 0 15px 0;
+}
+
+.index-lastactu-link a
+{
+    border-radius: 15px;
+    border: 1px solid #ef6c00;
+    font-size: 0.8em;
+    color: #ef6c00;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.index-lastactu-link a:hover
+{
+    background: #ef6c00;
+    color: white;
 }
 /* AJOUT ETUDE */
 .proposer-etude-form
@@ -444,6 +494,22 @@ ul#dropdown1, ul#dropdown2
 {
     text-align: justify;
     padding: 20px 15px !important;
+}
+
+.all-actu-texte a
+{
+    border-radius: 15px;
+    border: 1px solid #ef6c00;
+    font-size: 0.8em;
+    color: #ef6c00;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.all-actu-texte a:hover
+{
+    background: #ef6c00;
+    color: white;
 }
 
 .all-actu-texte, .all-actu-titre, .actu-texte, .actu-titre
@@ -685,7 +751,7 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 .admin-index-table
 {
     margin-top: 100px;
-    background: linear-gradient(to top, rgba(129, 212, 250, 0.5), rgba(225, 245, 254, 0.5));
+    background: linear-gradient(to top, rgba(129, 212, 250, 0.9), rgba(225, 245, 254, 0.9));
 }
 
 .admin-index-table tr
