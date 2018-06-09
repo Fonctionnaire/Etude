@@ -2,48 +2,54 @@
 {% block body %}
     {% include 'admin/nav/navAdmin.html.twig' %}
     <section class="row admin-view-etude">
-        <section class="row ">
-            <article class="col m12 l8">
-                <div class="row">
-                    <article class="col s12">
-                        <div class="overview z-depth-2">
-                            <div class="row reset">
-                                <div class="col s12 overview-info">
-                                    {% if etude.user != NULL %}
-                                        <p class="left">Dénichée par {{ etude.user.username }}, le {{ etude
-                                            .dateAjout|date
-                                                ('d-m-Y') }}</p>
-                                    {% else %}
-                                        <p class="left">Dénichée par <em>Anonyme</em>, le {{ etude.dateAjout|date
-                                                ('d-m-Y') }}</p>
-                                    {% endif %}
-                                    <p class="right">{{ etude.categorie.nom }}</p>
-                                </div>
-
-                                <div class="col s12 overview-text">
-                                    <h3 class="center">{{ etude.titre }}</h3>
-
-                                    {{ etude.texte|raw }}
-
-                                </div>
-                                <div class="col s12">
-                                    <div class="row overview-sources-actions">
-                                        <div class="col m12 overview-sources">
-                                            <p>Source(s)</p>
-                                            {% for source in etude.sources %}
-                                                <ul>
-                                                    <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
-                                                </ul>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
+            <article class="col m12 l8 ">
+                <div class="view-etude z-depth-2">
+                    <div class="etude-categorie">
+                        {{ etude.categorie.nom }}
+                    </div>
+                    <div class="view-etude-first">
+                        <div>
+                            <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                        </div>
+                        <div class="view-etude-main">
+                            {% if etude.user %}
+                                <p>Dénichée par <strong>{{ etude.user.username }}</strong>, le {{ etude.dateAjout|date
+                                        ('d-m-Y') }}
+                                </p>
+                            {% else %}
+                                <p>Dénichée par <strong>Anonyme</strong>, le {{ etude.dateAjout|date
+                                        ('d-m-Y') }}
+                                </p>
+                            {% endif %}
+                            <h1>{{ etude.titre }}</h1>
+                            <div class="view-etude-sources">
+                                <p>Sources :</p>
+                                <ul>
+                                    {% for src in etude.sources %}
+                                        <li>
+                                            <a href="{{ src.nom }}" target="_blank">
+                                                <i class="tiny material-icons">link</i> {{ src.nom }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                    <div class="view-etude-text">
+                        {{ etude.texte|raw }}
+                    </div>
+                    <hr>
+                    <div class="center">
+                        <a href="{{ path('admin_modif_etude', {'slug': etude.slug}) }}" class="btn wave-effects">
+                            Modifier
+                        </a>
+                    </div>
                 </div>
             </article>
         </section>
-        <article class="col m12 l8 offset-l2 admin-motif-refus">
+    <section class="row">
+        <article class="col m12 l8 admin-motif-refus">
             {% if etude.refuse == false %}
             {{ form_start(form) }}
             <div>
@@ -56,18 +62,17 @@
             </div>
             {{ form_end(form) }}
             {% else %}
-                <article class="col m12 view-etude-refus z-depth-2">
+                <div class="view-etude-refus z-depth-2">
                     <h3 class="center">Cette étude a été refusé pour la/les raison(s) suivante(s)</h3>
                     <p>{{ etude.motifRefus|raw }}</p>
                     <hr>
                     <div class="refus-remerciement">
                         <p>Vous pouvez toutefois <a href="{{ path('proposer_etude') }}">soummettre</a> à nouveau cette étude en corrigeant les points indiqués dans le motif du refus.</p>
-                        <p>Nous vous remercions pour votre participation et nous espérons que vous soummettrez de nouvelles études prochainement ! :-)</p>
+                        <p>Nous vous remercions pour votre participation et nous espérons que vous soummettrez de nouvelles études
+                            prochainement ! :-)</p>
                     </div>
-
-                </article>
+                </div>
             {% endif %}
         </article>
     </section>
-
 {% endblock %}

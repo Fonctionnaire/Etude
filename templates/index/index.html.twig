@@ -1,112 +1,84 @@
 {% extends 'base.html.twig' %}
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/fbShare.js') }}"></script>
-    <script src="{{ asset('js/twitterShare.js') }}"></script>
-{% endblock %}
-{% block share %}
-    <link rel="me" href="https://twitter.com/twitterdev">
-{% endblock %}
 {% block body %}
-   <section class="row index-description">
-       <h1></h1>
-       <p></p>
-   </section>
     <section class="row">
-        <div class="col m12 l8">
-            <div class="row">
+        <article class="col s12">
+            <h1></h1>
+            <p></p>
+        </article>
+    </section>
+    <section class="row">
+        <article class="col m12 l8">
+            <div class="block-etude z-depth-2">
                 {% for le in lastEtudes %}
-                    <article class="col s12">
-                        <div class="overview z-depth-2">
-                            <div class="row reset">
-                                <div class="col s12 overview-info">
-                                    {% if le.user != NULL %}
-                                        <p class="left">Dénichée par {{ le.user.username }}, le {{ le.dateAjout|date
-                                                ('d-m-Y') }}</p>
+                <a href="{{ path('view_etude', {'slug': le.slug}) }}">
+                    <div class="etude-list">
+                        <div class="row">
+                            <div class="etude-categorie">
+                                    {{ le.categorie.nom }}
+                            </div>
+                            <div class="col m0 l3">
+                                <div class="etude-img">
+                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                                </div>
+                            </div>
+                            <div class="col m12 l9">
+                                <div>
+                                    {% if le.user %}
+                                    <p>Dénichée par <strong>{{ le.user.username }}</strong>, le {{ le.dateAjout|date
+                                            ('d-m-Y') }}
+                                    </p>
                                     {% else %}
-                                        <p class="left">Dénichée par <em>Anonyme</em>, le {{ le.dateAjout|date
-                                                ('d-m-Y') }}</p>
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ le.dateAjout|date
+                                                ('d-m-Y') }}
+                                        </p>
                                     {% endif %}
-                                    <p class="right">
-                                        <a href="{{ path('view_etude_categorie', {'slug': le.categorie.slug}) }}">{{ le
-                                            .categorie.nom }}</a>
-                                    </p>
                                 </div>
-                                <div class="col s12 overview-text">
-                                    <a href="{{ path('view_etude', {'slug': le.slug}) }}">
-                                    <p>
-                                        {{ le.texte|striptags|slice(0, 150) }}
-                                        {% if le.texte|length > 150 %}
-                                            ... <a href="{{ path('view_etude', {'slug': le.slug}) }}"
-                                                   class="overview-readmore">Lire
-                                            la
-                                            suite</a>
-                                        {% endif %}
-                                    </p>
-                                    </a>
+                                <div>
+                                    <h3 class="valign-wrapper">{{ le.titre }}</h3>
                                 </div>
-                                <div class="col s12 overview-actions center">
-
-                                    <div class="fb-like" data-href="{{ path('view_etude', {'slug': le.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                                    <a class="twitter-share-button"
-                                       href="https://twitter.com/intent/tweet?text={{ le.titre }}" data-url="{{ path('view_etude', {'slug': le.slug}) }}">Tweet</a>
+                                <div class="etude-comments ">
+                                    <i class="material-icons tiny">comment</i> - 0
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
-        </div>
-        <div class="col m12 l4">
-            <div class="row">
-                <aside class="col s12 index-categories">
-                    <div class="z-depth-2">
-                        <div class="index-categories-titre center">
-                            Par catégorie
-                        </div>
-                        <div class="index-categories-list">
-                    {% for cat in categories %}
-                            <p>
-                                <a href="{{ path('view_etude_categorie', {'slug': cat.slug}) }}">
-                                    {{ cat.nom }}
-                                </a>
-                            </p>
-                    {% endfor %}
-                        </div>
-                    </div>
-                </aside>
-                <aside class="col s12 index-lastactu">
-                    {% for la in lastActu %}
-                        <div class="z-depth-2">
-                            <div class="index-lastactu-date center">
-                                Le {{ la.dateAjout|date('d-m-Y') }} à {{ la.dateAjout|date('H:i') }}
-                            </div>
-                            <div class="index-lastactu-titre">
-                                <h3>{{ la.titre }}</h3>
-                            </div>
-                            <div class="index-lastactu-texte">
-                                {{ la.texte|striptags|slice(0, 160) }} ... <a href="{{ path('view_one_actu', {'slug': la.slug}) }}" class="index-lastactu-readmore">Lire la suite</a>
-                            </div>
-                            <hr>
-                            <div class="center index-lastactu-link">
-                                <p><a href="{{ path('all_actualites') }}">Voir toutes les actus</a></p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </aside>
-                <aside class="col m6 offset-m3 l12 annonce">
+        </article>
+        <aside class="col m12 l4">
 
-                </aside>
-                <aside class="col m6 offset-m3 l12 index-add-btn">
-                    <div class="center">
-                        <a href="{{ path('proposer_etude') }}" class="waves-effect waves-light btn z-depth-2">Proposer une étude</a>
-                    </div>
-                </aside>
-                <aside class="col m6 offset-m3 l12 newsletter">
-
-                </aside>
+        </aside>
+        <aside class="col m12 l4 ">
+            <div class="z-depth-2 last-actu">
+                <div class="last-actu-label">
+                    <p>Dernière actualité</p>
+                </div>
+                <a href="{{ path('view_one_actu', {'slug': lastActu.slug}) }}">
+                <div class="last-actu-content">
+                    <span>Le {{ lastActu.dateAjout|date('d-m-Y') }}</span>
+                    <h3>{{ lastActu.titre }}</h3>
+                    <p>{{ lastActu.texte|striptags|slice(0, 150) }} ...</p>
+                </div>
+                </a>
+                <div class="last-actu-link">
+                    <a href="{{ path('all_actualites') }}">Toutes les actualites</a>
+                </div>
             </div>
-        </div>
-
+        </aside>
+        <aside class="col m12 l4">
+            <div class="z-depth-2 all-cat">
+                <div class="all-cat-label">
+                    <p>Par catégorie</p>
+                </div>
+                <div class="all-cat-content">
+                    {% for cat in categories %}
+                        <a href="{{ path('view_etude_categorie', {'slug': cat.slug}) }}">
+                            <p>{{ cat.nom }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
     </section>
 {% endblock %}

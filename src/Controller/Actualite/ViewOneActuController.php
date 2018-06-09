@@ -21,9 +21,12 @@ class ViewOneActuController extends AbstractController
      */
     public function viewOneActu(Actualite $actualite)
     {
+        $em = $this->getDoctrine()->getManager();
+        $fiveActu = $em->getRepository(Actualite::class)->findLastFiveActu($actualite->getSlug());
 
         return $this->render('actualite/viewOneActu.html.twig', array(
             'actualite' => $actualite,
+            'fiveActu' => $fiveActu
         ));
     }
 }

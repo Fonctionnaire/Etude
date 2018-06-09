@@ -48,6 +48,19 @@ class EtudeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findLastFiveEtudes($cat)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.valide = true')
+            ->andWhere('e.refuse = false')
+            ->andWhere('e.categorie != :cat')
+            ->setParameter('cat', $cat)
+            ->orderBy('e.dateAjout', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findUserEtudesValide($user)
     {
     return $this->createQueryBuilder('e')
@@ -88,6 +101,20 @@ class EtudeRepository extends ServiceEntityRepository
             ->andWhere('e.valide = true')
             ->andWhere('e.categorie = :cat')
             ->setParameter('cat', $categorie)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findLastByCat($categorie, $slug)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.refuse = false')
+            ->andWhere('e.valide = true')
+            ->andWhere('e.categorie = :cat')
+            ->andWhere('e.slug != :slug')
+            ->setParameters(['cat' => $categorie, 'slug' => $slug])
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult()
             ;

@@ -9,47 +9,68 @@
 {% endblock %}
 {% block body %}
     <section class="row">
-        <div class="col m12 l8">
-            <div class="row">
-                {% for ebc in etudeByCat %}
-                    <article class="col s12">
-                        <div class="overview z-depth-2">
-                            <div class="row reset">
-                                <div class="col s12 overview-info">
-                                    {% if ebc.user != NULL %}
-                                        <p class="left">Dénichée par {{ ebc.user.username }}, le {{ ebc.dateAjout|date
-                                                ('d-m-Y') }}</p>
-                                    {% else %}
-                                        <p class="left">Dénichée par <em>Anonyme</em>, le {{ ebc.dateAjout|date
-                                                ('d-m-Y') }}</p>
-                                    {% endif %}
-                                    <p class="right">
-                                        <a href="{{ path('view_etude_categorie', {'slug': ebc.categorie.slug}) }}">{{ ebc
-                                            .categorie.nom }}</a>
-                                    </p>
+        <article class="col m12 l8">
+        <div class="block-etude z-depth-2">
+            {% for ebc in etudeByCat %}
+                <a href="{{ path('view_etude', {'slug': ebc.slug}) }}">
+                    <div class="etude-list">
+                        <div class="row">
+                            <div class="etude-categorie">
+                                {{ ebc.categorie.nom }}
+                            </div>
+                            <div class="col m0 l3">
+                                <div class="etude-img">
+                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
                                 </div>
-                                <div class="col s12 overview-text">
-                                    <a href="{{ path('view_etude', {'slug': ebc.slug}) }}">
-                                        <p>
-                                            {{ ebc.texte|striptags|slice(0, 150) }}
-                                            {% if ebc.texte|length > 150 %}
-                                                ... <a href="{{ path('view_etude', {'slug': ebc.slug}) }}" class="overview-readmore">Lire la
-                                                suite</a>
-                                            {% endif %}
+                            </div>
+                            <div class="col m12 l9">
+                                <div>
+                                    {% if ebc.user %}
+                                        <p>Dénichée par <strong>{{ ebc.user.username }}</strong>, le {{ ebc.dateAjout|date
+                                                ('d-m-Y') }}
                                         </p>
-                                    </a>
+                                    {% else %}
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ ebc.dateAjout|date
+                                                ('d-m-Y') }}
+                                        </p>
+                                    {% endif %}
                                 </div>
-                                <div class="col s12 overview-actions center">
-
-                                    <div class="fb-like" data-href="{{ path('view_etude', {'slug': ebc.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                                    <a class="twitter-share-button"
-                                       href="https://twitter.com/intent/tweet?text={{ ebc.titre }}" data-url="{{ path('view_etude', {'slug': ebc.slug}) }}">Tweet</a>
+                                <div>
+                                    <h3 class="valign-wrapper">{{ ebc.titre }}</h3>
+                                </div>
+                                <div class="etude-comments ">
+                                    <i class="material-icons tiny">comment</i> - 0
                                 </div>
                             </div>
                         </div>
-                    </article>
-                {% endfor %}
-            </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
+        </article>
+        <aside class="col m12 l4">
+
+        </aside>
+        <aside class="col m12 l4 ">
+                <div class="z-depth-2 last-actu last-five-actu">
+                    <div class="last-actu-label">
+                        <p>Autres études</p>
+                    </div>
+                    {% for lf in lastFive %}
+                        <a href="{{ path('view_etude', {'slug': lf.slug}) }}">
+                            <div class="last-actu-content">
+                                <span>Le {{ lf.dateAjout|date('d-m-Y') }}</span>
+                                <h3>{{ lf.titre }}</h3>
+                                <p>{{ lf.texte|striptags|slice(0, 150) }} ...</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    <div class="last-actu-link">
+                        <!--
+                        <a href="">Tout voir</a>
+                        -->
+                    </div>
+                </div>
+        </aside>
     </section>
 {% endblock %}
