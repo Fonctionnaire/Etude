@@ -14,30 +14,48 @@
 {% endblock %}
 {% block body %}
 <section class="row">
-    <article class="col m12 l8 actu">
-        <div class="z-depth-2">
-            <div class="actu-date center">
-                Le {{ actualite.dateAjout|date('d-m-Y') }} à {{ actualite.dateAjout|date('H:i') }}
-            </div>
-            <div class="actu-titre">
+    <article class="col m12 l8 ">
+        <div class="z-depth-2 all-actu">
+            <div class="all-actu-titre center">
                 <h3>{{ actualite.titre }}</h3>
             </div>
-            <div class="actu-texte">
+            <div class=" all-actu-date">
+                Le {{ actualite.dateAjout|date('d-m-Y') }} à {{ actualite.dateAjout|date('H:i') }}
+            </div>
+            <div class="actu-actions">
+                <div class="fb-like" data-href="{{ path('view_one_actu', {'slug': actualite.slug})
+                }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text={{ actualite.titre }}" data-url="{{ path('view_one_actu', {'slug': actualite.slug})
+                }}">Tweet</a>
+            </div>
+            <div class="all-actu-texte">
                 {{ actualite.texte|raw }}
-            </div>
-            <div class="row">
-            <div class="col s12 actu-actions-pad">
-                <div class="actu-actions center">
-                    <div class="fb-like" data-href="{{ path('view_one_actu', {'slug': actualite.slug})
-                    }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                    <a class="twitter-share-button"
-                       href="https://twitter.com/intent/tweet?text={{ actualite.titre }}" data-url="{{ path('view_one_actu', {'slug': actualite.slug})
-                    }}">Tweet</a>
-                </div>
-            </div>
             </div>
         </div>
     </article>
+    <aside class="col m12 l4">
+
+    </aside>
+    <aside class="col m12 l4 ">
+        <div class="z-depth-2 last-actu last-five-actu">
+            <div class="last-actu-label">
+                <p>Dernières actualités</p>
+            </div>
+            {% for lfa in fiveActu %}
+            <a href="{{ path('view_one_actu', {'slug': lfa.slug}) }}">
+                <div class="last-actu-content">
+                    <span>Le {{ lfa.dateAjout|date('d-m-Y') }}</span>
+                    <h3>{{ lfa.titre }}</h3>
+                    <p>{{ lfa.texte|striptags|slice(0, 150) }} ...</p>
+                </div>
+            </a>
+            {% endfor %}
+            <div class="last-actu-link">
+                <a href="{{ path('all_actualites') }}">Toutes les actualites</a>
+            </div>
+        </div>
+    </aside>
 </section>
 
 {% endblock %}

@@ -26,6 +26,18 @@ class ActualiteRepository extends ServiceEntityRepository
             ->orderBy('a.dateAjout', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
+    }
+
+    public function findLastFiveActu($slug)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.dateAjout', 'DESC')
+            ->where('a.slug != :slug')
+            ->setParameter('slug', $slug)
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

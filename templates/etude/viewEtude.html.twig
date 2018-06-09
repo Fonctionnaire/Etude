@@ -13,52 +13,76 @@
     <script src="{{ asset('js/twitterShare.js') }}"></script>
 {% endblock %}
 {% block body %}
+
     <section class="row">
-        <article class="col m12 l8 view-etude">
-            <div class="row">
-                <article class="col s12">
-                    <div class="overview z-depth-2">
-                        <div class="row reset">
-                            <div class="col s12 overview-info">
-                                {% if etude.user != NULL %}
-                                    <p class="left">Dénichée par {{ etude.user.username }}, le {{ etude.dateAjout|date
-                                            ('d-m-Y') }}</p>
-                                {% else %}
-                                    <p class="left">Dénichée par <em>Anonyme</em>, le {{ etude.dateAjout|date
-                                            ('d-m-Y') }}</p>
-                                {% endif %}
-                                <p class="right">{{ etude.categorie.nom }}</p>
-                            </div>
-
-                            <div class="col s12 overview-text">
-                                <h3 class="center">{{ etude.titre }}</h3>
-
-                                {{ etude.texte|raw }}
-
-                            </div>
-                            <div class="col s12">
-                                <div class="row overview-sources-actions">
-                                    <div class="col m12 overview-sources">
-                                        <p>Source(s)</p>
-                                        {% for source in etude.sources %}
-                                            <ul>
-                                                <li><i class="tiny material-icons">insert_link</i> <a href="{{ source.nom }}">{{ source.nom }}</a></li>
-                                            </ul>
-                                        {% endfor %}
-                                    </div>
-                                    <hr>
-                                    <div class="col s12 overview-etude-actions center">
-                                        <div class="fb-like" data-href="{{ path('view_etude', {'slug': etude.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                                        <a class="twitter-share-button"
-                                           href="https://twitter.com/intent/tweet?text={{ etude.titre }}" data-url="{{ path('view_etude', {'slug': etude.slug}) }}">Tweet</a>
-                                    </div>
-                                </div>
-                            </div>
+        <article class="col m12 l8 ">
+            <div class="view-etude z-depth-2">
+                <div class="etude-categorie">
+                    {{ etude.categorie.nom }}
+                </div>
+                <div class="view-etude-first">
+                    <div>
+                        <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                    </div>
+                    <div class="view-etude-main">
+                        {% if etude.user %}
+                            <p>Dénichée par <strong>{{ etude.user.username }}</strong>, le {{ etude.dateAjout|date
+                                    ('d-m-Y') }}
+                            </p>
+                        {% else %}
+                            <p>Dénichée par <strong>Anonyme</strong>, le {{ etude.dateAjout|date
+                                    ('d-m-Y') }}
+                            </p>
+                        {% endif %}
+                        <h1>{{ etude.titre }}</h1>
+                        <div class="view-etude-sources">
+                            <p>Sources :</p>
+                            <ul>
+                            {% for src in etude.sources %}
+                                <li>
+                                    <a href="{{ src.nom }}" target="_blank">
+                                    <i class="tiny material-icons">link</i> {{ src.nom }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="fb-like" data-href="{{ path('view_etude', {'slug': etude.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                            <a class="twitter-share-button"
+                               href="https://twitter.com/intent/tweet?text={{ etude.titre }}" data-url="{{ path('view_etude', {'slug': etude.slug}) }}">Tweet</a>
                         </div>
                     </div>
-                </article>
+                </div>
+                <div class="view-etude-text">
+                    {{ etude.texte|raw }}
+                </div>
             </div>
         </article>
+        <aside class="col m12 l4">
+
+        </aside>
+        <aside class="col m12 l4 ">
+            {% if sameCat %}
+                <div class="z-depth-2 last-actu last-five-actu">
+                    <div class="last-actu-label">
+                        <p>Dans la même catégorie</p>
+                    </div>
+                    {% for sc in sameCat %}
+                        <a href="{{ path('view_etude', {'slug': sc.slug}) }}">
+                            <div class="last-actu-content">
+                                <span>Le {{ sc.dateAjout|date('d-m-Y') }}</span>
+                                <h3>{{ sc.titre }}</h3>
+                                <p>{{ sc.texte|striptags|slice(0, 150) }} ...</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    <div class="last-actu-link">
+                        <a href="{{ path('view_etude_categorie', {'slug': etude.categorie.slug}) }}">Tout voir</a>
+                    </div>
+                </div>
+            {% endif %}
+        </aside>
     </section>
 
 

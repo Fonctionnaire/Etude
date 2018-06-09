@@ -21,9 +21,12 @@ class ViewEtudeController extends AbstractController
      */
     public function viewEtude(Etude $etude)
     {
+        $em = $this->getDoctrine()->getManager();
+        $sameCat = $em->getRepository(Etude::class)->findLastByCat($etude->getCategorie(), $etude->getSlug());
 
         return $this->render('etude/viewEtude.html.twig', array(
             'etude' => $etude,
+            'sameCat' => $sameCat
         ));
     }
 }

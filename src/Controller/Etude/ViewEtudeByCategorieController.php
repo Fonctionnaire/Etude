@@ -24,9 +24,11 @@ class ViewEtudeByCategorieController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $etudeByCat = $em->getRepository(Etude::class)->findByCat($categorie);
+        $lastFive = $em->getRepository(Etude::class)->findLastFiveEtudes($categorie);
 
         return $this->render('etude/viewEtudeByCategorie.html.twig', array(
-            'etudeByCat' => $etudeByCat
+            'etudeByCat' => $etudeByCat,
+            'lastFive' => $lastFive
         ));
     }
 }
