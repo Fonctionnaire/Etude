@@ -28,8 +28,26 @@
             </div>
     </article>
         {% endfor %}
+    <ul class="col m12 l8 pagination center">
+        {% if nbPages > 1 %}
+            {% if page > 1 %}
+                <li>
+                    <a class="chevron-gauche" href="{{ path('all_actualites', {'page': page - 1}) }}"> &lang; </a>
+                </li>
+            {% endif %}
 
+            {% for p in range(1, nbPages) %}
+                <li{% if p == page %} class="active"{% endif %}>
+                    <a href="{{ path('all_actualites', {'page': p}) }}" class="current-page">{{ p }}</a>
+                </li>
+            {% endfor %}
+            {% if page < nbPages %}
+                <li>
+                    <a href="{{ path('all_actualites', {'page': page + 1}) }}">
+                        &rang; </a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
 </section>
-
-
 {% endblock %}

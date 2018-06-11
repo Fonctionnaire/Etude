@@ -4,6 +4,7 @@ namespace App\Repository\Etude;
 
 use App\Entity\Etude\Etude;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -43,7 +44,7 @@ class EtudeRepository extends ServiceEntityRepository
             ->where('e.valide = true')
             ->andWhere('e.refuse = false')
             ->orderBy('e.dateAjout', 'DESC')
-            ->setMaxResults(10)
+            ->setMaxResults(15)
             ->getQuery()
             ->getResult();
     }
@@ -94,16 +95,20 @@ class EtudeRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findByCat($categorie)
+    public function findByCat($categorie, $page)
     {
-        return $this->createQueryBuilder('e')
+        $qb = $this->createQueryBuilder('e')
             ->where('e.refuse = false')
             ->andWhere('e.valide = true')
             ->andWhere('e.categorie = :cat')
             ->setParameter('cat', $categorie)
+            ->orderBy('e.dateAjout', 'DESC')
+            ->setFirstResult(($page - 1) * Etude::NB_ETUDES)
+            ->setMaxResults(Etude::NB_ETUDES)
             ->getQuery()
-            ->getResult()
-            ;
+        ;
+
+        return new Paginator($qb, true);
     }
 
     public function findLastByCat($categorie, $slug)
@@ -118,5 +123,19 @@ class EtudeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function findEtudesPaginated($page)
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->where('e.refuse = false')
+            ->andWhere('e.valide = true')
+            ->orderBy('e.dateAjout', 'DESC')
+            ->setFirstResult(($page - 1) * Etude::NB_ETUDES)
+            ->setMaxResults(Etude::NB_ETUDES)
+            ->getQuery()
+            ;
+
+        return new Paginator($qb, true);
     }
 }

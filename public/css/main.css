@@ -304,6 +304,23 @@ ul#dropdown1, ul#dropdown2
     font-size: 1.05em;
 }
 
+.etudes-view-all
+{
+    background: linear-gradient(to top, #303f9f, #7986cb);
+    padding: 15px 0 15px 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.etudes-view-all a
+{
+    color: white;
+    transition: 0.5s;
+}
+
+.etudes-view-all a:hover
+{
+    color: #bbdefb;
+}
 
 /* AJOUT ETUDE */
 .proposer-etude-form
@@ -476,7 +493,16 @@ ul#dropdown1, ul#dropdown2
     font-style: italic;
 }
 
+.pagination
+{
+    margin-top: 25px;
+}
 
+.pagination li.active
+{
+    background: linear-gradient(to top, #303f9f, #7986cb);
+    color: white;
+}
 
 /* ACTUALITE */
 .all-actu, .actu

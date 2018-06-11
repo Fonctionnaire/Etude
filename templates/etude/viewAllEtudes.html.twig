@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src="{{ asset('js/pagination.js') }}"></script>
+{% endblock %}
+{% block body %}
+
+<section class="row">
+    <article class="col m12 l8">
+        <div class="block-etude z-depth-2">
+            {% for e in etudes %}
+                <a href="{{ path('view_etude', {'slug': e.slug}) }}">
+                    <div class="etude-list">
+                        <div class="row">
+                            <div class="etude-categorie">
+                                {{ e.categorie.nom }}
+                            </div>
+                            <div class="col m0 l3">
+                                <div class="etude-img">
+                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                                </div>
+                            </div>
+                            <div class="col m12 l9">
+                                <div>
+                                    {% if e.user %}
+                                        <p>Dénichée par <strong>{{ e.user.username }}</strong>, le {{ e.dateAjout|date
+                                                ('d-m-Y') }}
+                                        </p>
+                                    {% else %}
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ e.dateAjout|date
+                                                ('d-m-Y') }}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <h3 class="valign-wrapper">{{ e.titre }}</h3>
+                                </div>
+                                <div class="etude-comments ">
+                                    <i class="material-icons tiny">comment</i> - 0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </article>
+    <ul class="col m12 l8 pagination center">
+        {% if nbPages > 1 %}
+            {% if page > 1 %}
+                <li>
+                    <a class="chevron-gauche" href="{{ path('view_all_etudes', {'page': page - 1}) }}"> &lang; </a>
+                </li>
+            {% endif %}
+
+            {% for p in range(1, nbPages) %}
+                <li{% if p == page %} class="active"{% endif %}>
+                    <a href="{{ path('view_all_etudes', {'page': p}) }}" class="current-page">{{ p }}</a>
+                </li>
+            {% endfor %}
+            {% if page < nbPages %}
+                <li>
+                    <a href="{{ path('view_all_etudes', {'page': page + 1}) }}">
+                        &rang; </a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+</section>
+{% endblock %}

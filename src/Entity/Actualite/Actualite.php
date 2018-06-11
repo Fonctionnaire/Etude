@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Actualite
 {
+    const NB_ACTU = 15;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
