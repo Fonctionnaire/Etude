@@ -47,6 +47,30 @@
                 </a>
             {% endfor %}
         </div>
+            <ul class="pagination center">
+                {% if nbPages > 1 %}
+                    {% if page > 1 %}
+                        <li>
+                            <a class="chevron-gauche" href="{{ path('view_etude_categorie', {'slug': categorie.slug,
+                                'page':
+                                page - 1}) }}">
+                                &lang; </a>
+                        </li>
+                    {% endif %}
+
+                    {% for p in range(1, nbPages) %}
+                        <li{% if p == page %} class="active"{% endif %}>
+                            <a href="{{ path('view_etude_categorie', {'slug': categorie.slug,'page': p}) }}" class="current-page">{{ p }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if page < nbPages %}
+                        <li>
+                            <a href="{{ path('view_etude_categorie', {'slug': categorie.slug,'page': page + 1}) }}">
+                                &rang; </a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
         </article>
         <aside class="col m12 l4">
 
@@ -66,9 +90,7 @@
                         </a>
                     {% endfor %}
                     <div class="last-actu-link">
-                        <!--
-                        <a href="">Tout voir</a>
-                        -->
+                        <a href="{{ path('view_all_etudes') }}">Tout voir</a>
                     </div>
                 </div>
         </aside>

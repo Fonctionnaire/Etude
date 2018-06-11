@@ -4,6 +4,7 @@ namespace App\Repository\Actualite;
 
 use App\Entity\Actualite\Actualite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -39,5 +40,17 @@ class ActualiteRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function findActualitesPaginated($page)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.dateAjout', 'DESC')
+            ->setFirstResult(($page - 1) * Actualite::NB_ACTU)
+            ->setMaxResults(Actualite::NB_ACTU)
+            ->getQuery()
+        ;
+
+        return new Paginator($qb, true);
     }
 }

@@ -2,37 +2,36 @@
 /**
  * Created by PhpStorm.
  * User: thiba
- * Date: 22/05/2018
- * Time: 12:36
+ * Date: 09/06/2018
+ * Time: 18:06
  */
 
-namespace App\Controller\Actualite;
+namespace App\Controller\Etude;
 
 
-use App\Entity\Actualite\Actualite;
+use App\Entity\Etude\Etude;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class AllActuController extends AbstractController
+class ViewAllEtudesController extends AbstractController
 {
 
     /**
-     * @Route("/actualites/{page}", defaults={"page": "1", "_format"="html"},name="all_actualites")
+     * @Route("/etudes/{page}", defaults={"page": "1", "_format"="html"} ,name="view_all_etudes")
      * @Method({"GET"})
      */
-    public function allActu($page)
+    public function viewAllEtudes($page)
     {
 
         $em = $this->getDoctrine()->getManager();
-        $allActu = $em->getRepository(Actualite::class)->findActualitesPaginated($page);
-        $nbPages = ceil(count($allActu) / Actualite::NB_ACTU);
+        $etudes = $em->getRepository(Etude::class)->findEtudesPaginated($page);
+        $nbPages = ceil(count($etudes) / Etude::NB_ETUDES);
         if ($page > $nbPages) {
             throw $this->createNotFoundException("La page " . $page . " n'existe pas.");
         }
-
-        return $this->render('actualite/allActu.html.twig', array(
-            'allActu' => $allActu,
+        return $this->render('etude/viewAllEtudes.html.twig', array(
+            'etudes' => $etudes,
             'nbPages' => $nbPages,
             'page' => $page,
         ));
