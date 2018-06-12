@@ -14,7 +14,6 @@
             <p><span>Nom d'utilisateur :</span> {{ user.username }}</p>
             <p><span>E-mail :</span> {{ user.email }}</p>
             <p><span>Etudes dénichées :</span> {{ user.etudes|length }}</p>
-            <p><span>Votre rang :</span> Rang</p>
             <hr>
             <div class="center">
                 <a href="{{ path('edit_profile_email', {'username': user.username}) }}" class="btn waves-effect">

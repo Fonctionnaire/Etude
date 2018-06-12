@@ -26,6 +26,33 @@ body
     padding: 40px 30px;
 }
 
+/* MENTIONS */
+.mentions
+{
+    background: white;
+    border-radius: 10px;
+    padding: 25px !important;
+}
+
+.mentions h1
+{
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+.mentions h3
+{
+    font-size: 1.4em;
+    margin-bottom: 20px;
+}
+
+.mentions p
+{
+    text-align: justify;
+    line-height: 1.5em;
+    margin-bottom: 15px;
+}
+
 /* NAVIGATION */
 nav
 {
