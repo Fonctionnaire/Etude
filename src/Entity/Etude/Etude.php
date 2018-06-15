@@ -25,24 +25,36 @@ class Etude
     /**
      * @var \DateTime
      * @ORM\Column(name="date_ajout", type="datetime")
+     * @Assert\DateTime()
+     * @Assert\NotNull()
      */
     private $dateAjout;
 
     /**
      * @var string
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min="2",
+     *     max="200",
+     *     minMessage="Le titre doit comporter au moins 2 caractères.",
+     *     maxMessage="Le titre ne peut comporter plus de 200 caractères."
+     * )
      */
     protected $titre;
 
     /**
      * @var string
      * @ORM\Column(name="texte", type="text")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", minMessage="Le texte doit comporter au moins 2 caractères.")
      */
     private $texte;
 
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $slug;
 

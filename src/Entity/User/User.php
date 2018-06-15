@@ -26,12 +26,16 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Length(min="2", max="15",
+     *     minMessage="Votre nom d'utilisateur doit comporter au moins 2 caractères.",
+     *     maxMessage="Votre nom d'utilisateur ne peut comporter plus de 15 caractères"
+     * )
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=64)
-     *
+     * @Assert\Length(min="6", minMessage="Votre mot de passe doit comporter au moins 6 caractères.")
      */
     private $password;
 
@@ -45,7 +49,7 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(type="string", length=60, unique=true)
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Email(message="Veuillez saisir une adresse e-mail valide.")
      */
     private $email;
 
@@ -96,6 +100,14 @@ class User implements AdvancedUserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Etude\Etude", mappedBy="user")
      */
     private $etudes;
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="accept_terms", type="boolean")
+     * @Assert\NotNull()
+     * @Assert\NotEqualTo(false, message="Veuillez accepter les conditions d'utilisation en cochant la case.")
+     */
+    private $acceptTerms;
 
     public function __construct()
     {
@@ -282,6 +294,21 @@ class User implements AdvancedUserInterface
         $this->password = $password;
     }
 
+    /**
+     * @return bool
+     */
+    public function isAcceptTerms(): ?bool
+    {
+        return $this->acceptTerms;
+    }
+
+    /**
+     * @param bool $acceptTerms
+     */
+    public function setAcceptTerms(bool $acceptTerms): void
+    {
+        $this->acceptTerms = $acceptTerms;
+    }
 
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Entity\Categorie;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Categorie\CategoriesImageRepository")
@@ -25,12 +26,14 @@ class CategoriesImage
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $image;
 
     /**
      * @var string
      * @ORM\Column(name="image_name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $imageName;
 

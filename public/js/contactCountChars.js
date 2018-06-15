@@ -1,6 +1,6 @@
 var count = $('.count-chars');
 
-$('.textarea-contact').keyup(function () {
+$('#contact_texte').keyup(function () {
 
     console.log($(this).val().length);
 
@@ -12,6 +12,6 @@ $('.textarea-contact').keyup(function () {
     }
     else
     {
-        $('.count-chars').css('color', '#29b6f6')
+        $('.count-chars').css('color', 'green')
     }
 });

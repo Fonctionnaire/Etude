@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Url;
 
 class SourceType extends AbstractType
 {
@@ -15,7 +16,10 @@ class SourceType extends AbstractType
     {
         $builder
             ->add('nom', UrlType::class, array(
-                'label' => 'Lien'
+                'label' => 'Lien',
+                'constraints' => array(
+                    new Url()
+                )
             ))
         ;
     }

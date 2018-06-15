@@ -4,6 +4,7 @@ namespace App\Entity\Source;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Source\SourceRepository")
@@ -20,6 +21,8 @@ class Source
     /**
      * @var string
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $nom;
 

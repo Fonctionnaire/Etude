@@ -1,11 +1,42 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
-
+<section class="row">
+    <article class="col m12 l6 offset-l3 security-form">
+        <div>
+            <h1 class="center">Inscription</h1>
+        </div>
     {{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+        <div class="input-field">
+            {{ form_label(form.username, 'Votre nom d\'utilisateur') }}
+            {{ form_widget(form.username) }}
+            {{ form_errors(form.username) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.email, 'Votre adresse e-mail') }}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.plainPassword.first, 'Votre mot de passe') }}
+            {{ form_widget(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.first) }}
+        </div>
+        <div class="input-field">
+            {{ form_label(form.plainPassword.second, 'Confirmez votre mot de passe') }}
+            {{ form_widget(form.plainPassword.second) }}
+            {{ form_errors(form.plainPassword.second) }}
+        </div>
+        <div class="center security-form-terms">
+            {{ form_widget(form.acceptTerms) }}
+            <label for="user_acceptTerms" class="required">J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
+                    d'utilisation</a></label>
+            {{ form_errors(form.acceptTerms) }}
+        </div>
+        <div class="center">
+            {{ form_widget(form.valider) }}
+        </div>
     {{ form_end(form) }}
-
+    </article>
+</section>
 {% endblock %}
