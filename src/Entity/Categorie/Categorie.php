@@ -3,6 +3,7 @@
 namespace App\Entity\Categorie;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Categorie\CategorieRepository")
@@ -19,12 +20,15 @@ class Categorie
     /**
      * @var string
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", minMessage="Le nom doit comporter au moins 2 caractères.")
      */
     private $nom;
 
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $slug;
 

@@ -18,7 +18,9 @@ class EtudeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre', TextType::class)
+            ->add('titre', TextType::class, array(
+                'attr' => ['placeholder' => '200 caractères maximum.']
+            ))
             ->add('texte', CKEditorType::class)
             ->add('categorie', EntityType::class, array(
                 'choice_label' => 'nom',

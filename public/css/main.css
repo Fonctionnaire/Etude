@@ -617,6 +617,7 @@ ul#dropdown1, ul#dropdown2
     font-size: 1.8em;
     font-weight: bold;
     margin-bottom: 25px;
+    color: #303f9f;
 }
 
 .security-form-infos
@@ -653,6 +654,16 @@ ul#dropdown1, ul#dropdown2
 .security-form .btn
 {
     background: linear-gradient(to top, #303f9f, #7986cb);
+}
+
+.security-form-terms
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.security-form .forgot-password
+{
+    margin-top: 20px;
 }
 
 /* DASHBOARD */

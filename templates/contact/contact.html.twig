@@ -2,6 +2,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="{{ asset('js/contactCountChars.js') }}"></script>
 {% endblock %}
 {% block body %}
 
@@ -39,6 +40,9 @@
             {{ form_label(form.texte, 'Votre message') }}
             {{ form_widget(form.texte) }}
             {{ form_errors(form.texte) }}
+        </div>
+        <div class="block-count-chars" >
+            <p class="right-align "><span class="count-chars">0</span> / 1200 </p>
         </div>
         <!-- A REACTIVER
         <div>

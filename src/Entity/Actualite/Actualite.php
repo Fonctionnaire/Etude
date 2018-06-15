@@ -3,6 +3,7 @@
 namespace App\Entity\Actualite;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\Actualite\ActualiteRepository")
@@ -21,24 +22,31 @@ class Actualite
     /**
      * @var \DateTime
      * @ORM\Column(name="date_ajout", type="datetime")
+     * @Assert\DateTime()
+     * @Assert\NotNull()
      */
     private $dateAjout;
 
     /**
      * @var string
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", minMessage="Le titre doit comporter au moins 2 caractères")
      */
     private $titre;
 
     /**
      * @var string
      * @ORM\Column(name="texte", type="text")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", minMessage="Le texte doit comporter au moins 2 caractères")
      */
     private $texte;
 
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $slug;
 
