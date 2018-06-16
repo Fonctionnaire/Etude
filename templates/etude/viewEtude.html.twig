@@ -40,8 +40,9 @@
                             <ul>
                             {% for src in etude.sources %}
                                 <li>
+                                    <i class="tiny material-icons">link</i>
                                     <a href="{{ src.nom }}" target="_blank">
-                                    <i class="tiny material-icons">link</i> {{ src.nom }}
+                                     {{ src.nom }}
                                     </a>
                                 </li>
                             {% endfor %}
