@@ -4,18 +4,18 @@
     <section class="row admin-form-ajout z-depth-2">
         <article class="col s12 m8 offset-m2">
             <div>
-                <h1 class="center">Editer la catégorie</h1>
+                <h1 class="center">Ajouter une image</h1>
             </div>
             {{ form_start(form) }}
-            <div class="input-field">
-                {{ form_label(form.nom) }}
-                {{ form_widget(form.nom) }}
-                {{ form_errors(form.nom) }}
-            </div>
             <div>
                 {{ form_label(form.image) }}
                 {{ form_widget(form.image) }}
                 {{ form_errors(form.image) }}
+            </div>
+            <div class="input-field">
+                {{ form_label(form.imageName, 'Nom de l\'image') }}
+                {{ form_widget(form.imageName) }}
+                {{ form_errors(form.imageName) }}
             </div>
             <div class="center">
                 {{ form_widget(form.ajouter) }}

@@ -16,17 +16,21 @@
                             </div>
                             <div class="col m0 l3">
                                 <div class="etude-img">
-                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                                    {% if e.categorie.image %}
+                                        <img src="{{ asset('uploads/images/' ~ e.categorie.image.image) }}" alt="{{ e.categorie.image.image }}">
+                                    {% else %}
+                                        <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="etude">
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col m12 l9">
                                 <div>
                                     {% if e.user %}
-                                        <p>Dénichée par <strong>{{ e.user.username }}</strong>, le {{ e.dateAjout|date
+                                        <p>Dénichée par <strong>{{ e.user.username }}</strong>, le {{ e.dateValidation|date
                                                 ('d-m-Y') }}
                                         </p>
                                     {% else %}
-                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ e.dateAjout|date
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ e.dateValidation|date
                                                 ('d-m-Y') }}
                                         </p>
                                     {% endif %}

@@ -17,18 +17,23 @@
                                     {{ le.categorie.nom }}
                             </div>
                             <div class="col m0 l3">
-                                <div class="etude-img">
-                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                                <div class="etude-img ">
+                                    {% if le.categorie.image %}
+                                    <img src="{{ asset('uploads/images/' ~ le.categorie.image.image) }}" alt="{{ le.categorie.image.image }}">
+                                    {% else %}
+                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="etude">
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col m12 l9">
                                 <div>
                                     {% if le.user %}
-                                    <p>Dénichée par <strong>{{ le.user.username }}</strong>, le {{ le.dateAjout|date
+                                    <p>Dénichée par <strong>{{ le.user.username }}</strong>, le {{ le
+                                        .dateValidation|date
                                             ('d-m-Y') }}
                                     </p>
                                     {% else %}
-                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ le.dateAjout|date
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ le.dateValidation|date
                                                 ('d-m-Y') }}
                                         </p>
                                     {% endif %}
@@ -67,7 +72,7 @@
                 </div>
                 </a>
                 <div class="last-actu-link">
-                    <a href="{{ path('all_actualites') }}">Toutes les actualites</a>
+                    <a href="{{ path('all_actualites') }}">Toutes les actualités</a>
                 </div>
             </div>
         </aside>
@@ -78,9 +83,11 @@
                 </div>
                 <div class="all-cat-content">
                     {% for cat in categories %}
+                        {% if cat.etudes|length %}
                         <a href="{{ path('view_etude_categorie', {'slug': cat.slug}) }}">
                             <p>{{ cat.nom }}</p>
                         </a>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>

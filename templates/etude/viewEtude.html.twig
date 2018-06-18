@@ -22,15 +22,19 @@
                 </div>
                 <div class="view-etude-first">
                     <div>
-                        <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                        {% if etude.categorie.image %}
+                            <img src="{{ asset('uploads/images/' ~ etude.categorie.image.image) }}" alt="{{ etude.categorie.image.image }}">
+                        {% else %}
+                            <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="etude">
+                        {% endif %}
                     </div>
                     <div class="view-etude-main">
                         {% if etude.user %}
-                            <p>Dénichée par <strong>{{ etude.user.username }}</strong>, le {{ etude.dateAjout|date
+                            <p>Dénichée par <strong>{{ etude.user.username }}</strong>, le {{ etude.dateValidation|date
                                     ('d-m-Y') }}
                             </p>
                         {% else %}
-                            <p>Dénichée par <strong>Anonyme</strong>, le {{ etude.dateAjout|date
+                            <p>Dénichée par <strong>Anonyme</strong>, le {{ etude.dateValidation|date
                                     ('d-m-Y') }}
                             </p>
                         {% endif %}
@@ -72,7 +76,7 @@
                     {% for sc in sameCat %}
                         <a href="{{ path('view_etude', {'slug': sc.slug}) }}">
                             <div class="last-actu-content">
-                                <span>Le {{ sc.dateAjout|date('d-m-Y') }}</span>
+                                <span>Le {{ sc.dateValidation|date('d-m-Y') }}</span>
                                 <h3>{{ sc.titre }}</h3>
                                 <p>{{ sc.texte|striptags|slice(0, 150) }} ...</p>
                             </div>
@@ -85,8 +89,4 @@
             {% endif %}
         </aside>
     </section>
-
-
-
-
 {% endblock %}

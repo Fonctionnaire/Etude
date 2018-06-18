@@ -28,7 +28,6 @@ class Categorie
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     * @Assert\NotBlank()
      */
     private $slug;
 
@@ -36,6 +35,28 @@ class Categorie
      * @ORM\OneToMany(targetEntity="App\Entity\Etude\Etude", mappedBy="categorie")
      */
     private $etudes;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Categorie\CategoriesImage")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
 
     /**
      * @return mixed

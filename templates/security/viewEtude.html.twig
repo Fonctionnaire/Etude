@@ -8,7 +8,11 @@
                 </div>
                 <div class="view-etude-first">
                     <div>
-                        <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                        {% if etude.categorie.image %}
+                            <img src="{{ asset('uploads/images/' ~ etude.categorie.image.image) }}" alt="{{ etude.categorie.image.image }}">
+                        {% else %}
+                            <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="etude">
+                        {% endif %}
                     </div>
                     <div class="view-etude-main">
                         {% if etude.user %}

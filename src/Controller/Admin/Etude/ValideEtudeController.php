@@ -26,6 +26,7 @@ class ValideEtudeController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $etude->setValide(true);
+        $etude->setDateValidation(new \DateTime());
         $em->flush();
         if($etude->getUser())
         {

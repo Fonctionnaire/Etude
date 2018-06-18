@@ -22,7 +22,7 @@ class Source
      * @var string
      * @ORM\Column(name="nom", type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Url()
      */
     private $nom;
 
