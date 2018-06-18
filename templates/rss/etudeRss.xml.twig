@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>
+            Selon une étude - etudes
+        </title>
+        <link>
+
+        </link>
+        <description>
+            Toutes les études
+        </description>
+        {% for e in etudes %}
+            <item>
+                <title>
+                    {{ e.titre }}
+                </title>
+                <link>
+                    {{ absolute_url(path('view_etude', {'slug': e.slug })) }}
+                </link>
+                <pubDate>
+                    {{ e.dateValidation|date('D, d M Y H:i:s O') }}
+                </pubDate>
+                <description>
+                    <img src="{{ asset('uploads/images/' ~ e.categorie.image.image) }}" alt="{{ e.categorie.image.image }}" />
+                    <p>
+                        {{ e.texte|striptags|slice(0, 150) }} ...
+                    </p>
+                    <guid>
+                        {{ absolute_url(path('view_etude', {'slug': e.slug })) }}
+                    </guid>
+                </description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>
