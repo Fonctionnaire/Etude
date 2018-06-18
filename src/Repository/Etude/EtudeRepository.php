@@ -138,4 +138,15 @@ class EtudeRepository extends ServiceEntityRepository
 
         return new Paginator($qb, true);
     }
+
+    public function findAllEtudesValide()
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.refuse = false')
+            ->andWhere('e.valide = true')
+            ->orderBy('e.dateValidation', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
