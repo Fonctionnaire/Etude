@@ -17,10 +17,6 @@ class CategoriesImage
      */
     private $id;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Categorie\Categorie")
-     */
-    private $categorie;
 
     /**
      * @var string
@@ -53,21 +49,6 @@ class CategoriesImage
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * @param mixed $categorie
-     */
-    public function setCategorie($categorie): void
-    {
-        $this->categorie = $categorie;
-    }
 
     /**
      * @return string

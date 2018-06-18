@@ -31,6 +31,13 @@ class Etude
     private $dateAjout;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(name="date_validation", type="datetime", nullable=true)
+     * @Assert\DateTime()
+     */
+    private $dateValidation;
+
+    /**
      * @var string
      * @ORM\Column(name="titre", type="string", length=255)
      * @Assert\NotBlank()
@@ -54,7 +61,6 @@ class Etude
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     * @Assert\NotBlank()
      */
     private $slug;
 
@@ -96,6 +102,22 @@ class Etude
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateValidation(): \DateTime
+    {
+        return $this->dateValidation;
+    }
+
+    /**
+     * @param \DateTime $dateValidation
+     */
+    public function setDateValidation(\DateTime $dateValidation): void
+    {
+        $this->dateValidation = $dateValidation;
     }
 
 

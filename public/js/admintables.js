@@ -15,7 +15,7 @@
             dom: "<'hiddensearch'f'>" +
             "tr" +
             "<'table-footer'lip'>",
-            renderer: 'material'
+            renderer: 'material',
         });
 
         /* Default class modification */
@@ -182,6 +182,7 @@
 
 $(document).ready(function() {
     $('.datatable').dataTable({
+        "order": [[ 0, 'desc' ]],
         //"ajax": 'https://gist.githubusercontent.com/heiswayi/7fde241975ed8a80535a/raw/ff1caaeaf62bd6740ab7cafcd61f1215de173379/datatables-data.json',
         "oLanguage": {
             "sStripClasses": "",

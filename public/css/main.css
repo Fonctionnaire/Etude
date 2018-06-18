@@ -224,6 +224,7 @@ ul#dropdown1, ul#dropdown2
 .etude-list .etude-img img
 {
     width: 150px;
+    margin-top: 20px;
 }
 
 .last-actu
@@ -492,6 +493,12 @@ ul#dropdown1, ul#dropdown2
     border-top: 1px solid grey;
     text-align: justify;
     margin-top: 20px;
+}
+
+.view-etude-text p
+{
+    line-height: 1.4em;
+    margin-bottom: 15px;
 }
 
 .view-etude-refus

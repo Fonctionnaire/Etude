@@ -20,17 +20,21 @@
                             </div>
                             <div class="col m0 l3">
                                 <div class="etude-img">
-                                    <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}">
+                                    {% if ebc.categorie.image %}
+                                        <img src="{{ asset('uploads/images/' ~ ebc.categorie.image.image) }}" alt="{{ ebc.categorie.image.image }}">
+                                    {% else %}
+                                        <img src="{{ asset('images/backgrounds/Mad_scientist_transparent_background.svg.png') }}" alt="etude">
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col m12 l9">
                                 <div>
                                     {% if ebc.user %}
-                                        <p>Dénichée par <strong>{{ ebc.user.username }}</strong>, le {{ ebc.dateAjout|date
+                                        <p>Dénichée par <strong>{{ ebc.user.username }}</strong>, le {{ ebc.dateValidation|date
                                                 ('d-m-Y') }}
                                         </p>
                                     {% else %}
-                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ ebc.dateAjout|date
+                                        <p>Dénichée par <strong>Anonyme</strong>, le {{ ebc.dateValidation|date
                                                 ('d-m-Y') }}
                                         </p>
                                     {% endif %}
@@ -83,7 +87,7 @@
                     {% for lf in lastFive %}
                         <a href="{{ path('view_etude', {'slug': lf.slug}) }}">
                             <div class="last-actu-content">
-                                <span>Le {{ lf.dateAjout|date('d-m-Y') }}</span>
+                                <span>Le {{ lf.dateValidation|date('d-m-Y') }}</span>
                                 <h3>{{ lf.titre }}</h3>
                                 <p>{{ lf.texte|striptags|slice(0, 150) }} ...</p>
                             </div>
