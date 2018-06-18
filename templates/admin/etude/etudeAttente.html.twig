@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+{% endblock %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <div class="row">
+        <div id="admin" class="col s12 admin-gestion-table">
+            <div class="card material-table">
+                <div class="table-header">
+                    <span class="table-title">Etudes en attente</span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="" class="datatable">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Titre</th>
+                        <th>Utilisateur</th>
+                        <th>Catégorie</th>
+                        <th>Statut</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for e in etudeAttente %}
+                        <tr>
+                            <td>{{ e.dateAjout|date('d-m-y') }}</td>
+                            <td>{{ e.titre }}</td>
+                            {% if e.user != NULL %}
+                                <td>{{ e.user.username }}</td>
+                            {% else %}
+                                <td><em>Anonyme</em></td>
+                            {% endif %}
+                            <td>{{ e.categorie.nom }}</td>
+                            <td>
+                                En attente
+                            </td>
+                            <td class="gestion-actions center">
+                                <a href="{{ path('admin_view_etude', {'slug': e.slug}) }}"
+                                   title="Voir">
+                                    <i class="material-icons blue ">visibility</i>
+                                </a>
+                                {% if e.refuse != true %}
+                                    {% if e.valide == true %}
+                                        <a href="{{ path('admin_disable_etude', {'slug': e.slug}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver l\'étude ?')">
+                                            <i class="material-icons red">do_not_disturb</i>
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ path('admin_enable_etude', {'slug': e.slug}) }}" title="Activer" onclick="return confirm('Etes-vous sûr de vouloir activer l\'étude ?')">
+                                            <i class="material-icons green">done</i>
+                                        </a>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 center admin-gestion-btn">
+            <a href="{{ path('admin_index') }}" class="waves-effect waves-light btn">Retour</a>
+        </div>
+    </div>
+{% endblock %}
