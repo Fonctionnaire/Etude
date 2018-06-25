@@ -99,9 +99,32 @@ class Etude
      */
     private $sources;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireEtude", mappedBy="etude")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $commentaires;
+
+
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * @param mixed $commentaires
+     */
+    public function setCommentaires($commentaires): void
+    {
+        $this->commentaires = $commentaires;
     }
 
     /**

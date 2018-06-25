@@ -11,6 +11,7 @@
     {{ parent() }}
     <script src="{{ asset('js/fbShare.js') }}"></script>
     <script src="{{ asset('js/twitterShare.js') }}"></script>
+    <script src="{{ asset('js/scrollspy.js') }}"></script>
 {% endblock %}
 {% block body %}
 <section class="row">
@@ -57,5 +58,66 @@
         </div>
     </aside>
 </section>
-
+    <section class="row">
+        <article class="col m12 l8 ">
+            <div class="block-comments z-depth-2">
+                <div class="bandeau-comments">
+                    <p>{{ actualite.commentaires|length }} commentaires</p>
+                    <p><a href="#ancre-comments">Ecrire un commentaire</a></p>
+                </div>
+                <div>
+                    {% for com in actualite.commentaires %}
+                        <div id="commentaire-{{ com.id }}" class="all-comments z-depth-2">
+                            <div class="all-comments-infos">
+                                <p>
+                                    Par <strong>{{ com.user.username }}</strong>
+                                    le {{ com.dateAjout|date('d-m-Y') }} à {{ com.dateAjout|date('H:i') }}
+                                </p>
+                                {% if com.actif == true %}
+                                    <a href="{{ path('etude_signale_comment', {'id': com.id}) }}"
+                                       class="signale tooltipped" data-position="top" data-tooltip="Signaler ce
+                                commentaire" onclick="return confirm('Etes-vous sûr de vouloir signaler ce ' +
+                                 'commentaire' +
+                                 ' ?')">
+                                        <i class="material-icons">report</i>
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <div class="all-comments-texte">
+                                {% if com.actif != true %}
+                                    <em>Ce commentaire est jugé inapproprié et a été modéré.</em>
+                                {% else %}
+                                    {{ com.texte|raw }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <span id="ancre-comments" class="scrollspy"></span>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="block-comments-instructions">
+                        <p>Pour que les discussions restent agréables, nous vous remercions de rester poli et
+                            courtois. Tout message jugés inappropriés seront modérés.</p>
+                    </div>
+                    {{ form_start(form) }}
+                    <div>
+                        {{ form_label(form.texte, 'Votre message :') }}
+                        {{ form_widget(form.texte) }}
+                        {{ form_errors(form.texte) }}
+                    </div>
+                    <div class="center">
+                        {{ form_widget(form.envoyer) }}
+                    </div>
+                    {{ form_end(form) }}
+                {% else %}
+                    <p>
+                        Vous devez être <a href="{{ path('login') }}">connecté</a> pour écrire un commentaire.
+                    </p>
+                    <p>
+                        Pas encore de compte ? <a href="{{ path('user_registration') }}">Inscrivez-vous</a> simplement en quelque secondes.
+                    </p>
+                {% endif %}
+            </div>
+        </article>
+    </section>
 {% endblock %}

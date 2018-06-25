@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admintables.js') }}"></script>
+{% endblock %}
+{% block body %}
+{% include 'admin/nav/navAdmin.html.twig' %}
+    <div class="row">
+        <div id="admin" class="col s12 admin-gestion-table">
+            <div class="card material-table">
+                <div class="table-header">
+                    <span class="table-title">Gestion des catégories</span>
+                    <div class="actions">
+                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+                <table id="" class="datatable">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Utilisateur</th>
+                        <th>Etude</th>
+                        <th>Texte</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sc in signaleComments %}
+                        <tr>
+                            <td>{{ sc.dateAjout|date('d-m-y') }}</td>
+                            <td>{{ sc.user.username }}</td>
+                            <td>{{ sc.etude.titre|slice(0, 25) }}</td>
+                            <td>{{ sc.texte|slice(0, 50) }}</td>
+                            <td class="gestion-actions center">
+                                <a href="{{ path('view_etude', {'slug': sc.etude.slug}) }}#commentaire-{{ sc.id }}"
+                                   title="Voir" >
+                                    <i class="material-icons blue">visibility</i>
+                                </a>
+                                {% if sc.actif == true %}
+                                        <a href="{{ path('admin_gestion_comments_etude_disable', {'id': sc.id}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver le commentaire ?')" >
+                                            <i class="material-icons red">do_not_disturb</i>
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ path('admin_gestion_comments_etude_enable', {'id': sc.id}) }}" title="Activer" onclick="return confirm('Etes-vous sûr de vouloir activer le commentaire')">
+                                            <i class="material-icons green">done</i>
+                                        </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col s12 center admin-gestion-btn">
+            <a href="{{ path('admin_index') }}" class="waves-effect waves-light btn">Retour</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,6 +1,8 @@
-var count = $('.count-chars');
 
-$('#contact_texte').keyup(function () {
+var count = $('.count-chars');
+$('.cke_contents_ltr p').keyup(function () {
+
+    console.log($(this).val().length);
 
     count.text($(this).val().length);
 
@@ -13,3 +15,4 @@ $('#contact_texte').keyup(function () {
         $('.count-chars').css('color', 'green')
     }
 });
+

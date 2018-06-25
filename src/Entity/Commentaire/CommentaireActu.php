@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: thiba
+ * Date: 18/06/2018
+ * Time: 17:39
+ */
 
 namespace App\Entity\Commentaire;
 
@@ -6,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\Commentaire\CommentaireRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\Commentaire\CommentaireActuRepository")
  */
-class Commentaire
+class CommentaireActu
 {
     /**
      * @ORM\Id()
@@ -32,7 +38,7 @@ class Commentaire
     private $texte;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User\User", inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\User", inversedBy="commentairesActu")
      */
     private $user;
 
@@ -48,9 +54,31 @@ class Commentaire
      */
     private $actif = true;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Actualite\Actualite", inversedBy="commentaires")
+     */
+    private $actu;
+
+
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActu()
+    {
+        return $this->actu;
+    }
+
+    /**
+     * @param mixed $actu
+     */
+    public function setActu($actu): void
+    {
+        $this->actu = $actu;
     }
 
     /**
@@ -88,7 +116,7 @@ class Commentaire
     /**
      * @return string
      */
-    public function getTexte(): string
+    public function getTexte(): ?string
     {
         return $this->texte;
     }

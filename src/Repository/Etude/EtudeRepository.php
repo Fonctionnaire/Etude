@@ -149,4 +149,5 @@ class EtudeRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
 }

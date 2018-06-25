@@ -45,6 +45,7 @@ class ResetPasswordController extends AbstractController
             {
                 $token = uniqid('conf', true);
                 $user->setChangePasswordToken($token);
+                $user->setChangePasswordTokenValidity(new \DateTime());
                 $em->flush();
                 $resetPasswordMail->sendResetPasswordMail($user);
                 $this->addFlash('success', 'Un e-mail vient de vous être envoyé');
@@ -71,8 +72,13 @@ class ResetPasswordController extends AbstractController
         /** @var User|null $user */
         $user = $em->getRepository(User::class)->findOneBy(['changePasswordToken' => $token]);
 
+        $tokenDate = $user->getChangePasswordTokenValidity()->diff(new \DateTime());
+        dump($tokenDate);
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('L\'utilisateur avec le token "%s" n\'existe pas', $token));
+        }elseif ($tokenDate->i > 30)
+        {
+            throw new AccessDeniedException();
         }
 
         $form = $this->createForm(ForgotPasswordChangeType::class, $user);
@@ -83,7 +89,6 @@ class ResetPasswordController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $password = $userPasswordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            $user->setChangePasswordToken(null);
             $em->persist($user);
             $em->flush();
 

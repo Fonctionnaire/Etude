@@ -4,7 +4,7 @@
 
     <section class="row">
         <article class="col s12 m6 offset-m3">
-            <table class="admin-index-table">
+            <table class="admin-index-table z-depth-2">
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -38,7 +38,12 @@
                     </tr>
                     <tr>
                         <td>Commentaires signalés</td>
-                        <td>{{ signaleComments|length }}</td>
+                        {% if signaleComments|length > 0 %}
+                            <td class="red-text">{{ signaleComments|length }}</td>
+                            {% else %}
+                                <td>{{ signaleComments|length }}</td>
+                        {% endif %}
+
                     </tr>
                 </tbody>
             </table>
