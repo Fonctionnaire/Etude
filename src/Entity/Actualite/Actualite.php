@@ -50,9 +50,32 @@ class Actualite
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireActu", mappedBy="actu")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $commentaires;
+
+
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * @param mixed $commentaires
+     */
+    public function setCommentaires($commentaires): void
+    {
+        $this->commentaires = $commentaires;
     }
 
     /**

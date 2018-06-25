@@ -79,6 +79,13 @@ class User implements AdvancedUserInterface
     private $changePasswordToken;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(name="change_password_token_validity", type="datetime", nullable=true)
+     */
+    private $changePasswordTokenValidity;
+
+
+    /**
      * @var boolean
      * @ORM\Column(name="email_confirmed", type="boolean")
      */
@@ -92,9 +99,16 @@ class User implements AdvancedUserInterface
     private $dateRegister;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\Commentaire", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireEtude", mappedBy="user")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $commentaires;
+    private $commentairesEtude;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireActu", mappedBy="user")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $commentairesActu;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Etude\Etude", mappedBy="user")
@@ -113,6 +127,54 @@ class User implements AdvancedUserInterface
     {
         $this->roles = ['ROLE_USER'];
         $this->dateRegister = new \DateTime();
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getChangePasswordTokenValidity(): ?\DateTime
+    {
+        return $this->changePasswordTokenValidity;
+    }
+
+    /**
+     * @param \DateTime $changePasswordTokenValidity
+     */
+    public function setChangePasswordTokenValidity(\DateTime $changePasswordTokenValidity): void
+    {
+        $this->changePasswordTokenValidity = $changePasswordTokenValidity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentairesEtude()
+    {
+        return $this->commentairesEtude;
+    }
+
+    /**
+     * @param mixed $commentairesEtude
+     */
+    public function setCommentairesEtude($commentairesEtude): void
+    {
+        $this->commentairesEtude = $commentairesEtude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommentairesActu()
+    {
+        return $this->commentairesActu;
+    }
+
+    /**
+     * @param mixed $commentairesActu
+     */
+    public function setCommentairesActu($commentairesActu): void
+    {
+        $this->commentairesActu = $commentairesActu;
     }
 
     /**
@@ -147,21 +209,6 @@ class User implements AdvancedUserInterface
         $this->etudes = $etudes;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCommentaires()
-    {
-        return $this->commentaires;
-    }
-
-    /**
-     * @param mixed $commentaires
-     */
-    public function setCommentaires($commentaires): void
-    {
-        $this->commentaires = $commentaires;
-    }
 
     /**
      * @return \DateTime
