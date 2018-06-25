@@ -574,6 +574,11 @@ ul#dropdown1, ul#dropdown2
     padding: 20px 15px !important;
 }
 
+.all-actu-texte p
+{
+    margin-bottom: 15px;
+}
+
 .all-actu-texte a
 {
     border-radius: 15px;

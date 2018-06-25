@@ -9,6 +9,7 @@
 namespace App\Controller\Contact;
 
 
+use App\Entity\Contact\Contact;
 use App\Form\ContactType;
 use App\Service\ContactMail;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -23,13 +24,18 @@ class ContactController extends AbstractController
      */
     public function contact(Request $request, ContactMail $contactMail)
     {
-        $form = $this->createForm(ContactType::class);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $data = $form->getData();
-            $contactMail->sendContactMail($data);
-            $contactMail->sendContactMailToSender($data);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+
+            dump($contact);
+            $contactMail->sendContactMail($contact);
+            $contactMail->sendContactMailToSender($contact);
             $this->addFlash('success', 'Votre message a bien été envoyé ! Nous allons traiter votre demande au plus vite.');
             return $this->redirectToRoute('contact');
         }
