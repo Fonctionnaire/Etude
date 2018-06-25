@@ -26,17 +26,17 @@ class ContactMail extends \Twig_Extension
 
     public function sendContactMail($data)
     {
-        $reply = $data['email'];
+        $reply = $data->getEmail();
         $message = (new \Swift_Message('Contact'))
             ->setFrom('no-reply@selonuneetude.fr')
             ->setTo(['thibaut.gruffy@gmail.com', $reply])
             ->setBody($this->twig->render(
                 'emails/contactMail.html.twig',
                 array(
-                    'pseudo' => $data['pseudo'],
-                    'email' => $data['email'],
-                    'sujet' => $data['sujet'],
-                    'texte' => $data['texte']
+                    'pseudo' => $data->getPseudo(),
+                    'email' => $data->getEmail(),
+                    'sujet' => $data->getSujet(),
+                    'texte' => $data->getTexte()
                 )
             ),
                 'text/html'
@@ -46,17 +46,17 @@ class ContactMail extends \Twig_Extension
 
     public function sendContactMailToSender($data)
     {
-        $reply = $data['email'];
+        $reply = $data->getEmail();
         $message = (new \Swift_Message('Contact'))
             ->setFrom('no-reply@selonuneetude.fr')
             ->setTo($reply)
             ->setBody($this->twig->render(
                 'emails/contactMailForSender.html.twig',
                 array(
-                    'pseudo' => $data['pseudo'],
-                    'email' => $data['email'],
-                    'sujet' => $data['sujet'],
-                    'texte' => $data['texte']
+                    'pseudo' => $data->getPseudo(),
+                    'email' => $data->getEmail(),
+                    'sujet' => $data->getSujet(),
+                    'texte' => $data->getTexte()
                 )
             ),
                 'text/html'

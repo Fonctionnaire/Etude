@@ -44,6 +44,12 @@
         <div class="block-count-chars" >
             <p class="right-align "><span class="count-chars">0</span> / 1200 </p>
         </div>
+        <div class="center security-form-terms">
+            {{ form_widget(form.acceptTerms) }}
+            <label for="contact_acceptTerms" class="required">J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
+                    d'utilisation</a></label>
+            {{ form_errors(form.acceptTerms) }}
+        </div>
         <!-- A REACTIVER
         <div>
             <div class="g-recaptcha" data-sitekey="6LfLn1sUAAAAAOqqu7419dZftCZrGtsHPmCd8ErK"></div>
