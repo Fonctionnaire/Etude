@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<section class="row">
+    <article class="col s12 dashboard-suppr-compte">
+        <h1>Suppression définitive de vos informations personnelles</h1>
+        <p>Attention, vous êtes sur le point de supprimer définivitement vos informations personnelles sur le site selonuneetude.fr.</p>
+        <p>Une fois l'opération validée, il ne vous sera plus possible de revenir en arrière.</p>
+        <p>Toutes vos informations seront supprimées définitevement, seules vos études et commentaires publiées sont concervés mais votre nom d'utilisateur ne s'affichera plus.</p>
+        <a class="btn waves-effect" onclick="return confirm('Etes-vous sûr de vouloir supprimer définitivement vos informations personnelles ?')"
+           title="Supprimer">Supprimer définitivement mes informations</a>
+    </article>
+</section>
+{% endblock %}

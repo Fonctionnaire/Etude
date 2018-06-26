@@ -10,7 +10,6 @@ namespace App\Controller\Security;
 
 
 
-use App\Entity\Etude\Etude;
 use App\Entity\User\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -28,8 +27,7 @@ class DashboardController extends AbstractController
     {
         $this->denyAccessUnlessGranted('view', $user);
 
-        $em = $this->getDoctrine()->getManager();
-;
+
 
         return $this->render('security/dashboard.html.twig', array(
             'user' => $user,
