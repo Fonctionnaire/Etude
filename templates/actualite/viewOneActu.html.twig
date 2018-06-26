@@ -70,7 +70,11 @@
                         <div id="commentaire-{{ com.id }}" class="all-comments z-depth-2">
                             <div class="all-comments-infos">
                                 <p>
-                                    Par <strong>{{ com.user.username }}</strong>
+                                    {% if com.user %}
+                                        Par <strong>{{ com.user.username }}</strong>
+                                    {% else %}
+                                        Par <em>Pseudo supprimé</em>
+                                    {% endif %}
                                     le {{ com.dateAjout|date('d-m-Y') }} à {{ com.dateAjout|date('H:i') }}
                                 </p>
                                 {% if com.actif == true %}

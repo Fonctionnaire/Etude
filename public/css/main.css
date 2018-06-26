@@ -839,6 +839,36 @@ ul#dropdown1, ul#dropdown2
 {
     cursor: pointer;
 }
+
+.dashboard-suppr-compte
+{
+    background: white;
+    padding: 25px !important;
+    text-align: center;
+}
+
+.dashboard-suppr-compte h1
+{
+    font-size: 1.6em;
+    color: #303f9f;
+    margin-bottom: 25px;
+}
+
+.dashboard-suppr-compte p
+{
+    line-height: 1.6em;
+}
+
+.dashboard-suppr-compte .btn
+{
+    margin-top: 25px;
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.dashboard-suppr-compte .btn:hover
+{
+    background: red;
+}
 /* EDIT PROFIL */
 .edit-profil
 {
