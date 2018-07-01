@@ -19,16 +19,13 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
-    /*
-    public function findBySomething($value)
+
+    public function findAttenteContact()
     {
         return $this->createQueryBuilder('c')
-            ->where('c.something = :value')->setParameter('value', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('c.status = false')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 }

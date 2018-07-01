@@ -4,12 +4,12 @@
     <script src="{{ asset('js/admintables.js') }}"></script>
 {% endblock %}
 {% block body %}
-{% include 'admin/nav/navAdmin.html.twig' %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
     <div class="row">
         <div id="admin" class="col s12 admin-gestion-table">
             <div class="card material-table">
                 <div class="table-header">
-                    <span class="table-title">Gestion des commentaires</span>
+                    <span class="table-title">Gestion des contacts</span>
                     <div class="actions">
                         <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
                     </div>
@@ -19,32 +19,32 @@
                     <tr>
                         <th>Date</th>
                         <th>Utilisateur</th>
-                        <th>Etude</th>
-                        <th>Texte</th>
+                        <th>Sujet</th>
+                        <th>Statut</th>
                         <th class="center">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for sc in signaleComments %}
+                    {% for c in contacts|reverse %}
                         <tr>
-                            <td>{{ sc.dateAjout|date('d-m-y') }}</td>
-                            <td>{{ sc.user.username }}</td>
-                            <td>{{ sc.etude.titre|slice(0, 25) }}</td>
-                            <td>{{ sc.texte|slice(0, 50) }}</td>
+                            <td>{{ c.dateEnvoie|date('d-m-y') }}</td>
+                            <td>{{ c.pseudo }}</td>
+                            <td>{{ c.sujet|slice(0, 25) }}</td>
+
+                                {% if c.status == false %}
+                                    <td class="red-text">
+                                        En attente
+                                    </td>
+                                {% else %}
+                                    <td class="green-text">
+                                        Traité
+                                    </td>
+                                {% endif %}
                             <td class="gestion-actions center">
-                                <a href="{{ path('view_etude', {'slug': sc.etude.slug}) }}#commentaire-{{ sc.id }}"
+                                <a href="{{ path('admin_view_contact', {'id': c.id}) }}"
                                    title="Voir" >
                                     <i class="material-icons blue">visibility</i>
                                 </a>
-                                {% if sc.actif == true %}
-                                        <a href="{{ path('admin_gestion_comments_etude_disable', {'id': sc.id}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver le commentaire ?')" >
-                                            <i class="material-icons red">do_not_disturb</i>
-                                        </a>
-                                    {% else %}
-                                        <a href="{{ path('admin_gestion_comments_etude_enable', {'id': sc.id}) }}" title="Activer" onclick="return confirm('Etes-vous sûr de vouloir activer le commentaire')">
-                                            <i class="material-icons green">done</i>
-                                        </a>
-                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}

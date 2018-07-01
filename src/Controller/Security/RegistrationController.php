@@ -34,7 +34,9 @@ class RegistrationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-
+            $request = Request::createFromGlobals();
+            $ip = $request->getClientIp();
+            $user->setUserIp($ip);
             $user->setPassword($password);
             $token = uniqid('conf', true);
             $user->setConfirmationToken($token);

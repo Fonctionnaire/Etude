@@ -8,28 +8,51 @@
         {
             font-size: 1.8em;
             margin-bottom: 20px;
-            text-align: center;
+            color: #303f9f;
         }
-        div
-        {
-            padding: 25px 15px;
-        }
+
         p
         {
             text-align: justify;
             line-height: 1.6em;
         }
+        .block-position
+        {
+            position: relative;
+        }
+        .block-message
+        {
+            background: white;
+            padding: 25px;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            left:0;
+            right: 0;
+            top: 50px;
+            position: absolute;
+            border: 2px solid #303f9f;
+            border-radius: 10px;
+
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Message envoyé par <strong>{{ pseudo }}</strong></h1>
-    </div>
-    <div>
-        <p>E-mail : {{ email }}</p>
-        <p>Sujet : {{ sujet }}</p>
-        <p>Message :</p>
-        <p>{{ texte }}</p>
-    </div>
+<section>
+    <article class="block-position">
+        <div class="block-message">
+            <div>
+                <h1>Nouveau message reçu</h1>
+            </div>
+            <div>
+                <p>Pseudo : {{ pseudo }}</p>
+                <p>E-mail : {{ email }}</p>
+                <p>Sujet : {{ sujet }}</p>
+                <p>Message :</p>
+                <p>{{ texte }}</p>
+            </div>
+        </div>
+    </article>
+</section>
 </body>
 </html>

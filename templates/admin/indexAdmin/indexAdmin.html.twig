@@ -36,15 +36,10 @@
                         <td>Catégories</td>
                         <td>{{ allCat|length }}</td>
                     </tr>
-                    <tr>
-                        <td>Commentaires signalés</td>
-                        {% if signaleComments|length > 0 %}
-                            <td class="red-text">{{ signaleComments|length }}</td>
-                            {% else %}
-                                <td>{{ signaleComments|length }}</td>
-                        {% endif %}
-
-                    </tr>
+                <tr>
+                    <td>Contact en attente</td>
+                    <td>{{ contactAttente|length }}</td>
+                </tr>
                 </tbody>
             </table>
         </article>

@@ -8,36 +8,69 @@
         {
             font-size: 1.8em;
             margin-bottom: 20px;
-            text-align: center;
-        }
-        div
-        {
-            padding: 25px 15px;
+            color: #303f9f;
         }
         p
         {
             text-align: justify;
             line-height: 1.6em;
         }
+        .block-position
+        {
+            position: relative;
+        }
+        .block-message
+        {
+            background: white;
+
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            left:0;
+            right: 0;
+            top: 10%;
+            position: absolute;
+        }
+        .block-message .block-un
+        {
+            padding: 25px;
+            border: 2px solid #303f9f;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .block-message .block-deux
+        {
+            padding: 25px;
+            border: 2px solid #303f9f;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Bonjour <strong>{{ pseudo }}</strong> !</h1>
-    </div>
-    <div>
-        <p>Merci pour l'intérêt que vous portez à notre site internet.</p>
-        <p>Nous avons bien reçu votre message et nous vous répondrons au plus vite.</p>
-    </div>
-        <hr>
-    <div>
-        <p>vous pouvez retrouver ci-dessous les détails de votre message :</p>
-        <p>Votre e-mail : {{ email }}</p>
-        <p>Sujet : {{ sujet }}</p>
-        <p>Votre message :</p>
-        <p>{{ texte }}</p>
-    </div>
-
-
+<section>
+    <article class="block-position">
+        <div class="block-message">
+            <div class="block-un">
+                <div>
+                    <h1>Bonjour <strong>{{ pseudo }}</strong> !</h1>
+                </div>
+                <div>
+                    <p>Merci pour l'intérêt que vous portez à notre site internet.</p>
+                    <p>Nous avons bien reçu votre message et nous vous répondrons au plus vite.</p>
+                </div>
+            </div>
+            <div class="block-deux">
+                <div>
+                    <p>Vous pouvez retrouver ci-dessous les détails de votre message :</p>
+                    <p>Votre e-mail : {{ email }}</p>
+                    <p>Sujet : {{ sujet }}</p>
+                    <p>Votre message :</p>
+                    <p>{{ texte }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
 </body>
 </html>

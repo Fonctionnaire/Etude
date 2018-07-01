@@ -2,10 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        a
+        {
+            text-align: center;
+        }
+
+        p
+        {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<a href="http://localhost/Ubimania/public/index.php/inscription/confirmation/{{ user.confirmationToken }}">Valider</a>
+<p>Afin de valider votre inscription sur le site selonuneetude.fr, veuillez cliquer sur le lien ci-dessous :</p>
+<a href="selonuneetude.fr/inscription/confirmation/{{ user.confirmationToken }}">Valider mon inscription</a>
+<p>
+    Si la demande d'inscription ne vient pas de vous, vous pouvez soit ne pas tenir compte de cet e-mail, soit <a href="selonuneetude.fr/nous-contacter" target="_blank"
+    >nous contacter</a> afin d'avoir de plus amples informations.
+</p>
 
 </body>
 </html>
