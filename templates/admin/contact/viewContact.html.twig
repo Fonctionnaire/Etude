@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section class="row">
+        <article class="col m12 l6 offset-l3">
+            <div class="admin-block-contact z-depth-2">
+                <p><strong>Le :</strong> {{ contact.dateEnvoie|date('d-m-Y H:i') }}</p>
+                <p><strong>Par :</strong> {{ contact.pseudo }}</p>
+                <p><strong>E-mail :</strong> {{ contact.email }}</p>
+                <p><strong>Sujet :</strong> <br>
+                {{ contact.sujet }}
+                </p>
+                <p>
+                    <strong>Message :</strong> <br>
+                    {{ contact.texte }}
+                </p>
+            </div>
+            <div class="center admin-contact-btn">
+                {% if contact.status == false %}
+                <a href="{{ path('admin_valide_contact', {'id': contact.id}) }}" class="btn waves-effect green" onclick="return confirm('Veuillez confirmer !')">Marquer
+                    comme traité</a>
+                {% endif %}
+                <a href="{{ path('admin_gestion_contact') }}" class="btn waves-effect">Retour</a>
+            </div>
+        </article>
+    </section>
+{% endblock %}

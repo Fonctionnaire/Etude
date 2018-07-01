@@ -77,8 +77,13 @@
         </article>
     </div>
     <div class="row">
-        <article class="col s12 z-depth-2">
-            <p><a href="{{ path('view_profile_infos_delete', {'username': user.username}) }}">Supprimer mes données personnelles</a></p>
+        <article class="col s12  ">
+            <div class="dashboard-lien-suppr z-depth-2">
+                <p>
+                    <i class="tiny material-icons red-text">warning</i>
+                    Suppression définitive de vos données personnelles sur selonuneetude.f :</p>
+                <p><a href="{{ path('view_profile_infos_delete', {'username': user.username}) }}">Supprimer mes données personnelles</a></p>
+            </div>
         </article>
     </div>
 </section>

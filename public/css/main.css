@@ -157,6 +157,19 @@ ul#dropdown1, ul#dropdown2
 
 /* ========= INDEX ============*/
 
+.index-description
+{
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #b0bec5;
+    text-align: center;
+}
+
+.index-description p
+{
+    line-height: 1.5em;
+}
+
 .block-etude
 {
     background: white;
@@ -840,6 +853,17 @@ ul#dropdown1, ul#dropdown2
     cursor: pointer;
 }
 
+.dashboard-lien-suppr
+{
+    background: white;
+    padding: 15px;
+}
+
+.dashboard-lien-suppr p:first-of-type
+{
+    margin-bottom: 10px;
+}
+
 .dashboard-suppr-compte
 {
     background: white;
@@ -1025,9 +1049,6 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
     background: rgba(255, 255, 255, 0.75) !important;
 }
 
-
-
-
 .admin-form-ajout div button
 {
     background: #7cb342;
@@ -1058,6 +1079,27 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
     padding: 20px 15px !important;
     margin-top: 50px;
     border-radius: 10px;
+}
+
+/* CONTACT */
+.admin-block-contact
+{
+    background: white;
+    padding: 20px 15px !important;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.admin-block-contact p
+{
+    margin-bottom: 15px;
+    line-height: 1.5em;
+}
+
+.admin-contact-btn .btn
+{
+    margin-top: 25px;
+    background: linear-gradient(to bottom, #303f9f, #7986cb);
 }
 
 /* ================= RESPONSIVE ==================*/

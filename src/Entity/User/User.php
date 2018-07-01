@@ -123,10 +123,33 @@ class User implements AdvancedUserInterface
      */
     private $acceptTerms;
 
+    /**
+     * @var string
+     * @ORM\Column(name="user_ip", type="string", length=255)
+     */
+    private $userIp;
+
+
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
         $this->dateRegister = new \DateTime();
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserIp(): ?string
+    {
+        return $this->userIp;
+    }
+
+    /**
+     * @param string $userIp
+     */
+    public function setUserIp(string $userIp): void
+    {
+        $this->userIp = $userIp;
     }
 
     /**

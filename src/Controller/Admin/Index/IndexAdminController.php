@@ -12,6 +12,7 @@ namespace App\Controller\Admin\Index;
 use App\Entity\Actualite\Actualite;
 use App\Entity\Categorie\Categorie;
 use App\Entity\Commentaire\CommentaireEtude;
+use App\Entity\Contact\Contact;
 use App\Entity\Etude\Etude;
 use App\Entity\User\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -33,18 +34,18 @@ class IndexAdminController extends AbstractController
         $allEtudes = $em->getRepository(Etude::class)->findAll();
         $allCat = $em->getRepository(Categorie::class)->findAll();
         $allUser = $em->getRepository(User::class)->findAll();
-        $signaleComments = $em->getRepository(CommentaireEtude::class)->findSignaleComments();
         $nonValideEtudes = $em->getRepository(Etude::class)->findEtudeNonValide();
         $etudesRefuses = $em->getRepository(Etude::class)->findEtudesRefuses();
+        $contactAttente = $em->getRepository(Contact::class)->findAttenteContact();
 
         return $this->render('admin/indexAdmin/indexAdmin.html.twig', array(
             'allActu' => $allActu,
             'allEtudes' => $allEtudes,
             'allCat' => $allCat,
             'allUser' => $allUser,
-            'signaleComments' => $signaleComments,
             'nonValideEtudes' => $nonValideEtudes,
             'etudesRefuses' => $etudesRefuses,
+            'contactAttente' => $contactAttente,
         ));
     }
 }

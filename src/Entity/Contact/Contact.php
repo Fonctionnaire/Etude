@@ -75,10 +75,32 @@ class Contact
      */
     private $acceptTerms;
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="status", type="boolean")
+     */
+    private $status = false;
+
 
     public function __construct()
     {
         $this->dateEnvoie = new \DateTime();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatus(): bool
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setStatus(bool $status): void
+    {
+        $this->status = $status;
     }
 
     /**
