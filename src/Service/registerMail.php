@@ -19,7 +19,7 @@ class registerMail extends \Twig_Extension
     {
         $reply = $user->getEmail();
         $message = (new \Swift_Message('Confirmation d\'inscription'))
-            ->setFrom('contact@ubimania.fr')
+            ->setFrom('inscription@selonuneetude.fr')
             ->setTo($reply)
             ->setBody($this->twig->render(
                 'security/confirmMail.html.twig',
