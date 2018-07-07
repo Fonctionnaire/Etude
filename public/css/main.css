@@ -851,6 +851,24 @@ ul#dropdown1, ul#dropdown2
     margin-top: 20px;
 }
 
+.registration-confirm
+{
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.registration-confirm h1
+{
+    font-size: 1.5em;
+    margin-bottom: 25px;
+}
+
+.registration-confirm p
+{
+    margin-bottom: 15px;
+}
+
 /* DASHBOARD */
 .dashboard-section
 {

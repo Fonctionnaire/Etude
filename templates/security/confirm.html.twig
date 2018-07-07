@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <section class="row">
-    <article class="col m12 l6 offset-l3 security-form">
-    <p class="center">Félicitations <strong>{{ user.username }}</strong>, votre compte est maintenant actif !</p>
-    <p>
-        Vous pouvez maintenant <a href="{{ path('login') }}">vous connecter</a>
-    </p>
-        <p>
-            ou
-        </p>
-        <p>
-            <a href="{{ path('index') }}">Retourner à l'accueil</a>
-        </p>
-
+    <article class="col m12 l6 offset-l3">
+        <div class="registration-confirm z-depth-2">
+            <h1>Félicitations <strong>{{ user.username }}</strong>, votre compte est maintenant actif !</h1>
+            <p>
+                Vous pouvez maintenant <a href="{{ path('login') }}">vous connecter</a> !
+            </p>
+            <p>
+                ou
+            </p>
+            <p>
+                <a href="{{ path('index') }}">Retourner à l'accueil</a>.
+            </p>
+        </div>
     </article>
 </section>
 {% endblock %}
