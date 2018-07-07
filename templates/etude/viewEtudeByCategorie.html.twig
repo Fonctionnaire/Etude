@@ -98,5 +98,37 @@
                     </div>
                 </div>
         </aside>
+        <aside class="col m12 l4">
+            <div class="z-depth-2 newsletter">
+                <div class="newsletter-titre">
+                    <p>Newsletter</p>
+                </div>
+                <div class="newsletter-block">
+                    <div class="newsletter-text">
+                        <p>
+                            Inscrivez-vous à la newsletter pour recevoir régulièrement par e-mail les dernières études publiées.
+                        </p>
+                    </div>
+                    <div>
+                        {{ form_start(form) }}
+                        <div class="newsletter-form">
+                            {{ form_label(form.email, 'Votre e-mail') }}
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+                        <div class="newsletter-acceptTerms">
+                            {{ form_widget(form.acceptTerms) }}
+                            <label for="newsletter_acceptTerms" class="required">J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
+                                    d'utilisation</a></label>
+                            {{ form_errors(form.acceptTerms)}}
+                        </div>
+                        <div class="center">
+                            {{ form_widget(form.valider) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </aside>
     </section>
 {% endblock %}

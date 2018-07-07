@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        h1
+        {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #303f9f;
+        }
+
+        p
+        {
+            text-align: justify;
+            line-height: 1.6em;
+        }
+        .block-position
+        {
+            position: relative;
+        }
+        .block-message
+        {
+            background: white;
+            padding: 25px;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            left:0;
+            right: 0;
+            top: 50px;
+            position: absolute;
+            border: 2px solid #303f9f;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<section>
+    <article class="block-position">
+        <div class="block-message">
+            <div>
+                <h1>Nouvelle(s) étude(s) publiée(s)</h1>
+            </div>
+            <div>
+                <p>{{ texte|raw }}</p>
+            </div>
+        </div>
+    </article>
+</section>
+</body>
+</html>

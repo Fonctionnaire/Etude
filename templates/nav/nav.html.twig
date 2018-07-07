@@ -1,6 +1,7 @@
 <div class="navbar-fixed ">
     <nav>
         <div class="nav-wrapper">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <a href="{{ path('index') }}" class="brand-logo center">Selon une étude</a>
             <ul id="nav-mobile" class="hide-on-med-and-down">
                 <li class="nav-follow">Suivez-nous : </li>
@@ -22,13 +23,13 @@
                 <li class="right"><a href="{{ path('all_actualites') }}">Actualités</a></li>
                 {% if is_granted('ROLE_USER') %}
                     <li class="right">
-                        <a class="dropdown-button right" href="#!" data-activates="dropdown2"><i class="material-icons right">arrow_drop_down</i>
+                        <a class="dropdown-button right dropdown-trigger" href="#!" data-target="dropdown2"><i class="material-icons right">arrow_drop_down</i>
                             Bonjour <strong>{{ app.user.username }} </strong>
                         </a>
                     </li>
                 {% else %}
                     <li class="right">
-                        <a class="dropdown-button right" href="#!" data-activates="dropdown1">
+                        <a class="dropdown-button right dropdown-trigger" href="#!" data-target="dropdown1">
                             <i class="material-icons right">arrow_drop_down</i>
                             Inscription / Connexion
                         </a>
@@ -58,3 +59,22 @@
         {% endif %}
     </ul>
 {% endif %}
+
+<!-- MOBILE -->
+<ul class="sidenav" id="mobile-demo">
+    <li class="right"><a href="{{ path('proposer_etude') }}">Proposer une étude</a></li>
+    {% if is_granted('ROLE_USER') %}
+        <li class="right">
+            <a class="dropdown-button right" href="#!" data-activates="dropdown2"><i class="material-icons right">arrow_drop_down</i>
+                Bonjour <strong>{{ app.user.username }} </strong>
+            </a>
+        </li>
+    {% else %}
+        <li class="right">
+            <a class="dropdown-button right" href="#!" data-activates="dropdown1">
+                <i class="material-icons right">arrow_drop_down</i>
+                Inscription / Connexion
+            </a>
+        </li>
+    {% endif %}
+</ul>

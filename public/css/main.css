@@ -18,6 +18,7 @@ body
 
 }
 
+
 /* CONTAINER */
 .container
 {
@@ -69,6 +70,7 @@ ul#dropdown1, ul#dropdown2
 {
     margin-top: 64px !important;
     background: linear-gradient(to bottom, #303f9f, #7986cb );
+    top: 0 !important;
 }
 
 .nav-titre-reseauxSociaux
@@ -153,6 +155,64 @@ ul#dropdown1, ul#dropdown2
 .footer-copy
 {
     padding-bottom: 15px;
+}
+
+/* NEWSLETTER */
+.newsletter
+{
+    margin-top: 25px;
+    background: white;
+    border-radius: 10px;
+}
+
+.newsletter-titre
+{
+    background: linear-gradient(to top, #303f9f, #7986cb);
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.newsletter-block
+{
+    padding: 15px;
+}
+
+.newsletter-text
+{
+    text-align: justify;
+    font-size: 0.9em;
+}
+
+.newsletter-form
+{
+    margin-top: 15px;
+}
+
+.newsletter-acceptTerms
+{
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 15px;
+}
+
+.newsletter label
+{
+    font-size: 1.1em;
+    color: black !important;
+}
+
+.newsletter input
+{
+    border: 1px solid black !important;
+}
+
+.newsletter .btn
+{
+    background: linear-gradient(to top, #303f9f, #7986cb);
 }
 
 /* ========= INDEX ============*/
@@ -337,6 +397,8 @@ ul#dropdown1, ul#dropdown2
 {
     color: black;
     transition: 0.5s;
+    padding: 0 10px;
+    margin-bottom: 10px;
 }
 
 .all-cat .all-cat-content a:hover
@@ -512,6 +574,7 @@ ul#dropdown1, ul#dropdown2
 {
     line-height: 1.4em;
     margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
 .view-etude-refus
@@ -590,6 +653,7 @@ ul#dropdown1, ul#dropdown2
 .all-actu-texte p
 {
     margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
 .all-actu-texte a
@@ -978,14 +1042,15 @@ ul#dropdown1, ul#dropdown2
 
 /* =============== ADMIN =================*/
 /* NAVIGATION */
-ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4, ul#admin-dropdown5
+ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4, ul#admin-dropdown5, ul#admin-dropdown6
 {
     margin-top: 64px !important;
     background: linear-gradient(to bottom, #303f9f, #7986cb);
     color: white;
+    top: 0 !important;
 }
 
-ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropdown4 a, ul#admin-dropdown5 a
+ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropdown4 a, ul#admin-dropdown5 a, ul#admin-dropdown6 a
 {
     color: white;
 }
@@ -1118,6 +1183,12 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 
     .etude-categorie
     {
-        top: 17%;
+        top: 20%;
+        font-size: 0.9em;
+    }
+
+    .etude-list h3
+    {
+        font-size: 1.2em;
     }
 }

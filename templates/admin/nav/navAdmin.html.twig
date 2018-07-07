@@ -2,12 +2,13 @@
     <div class="nav-wrapper">
         <ul class="hide-on-med-and-down">
             <li><a href="{{ path('admin_index') }}">Accueil</a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown1">Actualités<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown2">Etudes<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown3">Utilisateurs<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown4">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admin-dropdown5">Commentaires<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown1">Actualités<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown2">Etudes<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown3">Utilisateurs<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown4">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown5">Commentaires<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="{{ path('admin_gestion_contact') }}">Contacts</a> </li>
+            <li><a class="dropdown-button dropdown-trigger" href="#!" data-target="admin-dropdown6">Newsletter<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
     </div>
 </nav>
@@ -43,4 +44,8 @@
     <li class="divider"></li>
     <li><a href="{{ path('admin_gestion_comments_actu') }}">Actualité</a></li>
 </ul>
-
+<ul id="admin-dropdown6" class="dropdown-content">
+    <li><a href="{{ path('admin_envoi_newsletter') }}">Envoi</a></li>
+    <li class="divider"></li>
+    <li><a>Liste</a></li>
+</ul>
