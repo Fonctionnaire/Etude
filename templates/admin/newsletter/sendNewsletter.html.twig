@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'admin/nav/navAdmin.html.twig' %}
+    <section class="row admin-form-ajout z-depth-2">
+        <article class="col s12 m8 offset-m2">
+            <div>
+                <h1 class="center">Envoyer une newsletter</h1>
+            </div>
+            {{ form_start(form) }}
+            <div>
+                {{ form_label(form.texte, 'Texte') }}
+                {{ form_widget(form.texte) }}
+                {{ form_errors(form.texte) }}
+            </div>
+            <div class="center">
+                {{ form_widget(form.valider) }}
+            </div>
+            {{ form_end(form) }}
+        </article>
+    </section>
+{% endblock %}

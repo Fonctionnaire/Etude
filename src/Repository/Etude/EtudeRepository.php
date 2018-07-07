@@ -43,7 +43,7 @@ class EtudeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('e')
             ->where('e.valide = true')
             ->andWhere('e.refuse = false')
-            ->orderBy('e.dateValidation', 'ASC')
+            ->orderBy('e.dateValidation', 'DESC')
             ->setMaxResults(15)
             ->getQuery()
             ->getResult();
@@ -56,8 +56,8 @@ class EtudeRepository extends ServiceEntityRepository
             ->andWhere('e.refuse = false')
             ->andWhere('e.categorie != :cat')
             ->setParameter('cat', $cat)
-            ->orderBy('e.dateValidation', 'ASC')
-            ->setMaxResults(5)
+            ->orderBy('e.dateValidation', 'DESC')
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult();
     }
@@ -102,7 +102,7 @@ class EtudeRepository extends ServiceEntityRepository
             ->andWhere('e.valide = true')
             ->andWhere('e.categorie = :cat')
             ->setParameter('cat', $categorie)
-            ->orderBy('e.dateValidation', 'ASC')
+            ->orderBy('e.dateValidation', 'DESC')
             ->setFirstResult(($page - 1) * Etude::NB_ETUDES)
             ->setMaxResults(Etude::NB_ETUDES)
             ->getQuery()
@@ -119,7 +119,7 @@ class EtudeRepository extends ServiceEntityRepository
             ->andWhere('e.categorie = :cat')
             ->andWhere('e.slug != :slug')
             ->setParameters(['cat' => $categorie, 'slug' => $slug])
-            ->setMaxResults(6)
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult()
             ;
@@ -130,7 +130,7 @@ class EtudeRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('e')
             ->where('e.refuse = false')
             ->andWhere('e.valide = true')
-            ->orderBy('e.dateValidation', 'ASC')
+            ->orderBy('e.dateValidation', 'DESC')
             ->setFirstResult(($page - 1) * Etude::NB_ETUDES)
             ->setMaxResults(Etude::NB_ETUDES)
             ->getQuery()
@@ -144,7 +144,7 @@ class EtudeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('e')
             ->where('e.refuse = false')
             ->andWhere('e.valide = true')
-            ->orderBy('e.dateValidation', 'ASC')
+            ->orderBy('e.dateValidation', 'DESC')
             ->getQuery()
             ->getResult()
             ;

@@ -20,8 +20,9 @@
         </div>
 
         <div class="center security-form-terms">
+            <label for="remember_me">
             <input type="checkbox" id="remember_me" name="_remember_me" />
-            <label for="remember_me">Se souvenir de moi</label>
+                <span>Se souvenir de moi</span></label>
         </div>
         <div class="center">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

@@ -35,8 +35,11 @@ class AjoutEtudeController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $slug = $slugger->slugify($etude->getTitre());
             $etude->setSlug($slug);
-
-            $etude->setUser($this->getUser()->getUsername());
+            foreach ($etude->getSources() as $sources)
+            {
+                $sources->setEtude($etude);
+            }
+            $etude->setUser($this->getUser());
             $em->persist($etude);
             $em->flush();
 

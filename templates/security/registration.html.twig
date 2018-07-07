@@ -28,9 +28,10 @@
             {{ form_errors(form.plainPassword.second) }}
         </div>
         <div class="center security-form-terms">
+            <label for="user_acceptTerms" class="required">
             {{ form_widget(form.acceptTerms) }}
-            <label for="user_acceptTerms" class="required">J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
-                    d'utilisation</a></label>
+            <span>J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
+                    d'utilisation</a></span></label>
             {{ form_errors(form.acceptTerms) }}
         </div>
         <div class="center">

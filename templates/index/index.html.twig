@@ -22,7 +22,7 @@
                     <div class="etude-list">
                         <div class="row">
                             <div class="etude-categorie">
-                                    {{ le.categorie.nom }}
+                                   {{ le.categorie.nom }}
                             </div>
                             <div class="col m0 l3">
                                 <div class="etude-img ">
@@ -76,7 +76,6 @@
                 <div class="last-actu-content">
                     <span>Le {{ lastActu.dateAjout|date('d-m-Y') }}</span>
                     <h3>{{ lastActu.titre }}</h3>
-                    <p>{{ lastActu.texte|striptags|slice(0, 150) }} ...</p>
                 </div>
                 </a>
                 <div class="last-actu-link">
@@ -92,11 +91,46 @@
                 <div class="all-cat-content">
                     {% for cat in categories %}
                         {% if cat.etudes|length %}
+
                         <a href="{{ path('view_etude_categorie', {'slug': cat.slug}) }}">
-                            <p>{{ cat.nom }}</p>
+                            <p>| {{ cat.nom }} |</p>
                         </a>
+
                     {% endif %}
                     {% endfor %}
+                </div>
+            </div>
+        </aside>
+        <aside class="col m12 l4">
+            <div class="z-depth-2 newsletter">
+                <div class="newsletter-titre">
+                    <p>Newsletter</p>
+                </div>
+                <div class="newsletter-block">
+                    <div class="newsletter-text">
+                        <p>
+                            Inscrivez-vous à la newsletter pour recevoir régulièrement par e-mail les dernières études publiées.
+                        </p>
+                    </div>
+                    <div>
+                        {{ form_start(form) }}
+                        <div class="newsletter-form">
+                            {{ form_label(form.email, 'Votre e-mail') }}
+                            {{ form_widget(form.email) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+                        <div class="newsletter-acceptTerms">
+                            <label for="newsletter_acceptTerms" class="required">
+                            {{ form_widget(form.acceptTerms) }}
+                            <span>J'accepte les <a href="{{ path('mentions_legales') }}" target="_blank">conditions
+                                    d'utilisation</a></span></label>
+                            {{ form_errors(form.acceptTerms)}}
+                        </div>
+                        <div class="center">
+                            {{ form_widget(form.valider) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
                 </div>
             </div>
         </aside>
