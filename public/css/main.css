@@ -577,6 +577,18 @@ ul#dropdown1, ul#dropdown2
     font-size: 1.1em;
 }
 
+.view-etude-text ul
+{
+    margin-bottom: 15px;
+}
+
+.view-etude-text ul li
+{
+    list-style-type: initial !important;
+    line-height: 1.2em;
+    margin-left: 25px;
+}
+
 .view-etude-refus
 {
     padding: 25px 15px !important;
