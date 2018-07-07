@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="title" content="{% block metaTitle %}{% endblock %}">
+    <meta name="description" content="{% block metaDesc %}{% endblock %}">
+    <meta name="keywords" content="{% block metaWords %}{% endblock %}">
+    <title>Selon une étude -  {% block title %}{% endblock %}</title>
     {% block stylesheets %}
         {% include 'styles.html.twig' %}
     {% endblock %}

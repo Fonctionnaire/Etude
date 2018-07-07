@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block metaTitle %}
+    Etudes par catégorie
+{% endblock %}
+{% block title %}
+    Etudes par catégorie
+{% endblock %}
+{% block metaDesc %}
+    Retrouver les études d'une même catégorie.
+{% endblock %}
+{% block metaWords %}
+    études, étude, catégorie
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/fbShare.js') }}"></script>
