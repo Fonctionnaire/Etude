@@ -92,7 +92,6 @@
                             <div class="last-actu-content">
                                 <span>Le {{ sc.dateValidation|date('d-m-Y') }}</span>
                                 <h3>{{ sc.titre }}</h3>
-                                <p>{{ sc.texte|striptags|slice(0, 150) }} ...</p>
                             </div>
                         </a>
                     {% endfor %}

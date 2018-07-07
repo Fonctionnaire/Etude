@@ -61,7 +61,6 @@
                 <div class="last-actu-content">
                     <span>Le {{ lfa.dateAjout|date('d-m-Y') }}</span>
                     <h3>{{ lfa.titre }}</h3>
-                    <p>{{ lfa.texte|striptags|slice(0, 150) }} ...</p>
                 </div>
             </a>
             {% endfor %}
