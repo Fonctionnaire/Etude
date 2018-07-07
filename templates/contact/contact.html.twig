@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block metaTitle %}
+
+{% endblock %}
+{% block title %}
+    Nous contacter
+{% endblock %}
+{% block metaDesc %}
+    Nous contacter
+{% endblock %}
+{% block metaWords %}
+    études, études, contact
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -51,11 +63,9 @@
                     d'utilisation</a></span></label>
             {{ form_errors(form.acceptTerms) }}
         </div>
-        <!-- A REACTIVER
-        <div>
+        <div class="center">
             <div class="g-recaptcha" data-sitekey="6LfLn1sUAAAAAOqqu7419dZftCZrGtsHPmCd8ErK"></div>
         </div>
-        -->
         <div class="center">
             {{ form_widget(form.valider) }}
         </div>

@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block metaTitle %}
+    Toutes les actus
+{% endblock %}
+{% block title %}
+    Toutes les actus
+{% endblock %}
+{% block metaDesc %}
+    Retrouvez tous les actus publiées sur le site.
+{% endblock %}
+{% block metaWords %}
+    étude, études, actualités, actus
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/fbShare.js') }}"></script>
