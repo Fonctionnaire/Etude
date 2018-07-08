@@ -33,7 +33,6 @@ class ContactController extends AbstractController
             $em->persist($contact);
             $em->flush();
 
-            dump($contact);
             $contactMail->sendContactMail($contact);
             $contactMail->sendContactMailToSender($contact);
             $this->addFlash('success', 'Votre message a bien été envoyé ! Nous allons traiter votre demande au plus vite.');
