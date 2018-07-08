@@ -1130,6 +1130,11 @@ ul#dropdown1, ul#dropdown2
     overflow: auto;
 }
 
+.g-recaptcha div:first-of-type
+{
+    margin: auto;
+}
+
 /* =============== ADMIN =================*/
 /* NAVIGATION */
 ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4, ul#admin-dropdown5, ul#admin-dropdown6
@@ -1285,6 +1290,12 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
         font-size: 0.65em;
     }
 
+    /* FOOTER */
+    .footer-links
+    {
+        width: 90%;
+    }
+
     /* INDEX */
     .etude-list .etude-img img
     {
@@ -1307,5 +1318,45 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
         font-size: 1.2em;
     }
 
+    .last-actu
+    {
+        margin-top: 25px;
+    }
+
+
+}
+@media all and (max-width: 650px){
+
+
+    /* ETUDE */
+    .view-etude-first img
+    {
+        display: none;
+    }
+
+    .view-etude-first .view-etude-main
+    {
+        padding-left: 0;
+    }
+
+    .view-etude-main p
+    {
+        font-size: 0.8em;
+    }
+
+    .view-etude-first .view-etude-main h1
+    {
+        font-size: 1em;
+    }
+
+    .view-etude-sources ul
+    {
+        margin-left: 0;
+    }
+
+    .view-etude-sources ul li a
+    {
+        font-size: 0.8em;
+    }
 
 }
