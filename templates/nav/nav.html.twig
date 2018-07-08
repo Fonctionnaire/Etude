@@ -62,19 +62,52 @@
 
 <!-- MOBILE -->
 <ul class="sidenav" id="mobile-demo">
-    <li class="right"><a href="{{ path('proposer_etude') }}">Proposer une étude</a></li>
+    <li><a href="{{ path('proposer_etude') }}">Proposer une étude</a></li>
+    <li><div class="divider"></div></li>
     {% if is_granted('ROLE_USER') %}
-        <li class="right">
-            <a class="dropdown-button right" href="#!" data-activates="dropdown2"><i class="material-icons right">arrow_drop_down</i>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+            <a class="collapsible-header" href="#!"><i class="material-icons right">arrow_drop_down</i>
                 Bonjour <strong>{{ app.user.username }} </strong>
             </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="{{ path('view_profile', {'username': app.user.username}) }}" class="white-text">Mon compte</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li class="divider"></li>
+                        <li><a href="{{ path('admin_index') }}">Admin</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
         </li>
     {% else %}
-        <li class="right">
-            <a class="dropdown-button right" href="#!" data-activates="dropdown1">
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+        <li>
+            <a class="collapsible-header">
                 <i class="material-icons right">arrow_drop_down</i>
                 Inscription / Connexion
             </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_registration') }}">Inscription</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('login') }}">Connexion</a></li>
+                    </ul>
+                </div>
         </li>
+        </ul>
+    </li>
     {% endif %}
+    <li><div class="divider"></div></li>
+    <li><a href="{{ path('all_actualites') }}">Actualités</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="{{ path('contact') }}">Nous contacter</a></li>
 </ul>
