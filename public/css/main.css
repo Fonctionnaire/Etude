@@ -182,9 +182,10 @@ ul#dropdown1, ul#dropdown2
     background:-o-linear-gradient(to top, #303f9f, #7986cb );
     color: white;
     text-align: center;
-    font-size: 1.3em;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    height: 25px;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding-top: 2px;
     border-radius: 10px 10px 0 0;
 }
 
@@ -330,10 +331,11 @@ ul#dropdown1, ul#dropdown2
     background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
     background:-o-linear-gradient(to top, #303f9f, #7986cb );
     color: white;
-    height: 50px;
-    font-size: 1.3em;
+    height: 25px;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding-top: 2px;
     text-align: center;
-    padding-top: 15px;
     border-radius: 10px 10px 0 0;
 }
 
@@ -366,26 +368,23 @@ ul#dropdown1, ul#dropdown2
 
 .last-actu .last-actu-link
 {
-    background: linear-gradient(to bottom, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
-    height: 35px;
+    background: #cfd8dc;
+    height: 20px;
     font-size: 1.1em;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 1px;
     border-radius: 0 0 10px 10px;
 }
 
 .last-actu .last-actu-link a
 {
-    color: white;
+    color: black;
     transition: 0.5s;
 }
 
 .last-actu .last-actu-link a:hover
 {
-    color: #bbdefb;
+    color: #42a5f5;
 }
 
 .all-cat
@@ -401,10 +400,11 @@ ul#dropdown1, ul#dropdown2
     background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
     background:-o-linear-gradient(to top, #303f9f, #7986cb );
     color: white;
-    height: 50px;
-    font-size: 1.3em;
+    height: 25px;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding-top: 2px;
     text-align: center;
-    padding-top: 15px;
     border-radius: 10px 10px 0 0;
 }
 
