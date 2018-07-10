@@ -6,12 +6,20 @@
     <meta name="title" content="{% block metaTitle %}{% endblock %}">
     <meta name="description" content="{% block metaDesc %}{% endblock %}">
     <meta name="keywords" content="{% block metaWords %}{% endblock %}">
-    <title>Selon une étude -  {% block title %}{% endblock %}</title>
+    <title>Selon une étude - {% block title %}{% endblock %}</title>
     {% block stylesheets %}
         {% include 'styles.html.twig' %}
     {% endblock %}
     {% block share %}
     {% endblock %}
+    <!-- Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8085361958593173",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 <body>
 <header>
