@@ -1,16 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block metaTitle %}
-    Proposer une étude
-{% endblock %}
-{% block title %}
-    Proposer une étude
-{% endblock %}
-{% block metaDesc %}
-    Vous avez trouvé une étude qui vous intéresse et que vous souhaiteriez partager ? N'hésitez pas à nous la soumettre grâce au formulaire.
-{% endblock %}
-{% block metaWords %}
-    proposer, étude, études
-{% endblock %}
+{% block metaTitle %}Proposer une étude{% endblock %}
+{% block title %}Proposer une étude{% endblock %}
+{% block metaDesc %}Vous avez trouvé une étude qui vous intéresse et que vous souhaiteriez partager ? N'hésitez pas à nous la soumettre grâce au formulaire.{% endblock %}
+{% block metaWords %}proposer, étude, études{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/addAndDeleteSource.js') }}"></script>

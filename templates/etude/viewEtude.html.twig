@@ -1,16 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block metaTitle %}
-    {{ etude.titre }}
-{% endblock %}
-{% block title %}
-    {{ etude.titre }}
-{% endblock %}
-{% block metaDesc %}
-    {{ etude.texte|striptags|slice(0, 200) }}
-{% endblock %}
-{% block metaWords %}
-    {{ etude.categorie.nom }}, études, étude
-{% endblock %}
+{% block metaTitle %}{{ etude.titre }}{% endblock %}
+{% block title %}{{ etude.titre }}{% endblock %}
+{% block metaDesc %}{{ etude.texte|raw }}{% endblock %}
+{% block metaWords %}{{ etude.categorie.nom }}, études, étude{% endblock %}
 {% block share %}
     <meta property="og:url"           content="{{ path('view_etude', {'slug': etude.slug}) }}" />
     <meta property="og:type"          content="website" />
