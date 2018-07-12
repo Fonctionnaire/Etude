@@ -1,16 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block metaTitle %}
-    {{ actualite.titre }}
-{% endblock %}
-{% block title %}
-    {{ actualite.titre }}
-{% endblock %}
-{% block metaDesc %}
-    {{ actualite.texte|slice(0, 200) }}
-{% endblock %}
-{% block metaWords %}
-    étude, études, actualités, actus
-{% endblock %}
+{% block metaTitle %}{{ actualite.titre }}{% endblock %}
+{% block title %}{{ actualite.titre }}{% endblock %}
+{% block metaDesc %}{{ actualite.texte|slice(0, 200) }}{% endblock %}
+{% block metaWords %}étude, études, actualités, actus{% endblock %}
 {% block share %}
     <meta property="og:url"           content="{{ path('view_one_actu', {'slug': actualite.slug}) }}" />
     <meta property="og:type"          content="website" />
