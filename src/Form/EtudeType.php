@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Categorie\Categorie;
 use App\Entity\Etude\Etude;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -21,7 +21,7 @@ class EtudeType extends AbstractType
             ->add('titre', TextType::class, array(
                 'attr' => ['placeholder' => '200 caractères maximum.']
             ))
-            ->add('texte', CKEditorType::class)
+            ->add('texte', FroalaEditorType::class)
             ->add('categorie', EntityType::class, array(
                 'choice_label' => 'nom',
                 'class' => Categorie::class,

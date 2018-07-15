@@ -15,6 +15,15 @@
     <script src="{{ asset('js/fbShare.js') }}"></script>
     <script src="{{ asset('js/twitterShare.js') }}"></script>
     <script src="{{ asset('js/scrollspy.js') }}"></script>
+    <script src="{{ asset('js/froala_editor.min.js') }}"></script>
+    <script src="{{ asset('js/fr.js') }}"></script>
+    <script src="{{ asset('js/emoticons.min.js') }}"></script>
+    <script src="{{ asset('js/align.min.js') }}"></script>
+    <script src="{{ asset('js/quote.min.js') }}"></script>
+    <script src="{{ asset('js/image.min.js') }}"></script>
+    <script src="{{ asset('js/image_manager.min.js') }}"></script>
+    <script src="{{ asset('js/link.min.js') }}"></script>
+    <script src="{{ asset('js/list.min.js') }}"></script>
 {% endblock %}
 {% block body %}
 <section class="row">
@@ -33,7 +42,7 @@
                    href="https://twitter.com/intent/tweet?text={{ actualite.titre }}" data-url="{{ path('view_one_actu', {'slug': actualite.slug})
                 }}">Tweet</a>
             </div>
-            <div class="all-actu-texte">
+            <div class="all-actu-texte fr-view">
                 {{ actualite.texte|raw }}
             </div>
         </div>
@@ -91,7 +100,7 @@
                                     </a>
                                 {% endif %}
                             </div>
-                            <div class="all-comments-texte">
+                            <div class="all-comments-texte fr-view">
                                 {% if com.actif != true %}
                                     <em>Ce commentaire est jugé inapproprié et a été modéré.</em>
                                 {% else %}

@@ -29,3 +29,13 @@ framework:
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
 
+kms_froala_editor:
+  language: 'fr'
+  placeholderText: 'Votre étude'
+  heightMin: 300
+  includeJS: false
+  toolbarButtons: ['bold', 'italic', 'underline', 'align', 'formatUL','emoticons',"|",  'quote', 'insertLink', 'insertImage', "|",'undo', 'redo']
+  imageUploadFolder: "/images/uploads"
+  imageAllowedTypes: ['jpeg', 'jpg', 'png']
+  imageUploadParams: {id: 'my_editor'}
+  imageUploadMethod: 'POST'

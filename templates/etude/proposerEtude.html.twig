@@ -6,6 +6,15 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/addAndDeleteSource.js') }}"></script>
+    <script src="{{ asset('js/froala_editor.min.js') }}"></script>
+    <script src="{{ asset('js/fr.js') }}"></script>
+    <script src="{{ asset('js/emoticons.min.js') }}"></script>
+    <script src="{{ asset('js/align.min.js') }}"></script>
+    <script src="{{ asset('js/quote.min.js') }}"></script>
+    <script src="{{ asset('js/image.min.js') }}"></script>
+    <script src="{{ asset('js/image_manager.min.js') }}"></script>
+    <script src="{{ asset('js/link.min.js') }}"></script>
+    <script src="{{ asset('js/list.min.js') }}"></script>
     {% endblock %}
 {% block body %}
 <section class="row">
@@ -41,7 +50,7 @@
             {{ form_errors(form.titre) }}
         </div>
         <div>
-            {{ form_label(form.texte, 'Texte') }}
+
             {{ form_widget(form.texte) }}
             {{ form_errors(form.texte) }}
         </div>
@@ -69,7 +78,5 @@
 
 
 </section>
-
-
 
 {% endblock %}
