@@ -17,6 +17,15 @@
     <script src="{{ asset('js/twitterShare.js') }}"></script>
     <script src="{{ asset('js/tooltip.js') }}"></script>
     <script src="{{ asset('js/scrollspy.js') }}"></script>
+    <script src="{{ asset('js/froala_editor.min.js') }}"></script>
+    <script src="{{ asset('js/fr.js') }}"></script>
+    <script src="{{ asset('js/emoticons.min.js') }}"></script>
+    <script src="{{ asset('js/align.min.js') }}"></script>
+    <script src="{{ asset('js/quote.min.js') }}"></script>
+    <script src="{{ asset('js/image.min.js') }}"></script>
+    <script src="{{ asset('js/image_manager.min.js') }}"></script>
+    <script src="{{ asset('js/link.min.js') }}"></script>
+    <script src="{{ asset('js/list.min.js') }}"></script>
 {% endblock %}
 {% block body %}
 
@@ -65,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="view-etude-text">
+                <div class="view-etude-text fr-view">
                     {{ etude.texte|raw }}
                 </div>
             </div>
@@ -124,7 +133,7 @@
                                 </a>
                                 {% endif %}
                             </div>
-                            <div class="all-comments-texte">
+                            <div class="all-comments-texte fr-view">
                                 {% if com.actif != true %}
                                     <em>Ce commentaire est jugé inapproprié et a été modéré.</em>
                                 {% else %}

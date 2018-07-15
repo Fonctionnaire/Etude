@@ -1,3 +1,19 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+kms_froala_editor:
+  resource: "@KMSFroalaEditorBundle/Resources/config/routing.yml"
+  prefix:   /froalaeditor
+
+kms_froala_editor_upload_image:
+    path: /upload_image
+    defaults: { _controller: KMSFroalaEditorBundle:Media:uploadImage }
+
+kms_froala_editor_delete_image:
+    path: /delete_image
+    defaults: { _controller: KMSFroalaEditorBundle:Media:deleteImage }
+
+kms_froala_editor_load_images:
+    path: /load_images
+    defaults: { _controller: KMSFroalaEditorBundle:Media:loadImages }

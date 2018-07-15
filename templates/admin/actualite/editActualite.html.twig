@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/froala_editor.min.js') }}"></script>
+    <script src="{{ asset('js/fr.js') }}"></script>
+    <script src="{{ asset('js/emoticons.min.js') }}"></script>
+    <script src="{{ asset('js/align.min.js') }}"></script>
+    <script src="{{ asset('js/quote.min.js') }}"></script>
+    <script src="{{ asset('js/image.min.js') }}"></script>
+    <script src="{{ asset('js/image_manager.min.js') }}"></script>
+    <script src="{{ asset('js/link.min.js') }}"></script>
+    <script src="{{ asset('js/list.min.js') }}"></script>
+{% endblock %}
 {% block body %}
     {% include 'admin/nav/navAdmin.html.twig' %}
     <section class="row admin-form-ajout z-depth-2">
