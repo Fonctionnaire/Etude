@@ -63,11 +63,9 @@
                     </div>
                 </a>
                 {% endfor %}
-                {% if lastEtudes|length > 15 %}
                 <div class="etudes-view-all center">
                     <a href="{{ path('view_all_etudes', {'page': 2}) }}">Voir la suite</a>
                 </div>
-                {% endif %}
             </div>
         </article>
         <aside class="col m12 l4">

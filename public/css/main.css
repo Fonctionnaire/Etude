@@ -609,7 +609,6 @@ ul#dropdown1, ul#dropdown2
 .view-etude-text p
 {
     line-height: 1.4em;
-    margin-bottom: 15px;
     font-size: 1.1em;
 }
 
@@ -640,10 +639,6 @@ ul#dropdown1, ul#dropdown2
     font-weight: bold;
 }
 
-.view-etude-refus p
-{
-    margin-top: 20px;
-}
 
 .refus-remerciement p
 {
@@ -706,7 +701,6 @@ ul#dropdown1, ul#dropdown2
 
 .all-actu-texte p
 {
-    margin-bottom: 15px;
     font-size: 1.1em;
 }
 
