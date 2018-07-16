@@ -18,7 +18,22 @@ body
 
 }
 
+/* FROALA EDITEUR */
+div.fr-modal-body div.fr-image-list div.fr-image-container .fr-delete-img {
+    display: none !important;
+}
 
+div.fr-modal-body div.fr-image-list div.fr-image-container .fr-insert-img {
+    -webkit-transform: translateY(-50%) translateX(-50%) !important;
+    -moz-transform: translateY(-50%) translateX(-50%) !important;
+    -ms-transform: translateY(-50%) translateX(-50%) !important;
+    -o-transform: translateY(-50%) translateX(-50%) !important;
+}
+
+.fr-view img
+{
+    max-width: 100% !important;
+}
 /* CONTAINER */
 .container
 {
@@ -1265,6 +1280,12 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 /* ================= RESPONSIVE ==================*/
 
 @media all and (max-width: 1400px){
+    .container
+    {
+        padding: 0;
+        width: 100%;
+    }
+
     .nav-wrapper .brand-logo
     {
         font-size: 1em;
@@ -1303,7 +1324,7 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
 
     .etude-categorie
     {
-        top: 20%;
+        top: -5%;
         font-size: 0.9em;
     }
 
