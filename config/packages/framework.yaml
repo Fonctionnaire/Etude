@@ -31,7 +31,6 @@ framework:
 
 kms_froala_editor:
   language: 'fr'
-  placeholderText: 'Votre étude'
   heightMin: 300
   includeJS: false
   toolbarButtons: ['bold', 'italic', 'underline', 'align', 'formatUL','emoticons',"|",  'quote', 'insertLink', 'insertImage', "|",'undo', 'redo']
@@ -39,3 +38,4 @@ kms_froala_editor:
   imageAllowedTypes: ['jpeg', 'jpg', 'png']
   imageUploadParams: {id: 'my_editor'}
   imageUploadMethod: 'POST'
+  serialNumber: 'lB5C1B1E2uF2C1F1H2A10C1E6A1A5B4hfsB-22wwouyxjjddE5ev=='
