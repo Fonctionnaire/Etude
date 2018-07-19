@@ -44,7 +44,7 @@ class EtudeRepository extends ServiceEntityRepository
             ->where('e.valide = true')
             ->andWhere('e.refuse = false')
             ->orderBy('e.dateValidation', 'DESC')
-            ->setMaxResults(15)
+            ->setMaxResults(20)
             ->getQuery()
             ->getResult();
     }
