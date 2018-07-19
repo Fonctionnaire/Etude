@@ -18,6 +18,11 @@ body
 
 }
 
+strong
+{
+    font-weight: 700 !important;
+}
+
 /* FROALA EDITEUR */
 div.fr-modal-body div.fr-image-list div.fr-image-container .fr-delete-img {
     display: none !important;

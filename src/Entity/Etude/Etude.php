@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Etude
 {
-    const NB_ETUDES = 15;
+    const NB_ETUDES = 20;
 
     /**
      * @ORM\Id()
