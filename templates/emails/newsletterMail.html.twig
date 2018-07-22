@@ -35,6 +35,13 @@
             border-radius: 10px;
 
         }
+
+        .block-dismiss p
+        {
+            text-align: justify;
+            font-size: 0.6em;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -45,10 +52,15 @@
                 <h1>Nouvelle(s) étude(s) publiée(s)</h1>
             </div>
             <div>
-                <p>{{ texte|raw }}</p>
+                <p>{{ titre }}</p>
             </div>
         </div>
     </article>
+    <aside class="block-dismiss">
+        <p>
+            Vous pouvez à tout moment vous désabonner de la newsletter en faisant la demande via notre <a href="https://selonuneetude.fr/nous-contacter" target="_blank">formulaire de contact</a>. Pensez à préciser votre e-mail dans la demande.
+        </p>
+    </aside>
 </section>
 </body>
 </html>

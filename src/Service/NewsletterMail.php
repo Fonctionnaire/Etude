@@ -30,7 +30,7 @@ class NewsletterMail extends \Twig_Extension
             ->setBody($this->twig->render(
                 'emails/newsletterMail.html.twig',
                 array(
-                    'texte' => $data->getTexte()
+                    'titre' => $data->getTitre()
                 )
             ),
                 'text/html'
