@@ -259,6 +259,7 @@ ul#dropdown1, ul#dropdown2
     border-radius: 10px;
     background: #b0bec5;
     text-align: center;
+    color: white;
 }
 
 .index-description p
@@ -1379,4 +1380,18 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
         font-size: 0.8em;
     }
 
+}
+
+@media screen and (max-height: 575px){
+    #rc-imageselect,
+    .g-recaptcha {
+        transform:scale(0.77);
+        transform-origin:0;
+        transform:scale(0.77);
+        transform-origin:0 0;
+        -webkit-transform:scale(0.77);
+        transform:scale(0.77);
+        -webkit-transform-origin:0 0;
+        transform-origin:0 0;
+    }
 }
