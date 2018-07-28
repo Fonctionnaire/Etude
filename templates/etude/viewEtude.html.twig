@@ -54,19 +54,7 @@
                             </p>
                         {% endif %}
                         <h1>{{ etude.titre }}</h1>
-                        <div class="view-etude-sources">
-                            <p>Sources :</p>
-                            <ul>
-                            {% for src in etude.sources %}
-                                <li>
-                                    <i class="tiny material-icons">link</i>
-                                    <a href="{{ src.nom }}" target="_blank">
-                                     {{ src.nom }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                            </ul>
-                        </div>
+
                         <div>
                             <div class="fb-like" data-href="{{ path('view_etude', {'slug': etude.slug}) }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                             <a class="twitter-share-button"
@@ -76,6 +64,20 @@
                 </div>
                 <div class="view-etude-text fr-view">
                     {{ etude.texte|raw }}
+                </div>
+                <hr>
+                <div class="view-etude-sources">
+                    <p>Sources :</p>
+                    <ul>
+                        {% for src in etude.sources %}
+                            <li>
+                                <i class="tiny material-icons">link</i>
+                                <a href="{{ src.nom }}" target="_blank">
+                                    {{ src.nom }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </article>
