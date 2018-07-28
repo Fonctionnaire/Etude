@@ -27,8 +27,6 @@ class DashboardController extends AbstractController
     {
         $this->denyAccessUnlessGranted('view', $user);
 
-
-
         return $this->render('security/dashboard.html.twig', array(
             'user' => $user,
         ));

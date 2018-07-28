@@ -306,7 +306,7 @@ ul#dropdown1, ul#dropdown2
 {
     position: absolute;
     left: -15px;
-    top: 5%;
+    top: 20px;
     background: linear-gradient(to top, #303f9f, #7986cb);
     background:-moz-linear-gradient(to top, #303f9f, #7986cb );
     background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
@@ -604,7 +604,7 @@ ul#dropdown1, ul#dropdown2
 
 .view-etude-sources
 {
-    margin-bottom: 25px;
+    font-size: 0.7em;
 }
 
 .view-etude-sources ul
