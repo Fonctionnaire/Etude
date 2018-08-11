@@ -5,6 +5,12 @@
     domaines, des plus sérieuses aux plus insolites.
 {% endblock %}
 {% block metaWords %}étude, études, scientifique, insolite, santé, selon une étude, etude, etudes{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.index-highlight-etude-img').attr('src', $('.fr-img-wrap img').attr('src'));
+    </script>
+{% endblock %}
 {% block body %}
     <section class="row">
         <article class="col s12">
@@ -13,6 +19,31 @@
                     Sur selonuneetude.fr nous vous proposons régulièrement des études réalisées dans différents
                     domaines, des plus sérieuses aux plus insolites.
                 </p>
+            </div>
+        </article>
+    </section>
+    <section class="row">
+        <article class="col s12">
+            <div class="z-depth-2 index-highlight-etude">
+                <a href="{{ path('view_etude', {'slug': lastEtude.slug}) }}">
+                    <img class="index-highlight-etude-img" src="">
+                    <div class="index-highlight-etude-titre">
+                        <div class="left">
+                            <h2>{{ lastEtude.titre }}</h2>
+                        </div>
+                        <div class="right index-highlight-etude-infos">
+                            <div>
+                                <span>Le {{ lastEtude.dateAjout|date('d-m-Y') }}</span>
+                            </div>
+                            <div>
+                                <span>Catégorie : {{ lastEtude.categorie.nom }}</span>
+                            </div>
+
+                        </div>
+
+                        {{ lastEtude.texte|raw }}
+                    </div>
+                </a>
             </div>
         </article>
     </section>

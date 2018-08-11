@@ -20,6 +20,18 @@ class EtudeRepository extends ServiceEntityRepository
         parent::__construct($registry, Etude::class);
     }
 
+    public function findLastEtudeValide()
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.valide = true')
+            ->andWhere('e.refuse = false')
+            ->orderBy('e.dateValidation', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
     public function findEtudeNonValide()
     {
         return $this->createQueryBuilder('e')
@@ -44,7 +56,8 @@ class EtudeRepository extends ServiceEntityRepository
             ->where('e.valide = true')
             ->andWhere('e.refuse = false')
             ->orderBy('e.dateValidation', 'DESC')
-            ->setMaxResults(20)
+            ->setFirstResult(1)
+            ->setMaxResults(21)
             ->getQuery()
             ->getResult();
     }
