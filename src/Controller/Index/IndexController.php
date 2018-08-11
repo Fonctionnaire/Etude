@@ -31,6 +31,7 @@ class IndexController extends AbstractController
         $lastEtudes = $em->getRepository(Etude::class)->findLastTenEtude();
         $lastActu = $em->getRepository(Actualite::class)->findLastActu();
         $categories = $em->getRepository(Categorie::class)->findAll();
+        $lastEtude = $em->getRepository(Etude::class)->findLastEtudeValide();
         $newsletter = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $newsletter);
         $form->handleRequest($request);
@@ -46,6 +47,7 @@ class IndexController extends AbstractController
             'lastEtudes' => $lastEtudes,
             'lastActu' => $lastActu,
             'categories' => $categories,
+            'lastEtude' => $lastEtude,
             'form' => $form->createView()
         ));
     }

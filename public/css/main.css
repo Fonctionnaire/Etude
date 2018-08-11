@@ -77,25 +77,24 @@ div.fr-modal-body div.fr-image-list div.fr-image-container .fr-insert-img {
 /* NAVIGATION */
 nav
 {
-    background: linear-gradient(to top, #303f9f, #7986cb ) !important;
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb ) !important;
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb ) !important;
-    background:-o-linear-gradient(to top, #303f9f, #7986cb ) !important;
+    background: #424242;
 }
 
+.nav-list-links
+{
+    margin-left: 15%;
+}
 
 .brand-logo
 {
     font-family: 'Chewy', cursive;
+    margin-left: 25px;
 }
 
 ul#dropdown1, ul#dropdown2
 {
     margin-top: 64px !important;
-    background: linear-gradient(to bottom, #303f9f, #7986cb );
-    background:-moz-linear-gradient(to bottom, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to bottom, #303f9f, #7986cb );
-    background:-o-linear-gradient(to bottom, #303f9f, #7986cb );
+    background: #424242;
     top: 0 !important;
 }
 
@@ -140,10 +139,7 @@ ul#dropdown1, ul#dropdown2
 
 .page-footer
 {
-    background: linear-gradient(to top, #303f9f, #7986cb) !important;
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb ) !important;
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb ) !important;
-    background:-o-linear-gradient(to top, #303f9f, #7986cb ) !important;
+    background: #424242;
 }
 
 .footer-reseaux
@@ -196,10 +192,7 @@ ul#dropdown1, ul#dropdown2
 
 .newsletter-titre
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #bdbdbd;
     color: white;
     text-align: center;
     height: 25px;
@@ -257,7 +250,7 @@ ul#dropdown1, ul#dropdown2
 {
     padding: 10px 15px;
     border-radius: 10px;
-    background: #b0bec5;
+    background: #424242;
     text-align: center;
     color: white;
 }
@@ -265,6 +258,53 @@ ul#dropdown1, ul#dropdown2
 .index-description p
 {
     line-height: 1.5em;
+}
+
+.index-highlight-etude
+{
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.index-highlight-etude-titre
+{
+    position: absolute;
+    bottom: 0;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.index-highlight-etude-titre h2
+{
+    font-size: 1.4em !important;
+    margin-top: 6.5%;
+    font-weight: bold;
+}
+
+.index-highlight-etude-infos
+{
+    padding-top: 25px;
+}
+
+.index-highlight-etude-infos div:first-of-type
+{
+    margin-bottom: 10px;
+}
+
+.index-highlight-etude-titre p
+{
+    display: none;
+}
+
+.index-highlight-etude-img
+{
+    width: 100%;
+    margin-top: -100px;
 }
 
 .block-etude
@@ -307,10 +347,7 @@ ul#dropdown1, ul#dropdown2
     position: absolute;
     left: -15px;
     top: 20px;
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #424242;
     color: white;
     font-size: 1.2em;
     padding: 5px 10px 5px 10px;
@@ -346,10 +383,7 @@ ul#dropdown1, ul#dropdown2
 
 .last-actu .last-actu-label
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #424242;
     color: white;
     height: 25px;
     font-size: 1.15em;
@@ -415,10 +449,7 @@ ul#dropdown1, ul#dropdown2
 
 .all-cat .all-cat-label
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #424242;
     color: white;
     height: 25px;
     font-size: 1.15em;
@@ -456,10 +487,7 @@ ul#dropdown1, ul#dropdown2
 
 .etudes-view-all
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #bdbdbd;
     padding: 15px 0 15px 0;
     border-radius: 0 0 10px 10px;
 }
@@ -697,10 +725,7 @@ ul#dropdown1, ul#dropdown2
 
 .all-actu-titre
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #424242;
     border-radius: 10px 10px 0 0;
 
 }
@@ -771,10 +796,7 @@ ul#dropdown1, ul#dropdown2
 
 .bandeau-comments
 {
-    background: linear-gradient(to top, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to top, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to top, #303f9f, #7986cb );
-    background:-o-linear-gradient(to top, #303f9f, #7986cb );
+    background: #424242;
     display: flex;
     color: white;
     justify-content: space-around;
@@ -1154,10 +1176,7 @@ ul#dropdown1, ul#dropdown2
 ul#admin-dropdown1, ul#admin-dropdown2, ul#admin-dropdown3, ul#admin-dropdown4, ul#admin-dropdown5, ul#admin-dropdown6
 {
     margin-top: 64px !important;
-    background: linear-gradient(to bottom, #303f9f, #7986cb);
-    background:-moz-linear-gradient(to bottom, #303f9f, #7986cb );
-    background:-webkit-linear-gradient(to bottom, #303f9f, #7986cb );
-    background:-o-linear-gradient(to bottom, #303f9f, #7986cb );
+    background: #424242;
     color: white;
     top: 0 !important;
 }
@@ -1392,5 +1411,41 @@ ul#admin-dropdown1 a, ul#admin-dropdown2 a, ul#admin-dropdown3 a, ul#admin-dropd
         transform:scale(0.77);
         -webkit-transform-origin:0 0;
         transform-origin:0 0;
+    }
+}
+
+@media screen and (max-width: 790px){
+    .index-highlight-etude
+    {
+        height: 200px;
+    }
+
+    .index-highlight-etude-titre
+    {
+        position: absolute;
+        bottom: 0;
+        height: 90px;
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .index-highlight-etude-titre h2
+    {
+        font-size: 0.8em !important;
+    }
+
+    .index-highlight-etude-img
+    {
+        height: 100%;
+        margin-top: 0;
+    }
+
+    .index-highlight-etude-infos
+    {
+        padding-top: 15px;
+        font-size: 0.7em;
     }
 }
