@@ -14,7 +14,7 @@ use App\Service\registerMail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -65,7 +65,6 @@ class RegistrationController extends Controller
         $em = $this->getDoctrine()->getManager();
         /** @var User|null $user */
         $user = $em->getRepository(User::class)->findOneBy(['confirmationToken' => $token]);
-
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('L\'utilisateur avec le token "%s" n\'existe pas', $token));
         }

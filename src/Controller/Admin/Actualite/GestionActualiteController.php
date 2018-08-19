@@ -10,7 +10,7 @@ namespace App\Controller\Admin\Actualite;
 
 
 use App\Entity\Actualite\Actualite;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

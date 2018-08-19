@@ -131,6 +131,7 @@ class EtudeRepository extends ServiceEntityRepository
             ->andWhere('e.valide = true')
             ->andWhere('e.categorie = :cat')
             ->andWhere('e.slug != :slug')
+            ->orderBy('e.dateValidation', 'DESC')
             ->setParameters(['cat' => $categorie, 'slug' => $slug])
             ->setMaxResults(3)
             ->getQuery()

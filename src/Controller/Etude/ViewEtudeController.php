@@ -13,7 +13,7 @@ use App\Entity\Commentaire\CommentaireEtude;
 use App\Entity\Etude\Etude;
 use App\Form\CommentaireEtudeType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 

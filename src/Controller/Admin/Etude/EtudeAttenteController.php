@@ -10,7 +10,7 @@ namespace App\Controller\Admin\Etude;
 
 
 use App\Entity\Etude\Etude;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
