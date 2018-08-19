@@ -12,7 +12,7 @@ namespace App\Controller\Admin\Commentaires;
 use App\Entity\Commentaire\CommentaireActu;
 use App\Entity\Commentaire\CommentaireEtude;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

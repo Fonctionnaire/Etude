@@ -12,7 +12,7 @@ namespace App\Controller\Contact;
 use App\Entity\Contact\Contact;
 use App\Form\ContactType;
 use App\Service\ContactMail;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 

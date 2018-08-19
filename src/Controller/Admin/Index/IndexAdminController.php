@@ -11,11 +11,10 @@ namespace App\Controller\Admin\Index;
 
 use App\Entity\Actualite\Actualite;
 use App\Entity\Categorie\Categorie;
-use App\Entity\Commentaire\CommentaireEtude;
 use App\Entity\Contact\Contact;
 use App\Entity\Etude\Etude;
 use App\Entity\User\User;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

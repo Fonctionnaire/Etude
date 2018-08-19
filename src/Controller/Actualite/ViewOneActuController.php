@@ -12,7 +12,7 @@ namespace App\Controller\Actualite;
 use App\Entity\Actualite\Actualite;
 use App\Entity\Commentaire\CommentaireActu;
 use App\Form\CommentaireActuType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 

@@ -11,7 +11,7 @@ namespace App\Controller\Rss;
 
 use App\Entity\Etude\Etude;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class EtudeRssController extends AbstractController

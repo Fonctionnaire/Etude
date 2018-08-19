@@ -1,0 +1,3 @@
+Sitemap: https://selonuneetude.fr/sitemap
+
+User-agent: *

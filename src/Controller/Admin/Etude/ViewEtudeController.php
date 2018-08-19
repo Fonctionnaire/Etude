@@ -12,7 +12,7 @@ namespace App\Controller\Admin\Etude;
 use App\Entity\Etude\Etude;
 use App\Form\MotifRefus;
 use App\Service\EtudeMail;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

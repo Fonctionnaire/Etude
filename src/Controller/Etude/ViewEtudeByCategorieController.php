@@ -14,7 +14,7 @@ use App\Entity\Etude\Etude;
 use App\Entity\Newsletter\Newsletter;
 use App\Form\NewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
