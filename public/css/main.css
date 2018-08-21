@@ -38,6 +38,7 @@ div.fr-modal-body div.fr-image-list div.fr-image-container .fr-insert-img {
 .fr-view img
 {
     max-width: 100% !important;
+    width: 100% !important;
 }
 /* CONTAINER */
 .container
