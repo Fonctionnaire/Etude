@@ -90,7 +90,7 @@
                                     le {{ com.dateAjout|date('d-m-Y') }} à {{ com.dateAjout|date('H:i') }}
                                 </p>
                                 {% if com.actif == true %}
-                                    <a href="{{ path('etude_signale_comment', {'id': com.id}) }}"
+                                    <a href="{{ path('actu_signale_comment', {'id': com.id}) }}"
                                        class="signale tooltipped" data-position="top" data-tooltip="Signaler ce
                                 commentaire" onclick="return confirm('Etes-vous sûr de vouloir signaler ce ' +
                                  'commentaire' +

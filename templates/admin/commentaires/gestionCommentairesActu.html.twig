@@ -35,7 +35,7 @@
                                    title="Voir">
                                     <i class="material-icons blue ">visibility</i>
                                 </a>
-                                {% if sc.actif != true %}
+                                {% if sc.actif == true %}
                                         <a href="{{ path('admin_gestion_comments_actu_disable', {'id': sc.id}) }}"       title="Désactiver" onclick="return confirm('Etes-vous sûr de vouloir désactiver le commentaire ?')">
                                             <i class="material-icons red">do_not_disturb</i>
                                         </a>
