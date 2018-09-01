@@ -50,7 +50,7 @@ class Actualite
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireActu", mappedBy="actu")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireActu", mappedBy="actu", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(nullable=true)
      */
     private $commentaires;

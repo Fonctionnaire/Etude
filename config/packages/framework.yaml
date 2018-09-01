@@ -33,7 +33,8 @@ kms_froala_editor:
   language: 'fr'
   heightMin: 300
   includeJS: false
-  toolbarButtons: ['bold', 'italic', 'underline', 'align', 'formatUL','emoticons',"|",  'quote', 'insertLink', 'insertImage', "|",'undo', 'redo']
+  iframeStyle: 'body{position:relative;z-index:2;}pre{white-space:pre-wrap;word-wrap:break-word;}'
+  toolbarButtons: ['bold', 'italic', 'underline', 'align', 'formatUL','emoticons',"|",  'quote', 'insertLink', 'insertImage', 'insertVideo', "|",'undo', 'redo']
   imageUploadFolder: "/images/uploads"
   imageAllowedTypes: ['jpeg', 'jpg', 'png']
   imageUploadParams: {id: 'my_editor'}

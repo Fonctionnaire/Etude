@@ -100,7 +100,7 @@ class Etude
     private $sources;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireEtude", mappedBy="etude")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire\CommentaireEtude", mappedBy="etude", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(nullable=true)
      */
     private $commentaires;
