@@ -7,12 +7,15 @@
                 <h1 class="center">Ajouter une image</h1>
             </div>
             {{ form_start(form) }}
-            <div>
-                {{ form_label(form.image) }}
-                {{ form_widget(form.image) }}
-                {{ form_errors(form.image) }}
+            <div class="row">
+            <div class="file-field input-field col s12">
+                <div class="btn">
+                    <span>Prout</span>
+                {{ form_row(form.image) }}
+                </div>
             </div>
-            <div class="input-field">
+            </div>
+            <div class="input-field" >
                 {{ form_label(form.imageName, 'Nom de l\'image') }}
                 {{ form_widget(form.imageName) }}
                 {{ form_errors(form.imageName) }}
