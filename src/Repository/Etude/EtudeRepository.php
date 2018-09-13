@@ -2,6 +2,7 @@
 
 namespace App\Repository\Etude;
 
+use App\Entity\Categorie\CategoriesImage;
 use App\Entity\Etude\Etude;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -50,11 +51,10 @@ class EtudeRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findLastTenEtude()
+    public function findLastTwentyEtude()
     {
         return $this->createQueryBuilder('e')
             ->where('e.valide = true')
-            ->andWhere('e.refuse = false')
             ->orderBy('e.dateValidation', 'DESC')
             ->setFirstResult(1)
             ->setMaxResults(21)

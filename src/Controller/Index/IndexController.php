@@ -28,7 +28,7 @@ class IndexController extends AbstractController
     public function index(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $lastEtudes = $em->getRepository(Etude::class)->findLastTenEtude();
+        $lastEtudes = $em->getRepository(Etude::class)->findLastTwentyEtude();
         $lastActu = $em->getRepository(Actualite::class)->findLastActu();
         $categories = $em->getRepository(Categorie::class)->findAll();
         $lastEtude = $em->getRepository(Etude::class)->findLastEtudeValide();
